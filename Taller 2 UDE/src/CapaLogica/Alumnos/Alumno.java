@@ -1,6 +1,6 @@
 package CapaLogica.Alumnos;
 import CapaLogica.Inscripciones.*;
-///Hola
+//TEST LUCAS
 public class Alumno {
 
 	private long cedula;
