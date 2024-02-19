@@ -72,6 +72,7 @@ public class Alumno {
 	public voAlumnoDatCom listarAlumnoCed() {
 		
 	}
+
 	
 	public voInscripcion listarEscolaridad() {
 		
@@ -80,5 +81,5 @@ public class Alumno {
 	public float calcularRecaudado() {
 		
 	}
-	*/
+	
 }
