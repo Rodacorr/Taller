@@ -19,7 +19,7 @@ public class Alumnos {
     	return ABBAlumnos.containsKey(ced);
     }
     
-    public long find(long ced) {
+    public Alumno find(long ced) {
     	return ABBAlumnos.get(ced);
     }
     

@@ -32,10 +32,11 @@ public class Inscripciones  {
 		int sumador = 0;
 		int contador = 0;
 		while (!estaVacia){ 
-			if(getCalificacion() >= 5){ 
-				sumador = sumador + getCalificacion();
+			if(inscripcion.getCalificacion() >= 5){ 
+				sumador = sumador + inscripcion.getCalificacion();
 				contador++;
 			}
+		//avanzar en la lista
 		}
 		return (sumador / contador);
 				
@@ -45,7 +46,7 @@ public class Inscripciones  {
 		float sumador = 0;
 		float contador = 0;
 		while (!estaVacia){ 
-			sumador = sumador + getCalificacion();
+			sumador = sumador + inscripcion.getCalificacion();
 			contador++;
 			}
 		return (sumador / contador);

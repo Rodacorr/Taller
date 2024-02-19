@@ -61,7 +61,8 @@ public class Alumno {
 	}
 	
 	public float calcularPromedioAprobaciones() {
-		return 
+		int contador = insc.calcularPromedioAprobaciones();
+	    return contador;
 	}
 	
 	public float calcularPromedioCursadas() {
