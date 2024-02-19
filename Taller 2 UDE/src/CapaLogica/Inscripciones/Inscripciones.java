@@ -29,15 +29,34 @@ public class Inscripciones  {
 	}
 	
 	public float calcularPromedioAprobaciones(){ 
-		
+		int sumador = 0;
+		int contador = 0;
+		while (!estaVacia){ 
+			if(getCalificacion() >= 5){ 
+				sumador = sumador + getCalificacion();
+				contador++;
+			}
+		}
+		return (sumador / contador);
+				
 	}
 	
 	public float calcularPromedioCursadas(){ 
-		
+		float sumador = 0;
+		float contador = 0;
+		while (!estaVacia){ 
+			sumador = sumador + getCalificacion();
+			contador++;
+			}
+		return (sumador / contador);
 	}
 	
-	public float calcularRecaudadp(int x){ 
-		
+	public float calcularRecaudado(int x){ 
+		float sumador = 0
+			while (!estaVacia)
+				sumador = sumador + calcularRecaudado(x);
+				
+		return sumador;
 	}
 	
 	public void registrarInscripcion(asignatura as, voInscripcionDat){ 

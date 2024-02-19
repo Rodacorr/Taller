@@ -16,11 +16,11 @@ public class Alumnos {
     }
     
     public boolean member(long ced) {
-    	
+    	return ABBAlumnos.containsKey(ced);
     }
     
     public long find(long ced) {
-    	
+    	return ABBAlumnos.get(ced);
     }
     
     public void insert(Alumno alumno) {
@@ -28,7 +28,7 @@ public class Alumnos {
     }
     
     public boolean esVacio() {
-    	
+    	return ABBAlumnos.isEmpty();
     }
     
     public ArrayList<voAlumnoDat> listaAlumnoApe(String ape) {

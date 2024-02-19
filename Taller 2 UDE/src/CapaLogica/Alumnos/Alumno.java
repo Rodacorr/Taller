@@ -1,7 +1,6 @@
 package CapaLogica.Alumnos;
 import CapaLogica.Inscripciones.*;
-//TEST LUCAS . Test 2.0/// hola // a
-//amd
+
 public class Alumno {
 
 	private long cedula;
@@ -46,20 +45,23 @@ public class Alumno {
 		return CantAsigAprob; 
 	}
 	
-	/*public String getTipo(){ 
-		 
+	public String getTipo(){ 
+	 	return "Alumno";
 	}
-	*/
+	
 	public void setCantAsigAprob (int CantAsigAprob) {
 	    this.CantAsigAprob = 0;
 	}
 	
-	/*public boolean esEgresado() {
-		
+	public boolean esEgresado() {
+		boolean es = FALSE;
+		if(getCantAsigAprob == 10)
+			es = TRUE;
+		return es;
 	}
 	
 	public float calcularPromedioAprobaciones() {
-		
+		return 
 	}
 	
 	public float calcularPromedioCursadas() {

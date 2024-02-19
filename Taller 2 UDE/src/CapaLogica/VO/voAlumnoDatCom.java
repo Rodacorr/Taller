@@ -15,8 +15,8 @@ public class voAlumnoDatCom extends voAlumnoDat{
 		return CantAsigAprob; 
 	}
 	
-	/*public String getTipo(){ 
-		 
+	public String getTipo(){ 
+		 return "Alumno";
 	}
-	*/
+	
 }

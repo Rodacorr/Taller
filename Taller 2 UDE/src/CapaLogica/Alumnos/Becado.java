@@ -18,8 +18,8 @@ public class Becado extends Alumno{
 		return razon;
 	}
 	
-	/*public String getTipo() {
-		
+	public String getTipo() {
+		return "Becado";
 	}
-	*/
+	
 }

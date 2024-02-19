@@ -6,14 +6,14 @@ public class Inscripcion {
 	private int anioLectivo;
 	private float monto;
 	private int calificacion;
-	//private Asignatura asig;
+	private Asignatura asig;
 	
-	public Inscripcion (int num, int anio, float mon, int cal) {
+	public Inscripcion (int num, int anio, float mon, int cal, Asignatura as) {
 		this.numero = num;
 		this.anioLectivo = anio;
 		this.monto = mon;
 		this.calificacion = cal;
-		//this.asig = as;
+		this.asig = as;
 	}
 	
 	public int getNumero(){ 
@@ -34,16 +34,17 @@ public class Inscripcion {
 	}
 	
 	
-	/*public Asignatura getAsignatura(){ 
+	public Asignatura getAsignatura(){ 
 		return asig; 
 	}
-	*/
+	
 	public void setCalificacion(){ 
 		this.calificacion = 0;
 	}
 	
-	/*public float calcularRecaudado(int x){ 
+	public float calcularRecaudado(int x){ 
 		
+			
 	}
-	*/
+	
 }

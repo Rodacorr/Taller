@@ -19,8 +19,8 @@ public class voBecadoDatCom extends voAlumnoDatCom {
 		return razon;
 	}
 	
-	/*public String getTipo(){ 
-		 
+	public String getTipo(){ 
+		 return "Alumno";
 	}
-	*/
+	
 }
