@@ -32,7 +32,16 @@ public class Alumnos {
     }
     
     public ArrayList<voAlumnoDat> listaAlumnoApe(String ape) {
-    	
+    	ArrayList<voAlumnoDat> arre = new ArrayList<voAlumnoDat>();
+    	Iterator <Alumno> iter = ABBAlumnos.values().iterator();
+    	while (iter.hasNext()){
+    		Alumno alum = iter.next();
+    		if(alum.getApellido().startsWith(ape)) {
+    			voAlumnoDat vo = new voAlumnoDat(alum.getCedula(),alum.getNombre(),alum.getApellido());
+    			arre.add(vo);
+    		}
+    	}
+    	return arre;
     }
     
     public ArrayList<voPromedio> listarEgresados(boolean modo) {

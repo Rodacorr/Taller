@@ -11,14 +11,13 @@ public class Alumno {
 	private int CantAsigAprob;
 	private Inscripciones insc;
 	
-	public Alumno (long ced, String nom, String ape, String dom, long tel) {    ///, int caa   ???
+	public Alumno (long ced, String nom, String ape, String dom, long tel) {    
 		 this.cedula = ced;
 		 this.nombre = nom;
 		 this.apellido = ape;
 		 this.domicilio = dom;
 		 this.telefono = tel;
-		 setCantAsigAprob();
-		 ///this.CantAsigAprob = caa;
+		 this.CantAsigAprob = 0;
 		 this.insc = new Inscripciones();
 	}
 	
