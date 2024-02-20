@@ -68,9 +68,10 @@ public class Inscripciones  {
 		float sumador = 0
 		if(!estaVacia)
 			Iterator<Inscripcion> i = lista.i();
-			while (i.hasNext()){ 
+			while (i.hasNext() && x <= insc.getAnioLectivo()){   // lo del anio lectivo es para no recorrer de mas, ya que las insc estan ordenadas, cuando x es mayor ya no hay ninguna mas para contar
 				Inscripcion insc = i.next(); //la variable se crea dentro del while o por fuera,ya que si se crea adentro, se vana crear varias
-				sumador = sumador + insc.getMonto();
+				if(x == insc.getAnioLectivo())
+					sumador = sumador + insc.getMonto();
 			}
 	
 		return sumador;

@@ -50,9 +50,14 @@ public class Alumno {
 	 	return "Alumno";
 	}
 	
+	public Inscripciones getInscripciones() {
+		return insc;
+	}
+	
 	public void setCantAsigAprob (int CantAsigAprob) {
 	    this.CantAsigAprob = 0;
 	}
+	
 	
 	public boolean esEgresado() {
 		boolean es = FALSE;
@@ -62,24 +67,33 @@ public class Alumno {
 	}
 	
 	public float calcularPromedioAprobaciones() {
-		
+		Inscripciones in = getInscripciones();
+		return in.calcularPromedioAprobaciones();
 	}
 	
 	public float calcularPromedioCursadas() {
-		
+		Inscripciones in = getInscripciones();
+		return in.calcularPromedioCursadas();
 	}
 	
 	public voAlumnoDatCom listarAlumnoCed() {
-		
+		long cedula = getCedula();
+		string nombre = getNombre();
+		string apellido = getApellido();
+		int CantAprob = getCantAsigAprob();
+		return voAlumnoDatCom(cedula,nombre,apellido,CantAprob); // ???? asi o solo los datos de el y no de la super clase, abajo ejemplo
 	}
 
 	
 	public voInscripcion listarEscolaridad() {
+		int anio = getAnioLectivo(); 
+		string asig = ;                                    //???
 		
 	}
 	
-	public float calcularRecaudado() {
-		
+	public float calcularRecaudado(int x) {
+		Inscripciones in = getInscripciones();
+		return in.calcularRecaudado(x);
 	}
 	
 }
