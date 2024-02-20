@@ -14,33 +14,26 @@ public class Asignaturas {
 	}
 
     public boolean member(String cod) {
-    	/*
-    	boolean esta;
-    	for (Asignatura asi : arre) {
-            if (asi.getCodigo().equals(cod)) {
-                esta=true;
-            }
-        }
-        return esta;
-        */
+    	return arre.contains(cod);  //containsKey???
     }
     
     public Asignatura find(String cod) {
+    	/// return arre.get(cod);            ????    
     	/*
     	 for (Asignatura asi : arre) {
-            if (asi.getCodigo().equals(cod)) {
+            if (asi.getCodigo().equals(cod)) {           ????
                 return asignatura;
             }
         }
         */
     }
     
-    public void insBack(Asignatura asi) {
-    	//arre.add(asi);
+    public void insBack(Asignatura as) {
+    	arre.add(as);
     }
     
     public boolean esVacio() {
-    	//return arre.isEmpty();
+    	return arre.isEmpty();
     }
     
     public voAsignatura [] listaAsignaturas() {

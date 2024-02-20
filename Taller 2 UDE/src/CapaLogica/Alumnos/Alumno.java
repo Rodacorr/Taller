@@ -11,13 +11,14 @@ public class Alumno {
 	private int CantAsigAprob;
 	private Inscripciones insc;
 	
-	public Alumno (long ced, String nom, String ape, String dom, long tel, int caa) {
+	public Alumno (long ced, String nom, String ape, String dom, long tel) {    ///, int caa   ???
 		 this.cedula = ced;
 		 this.nombre = nom;
 		 this.apellido = ape;
 		 this.domicilio = dom;
 		 this.telefono = tel;
-		 this.CantAsigAprob = caa;
+		 setCantAsigAprob();
+		 ///this.CantAsigAprob = caa;
 		 this.insc = new Inscripciones();
 	}
 	
@@ -61,8 +62,7 @@ public class Alumno {
 	}
 	
 	public float calcularPromedioAprobaciones() {
-		int contador = insc.calcularPromedioAprobaciones();
-	    return contador;
+		
 	}
 	
 	public float calcularPromedioCursadas() {

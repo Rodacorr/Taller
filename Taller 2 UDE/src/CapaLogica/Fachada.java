@@ -16,7 +16,17 @@ public class Fachada {
 	}
 	
 	public void registarAlumno(voAlumno,tipoError &error){ 
-		
+	
+		/*
+		throws AlumnoYaExisteExceptions{ 
+					if (member()){
+						String msg = "El alumno ya existe";
+				throw new AlumnoYaExiste(msg);
+				// creo y lanzo una nueva Excepción
+				}
+				//insertar
+				}
+		*/
 	}
 	
 	public voAlumnoDat[] listarAlumnoApe(string ape){ 
