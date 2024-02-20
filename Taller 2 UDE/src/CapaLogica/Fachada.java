@@ -29,21 +29,30 @@ public class Fachada {
 		
 	}
 	
-	public void registarAlumno(voAlumno al,tipoError &error){ //throws AlumnoYaExisteExceptions{
+	public void registarAlumno(voAlumno al,tipoError &error) throws AlumnoYaExisteExceptions{
 		long ced = al.getCedula();
-		string nom = al.getNombre();
-		string ape = al.getApellido();
-		string dom = al.getDomicilio();
-		long tel = al.getTelefono();
+		//string nom = al.getNombre();
+		//string ape = al.getApellido();
+		//string dom = al.getDomicilio();
+		//long tel = al.getTelefono();
 		//string tipo = al.getTipo   no me da la opc el .
-		Alumno(ced,nom,ape,dom,tel);
+		//Alumno(ced,nom,ape,dom,tel);
 		if (diccioAl.member(ced)){
-			/// exeption			String msg = "El alumno ya existe";
-		else
-			if (esBecado)
+			String msg = "El alumno ya existe";
+			throw new AlumnoYaExisteExceptions(msg);
+		}
+			/// exeption			
+		else {
+			Alumno alu;
+			if (al instanceof voBecado) {
 				//crear el objeto becado
-				
-			insert(Alumno);
+				alu=new Becado(al.getCedula(),al.getNombre());
+			}
+			else {
+				alu=new Alumno();
+			}
+			diccioAl.insert(alu);
+		}
 		
 	}
 	
@@ -94,8 +103,7 @@ public class Fachada {
 				/// exeption
 		else{
 			Alumno al = diccioAl.find(ced);
-			Inscripciones in = al.getInscripciones();
-			return in.calcularRecaudado(anio);
+			return al.calcularRecaudado(anio);
 		}	
 	}
 	

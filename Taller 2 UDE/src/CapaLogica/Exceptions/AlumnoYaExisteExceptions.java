@@ -6,7 +6,7 @@ public class AlumnoYaExisteExceptions extends Exception{
 
 	private String mensaje;
 	
-	public AlumnoYaExiste (String mensaje){ 
+	public AlumnoYaExisteExceptions (String mensaje){ 
 		this.mensaje = mensaje; 
 	}
 	

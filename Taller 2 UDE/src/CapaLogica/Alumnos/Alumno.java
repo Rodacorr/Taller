@@ -91,8 +91,7 @@ public class Alumno {
 	}
 	
 	public float calcularRecaudado(int x) {
-		Inscripciones in = getInscripciones();
-		return in.calcularRecaudado(x);
+		return insc.calcularRecaudado(x);
 	}
 	
 }
