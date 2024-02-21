@@ -15,7 +15,12 @@ public class Asignaturas {
 	}
 
     public boolean member(String cod) {
-    	return arre.contains(cod);  //containsKey???
+    	for (Asignatura asignatura : arre) {
+            if (asignatura.getCodigo().equals(cod)) {
+                return true;
+            }
+        }
+        return false;
     }
     
     public Asignatura find(String cod) {
@@ -28,9 +33,7 @@ public class Asignaturas {
     	}
          return as;
     }
-        
-    
-    
+         
     public void insBack(Asignatura as) {
     	arre.add(as);
     }
@@ -39,7 +42,13 @@ public class Asignaturas {
     	return arre.isEmpty();
     }
     
-    public voAsignatura [] listaAsignaturas() {
-    	
+    public ArrayList<voAsignatura> listaAsignaturas() {
+    	voAsignatura as;
+    	ArrayList<voAsignatura> arre = new ArrayList<voAsignatura>();
+    	for (voAsignatura asi : arre) {
+    		as = asi;
+    		arre.add(asi);
+    	}
+    	return arre;	
     }
 }

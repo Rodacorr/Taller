@@ -24,6 +24,9 @@ public class Inscripciones  {
 		return lista.size();
 	}
 	
+	public boolean esta(int num){
+		return lista.contains(num);
+	}
 	public Inscripcion k_esimo(int x){ 
 		//se valida que la pos es correcta aca?
 		return lista.get(x);
@@ -94,7 +97,7 @@ public class Inscripciones  {
 			while (iter.hasNext()){
     		insc = iter.next();
     		if (modo == true)  // true==completo
-    			voInscripcion vo = 
+    			voInscripcion vo =      ///// falta
     			arre.add(vo);
     		
     	return arre;	

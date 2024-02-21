@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import CapaLogica.Alumnos.Alumno;
 import CapaLogica.Alumnos.Alumnos;
 import CapaLogica.Inscripciones.Inscripciones;
@@ -5,40 +7,48 @@ import CapaLogica.VO.voAlumno;
 import CapaLogica.VO.voAsignatura;
 import CapaLogica.VO.voBecado;
 import CapaLogica.Alumnos.Becado;
+import CapaLogica.Asignaturas.*;
 
 public class Fachada {
 	
 	private Alumnos diccioAl;
-	private Asiganturas diccioAs;
+	private Asignaturas diccioAs;
 	
 	public Fachada () {
 		 
 	}
 	
-	public void registrarAsignatura(voAsignatura asig, tipoError &error){  throws AsignaturaYaExisteException{ 
-		string cod = asig.getCodigo();
-		string nom = asig.getNombre();
-		string des = asig.getDescripcion();
+	public void registrarAsignatura(voAsignatura asig, tipoError &error) throws AsignaturaYaExisteException{ 
+		String cod = asig.getCodigo();
+		String nom = asig.getNombre();
+		String des = asig.getDescripcion();
 		Asignatura as;
 		as = new Asignatura(cod,nom,des);
-		if(diccioAs.member(cod))
+		if(diccioAs.member(cod)){ 
 			/// exeption
+		}
 		else
-			InsBack(As);
-
+			diccioAs.insBack(as);
 	}
 	
-	public voAsignatura[] listarAsignaturas(){ 
-		
+	public ArrayList<voAsignatura> listarAsignaturas() throws DicAsignaturasVacioException { 
+		if(diccioAs.esVacio()) {
+			///// exeption
+		}
+		else{
+			ArrayList<voAsignatura> vo = diccioAs.listaAsignaturas();
+			return vo;
+		}
 	}
+		
+	
 	
 	public void registarAlumno(voBecado al,tipoError &error) throws AlumnoYaExisteExceptions{
 		long ced = al.getCedula();
 		if (diccioAl.member(ced)){
 			String msg = "El alumno ya existe";
-			throw new AlumnoYaExisteExceptions(msg);
-		}
-			/// exeption			
+			throw new AlumnoYaExisteExceptions(msg);  /// exeption
+		}		
 		else {
 			Alumno alu;
 			if (al instanceof voBecado) 
@@ -50,74 +60,101 @@ public class Fachada {
 		
 	}
 	
-	public voAlumnoDat[] listarAlumnoApe(string ape){ 
-		
-	}
-	
-	public voAlumnoDatCom listarAlumnoCed(long ced){ throws AlumnoYaExisteExceptions{
-		if(!diccioAl.member(ced)
+	public ArrayList<voAlumnoDat> listarAlumnoApe(String ape) throws DicAlumnosVacioException {
+		if(diccioAl.esVacio()) {
 			/// exeption
-		else
-			Alumno al = diccioAl.find(ced);
-			long cedula = al.getCedula();
-			string nombre = al.getNombre();
-			string apellido = al.getApellido();
-			int cantAprob = al.getCantAsigAprob();
-			voAlumnoDatCom(cedula,nombre,apellido,cantAprob);
-			return voAlumnoDatCom;
+		}
+		else {
+			ArrayList<voAlumnoDat> vo = diccioAl.listaAlumnoApe(ape);
+			return vo;
+		}
 	}
 	
-	public void registrarInscripcion(String cod, long ced, float mon, int anio, tipoError &error){  // exeption
-		
-		if(!diccioAl.member(ced)
-				/// exeption
-		else
-			Alumno al = diccioAl.find(ced);
-			if(!diccioAs.member(cod))
-				// exeption
-			else{ 
-				Inscripciones in = al.getInscripciones();
-				registrarInscripcion(); // q hacer
-			}
-	}
-	
-	public void registrarCalificacion(long ced, int cal, int num, tipoError &error){ 
-		if(!diccioAl.member(ced)
-				/// exeption
+	public voAlumnoDatCom listarAlumnoCed(long ced) throws AlumnoNoInscriptoException{
+		if(!diccioAl.member(ced)) {
+			/// exeption
+		}
 		else {
 			Alumno al = diccioAl.find(ced);
-			registrarCalificacion(); ///?
+			long cedula = al.getCedula();
+			String nombre = al.getNombre();
+			String apellido = al.getApellido();
+			int cantAprob = al.getCantAsigAprob();
+			voAlumnoDatCom vo = new voAlumnoDatCom(cedula,nombre,apellido,cantAprob);
+			return vo;
+		}
+	}
+	
+	public void registrarInscripcion(String cod, long ced, float mon, int anio, tipoError &error) throws AlumnoNoInscriptoException, AsignaturaYaExisteException{ 
+		
+		if(!diccioAl.member(ced)) {
+				/// exeption
 		}	
+		else {
+			Alumno al = diccioAl.find(ced);
+			if(!diccioAs.member(cod)) {
+				// exeption
+			}
+			else{
+				Inscripciones in = al.getInscripciones();            /// faltaaa
+				if(in.)                                             /// faltaaa
+				registrarInscripcion(); // q hacer
+			}
+		}
+	}
+	
+	public void registrarCalificacion(long ced, int cal, int num, tipoError &error) throws AlumnoNoInscriptoException, NumInscripcionNoExiste{ 
+		if(!diccioAl.member(ced)){
+				/// exeption
+		}
+		else {
+			Alumno al = diccioAl.find(ced);
+			Inscripciones Insc = al.getInscripciones();
+			if(!Insc.esta(num)) {
+				/// exception
+			}
+			else {
+				
+			}
+		}	                              /// falta
+			
 	}
 		
 	
 	
-	public float montoRecaudado (long ced, int anio, tipoError &error){ 
-		if(!diccioAl.member(ced)
+	public float montoRecaudado (long ced, int anio, tipoError &error) throws AlumnoNoInscriptoException{ 
+		if(!diccioAl.member(ced)){
 				/// exeption
+		}
 		else{
 			Alumno al = diccioAl.find(ced);
 			return al.calcularRecaudado(anio);
 		}	
 	}
 	
-	public voInscripcion[] listarEscolaridad(long ced, boolean modo){ 
-		if(!diccioAl.member(ced)
+	public  ArrayList<voInscripcion> listarEscolaridad(long ced, boolean modo) throws AlumnoNoInscriptoException,SecInscripcionesVaciaException{ 
+		if(!diccioAl.member(ced)) {
 				/// exeption
+		}
 		else{
 			Alumno al = diccioAl.find(ced);
 			Inscripciones in = al.getInscripciones();
-			if(in.estaVacia())
+			if(in.estaVacia()) {
 				//exeption
-			else
-				return in.
-			
-			else
-				
+			}
+			else {
+				return in.listarEscolaridad(modo);
+			}	
 		}
 	}
 	
-	public voAlumnoDat[] listarEgresados(boolean modo){ 
+	public  ArrayList<voAlumnoDat> listarEgresados(boolean modo) throws DicAlumnosVacioException{
+		if(diccioAl.esVacio()) {
+			/// exeption
+		}
+		else {
+			return diccioAl.listarEgresados(modo);
+		}
 		
 	}
 	
