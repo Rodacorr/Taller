@@ -130,7 +130,7 @@ public class Fachada {
 		}
 	}
 	
-	public void registrarCalificacion(long ced, int cal, int num) throws AlumnoNoInscriptoException, NumInscripcionNoExiste, NotaInvalida{ 
+	public void registrarCalificacion(long ced, int cal, int num) throws AlumnoNoInscriptoException, NumInscripcionNoExiste, YaTieneCalificacion, NotaInvalida{ 
 		if(!diccioAl.member(ced)) {
 			String msg = "alumno no existe";
 			throw new AlumnoNoInscriptoException(msg);  
@@ -141,10 +141,9 @@ public class Fachada {
 			if(!Insc.esta(num)) {
 				String msg = "el alumno no tiene una inscripción con dicho número";
 				throw new NumInscripcionNoExiste(msg);
-				///ver validaciones
 			}
 			else {
-			////	if() falta la validacion la calificación es distinta de 0 entonces error: ya tiene una calificación en esta asignatura      
+			////	if() falta la validacion String msg = "ya tiene una calificación en esta inscripcion "; throw new YaTieneCalificacion(msg);  
 				if(cal < 1 || cal > 12) {
 					String msg = "nota invalida";
 					throw new NotaInvalida(msg);

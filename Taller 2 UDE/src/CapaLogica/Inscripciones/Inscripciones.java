@@ -94,19 +94,6 @@ public class Inscripciones  {
 		return sumador;
 	}
 	
-	public void registrarInscripcion(asignatura as, voInscripcionDat){ 
-		/// va?
-	}
-	
-	public void registrarCalificacion(long ced, voInscripcionCal){ 
-		Inscripcion insc = //Tengo que iterar y buscar la inscripcion
-		
-		if(insc.getCalificacion() != 0)
-			//exception
-		
-			if (vo.getCalificacion() >= 6)
-				alumno.
-	}
 	
 	public voInscripcion[] listarEscolaridad(boolean modo){
 		ArrayList<voInscripcion> arre = new ArrayList<voInscripcion>();
@@ -114,27 +101,12 @@ public class Inscripciones  {
 		Inscripcion insc;
 			while (iter.hasNext()){
     		insc = iter.next();
-    		
-    		if (modo == true)  // true==completo
-    			voInscripcion vo = new voInscripcion(	///// falta //ver si esta bien
-    					insc.getNumero(),
-    					insc.getCalificacion(),
-    					insc.getAnioLectivo(),
-    					insc.getAsignatura().getNombre(),
-    					insc.getMonto()
-    			); 
-    			
+    		if (modo == true)  // true==completo se listarán todas las inscripciones del alumno, incluso aquellas que aún no tienen calificación final. también el monto base de cada inscripción.
+    			voInscripcion vo = new voInscripcion(insc.getNumero(),insc.getCalificacion(),insc.getAnioLectivo(),insc.getAsignatura().getNombre(),insc.getMonto()); 
     			arre.add(vo);
-    		else { //modo es resumen
+    		else { //modo parcial se listarán solamente aquellas que ya tienen calificación final. Por cada inscripción se listará número de inscripción, nombre de asignatura, año lectivo y calificación (entre 0 y 12).
     			if(insc.getCalificacion() != 0) {
-    				voInscripcion vo = new voInscripcion(	//ver si esta bien
-        					insc.getNumero(),
-        					insc.getCalificacion(),
-        					insc.getAnioLectivo(),
-        					insc.getAsignatura().getNombre(),
-        					insc.getMonto()
-        			);
-    				
+    				voInscripcion vo = new voInscripcion(insc.getNumero(),insc.getCalificacion(),insc.getAnioLectivo(),insc.getAsignatura().getNombre(),insc.getMonto());
     				arre.add(vo);
     			}
     		}
