@@ -27,9 +27,19 @@ public class Inscripciones  {
 	public boolean esta(int num){
 		return lista.contains(num);
 	}
+	/*
 	public Inscripcion k_esimo(int x){           //este devuelve la inscripcion segun la posicion que le das NO el numero de inscripcion..
 		return lista.get(x);
 	}
+	*/
+	public Inscripcion k_esimo(int num){ 
+	    for (Inscripcion inscripcion : lista) {
+	        if (inscripcion.getNumero() == num) {
+	            return inscripcion;
+	        }
+	    }
+	    return null;	///va?
+	 }
 	
 	public boolean estaVacia(){ 
 		return lista.isEmpty();

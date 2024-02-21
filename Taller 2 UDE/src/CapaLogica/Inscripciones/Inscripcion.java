@@ -34,9 +34,13 @@ public class Inscripcion {
 		return calificacion; 
 	}
 	
-	
+	/*
 	public Asignatura getAsignatura(){ 
 		return asig; 
+	}
+	*/
+	public String getAsignatura(){ 
+		return asig.getNombre(); 
 	}
 	
 	public void setCalificacion(){ 
