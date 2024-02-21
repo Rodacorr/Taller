@@ -2,6 +2,7 @@ package CapaLogica.Alumnos;
 import CapaLogica.Inscripciones.*;
 import CapaLogica.VO.*;
 
+
 public class Alumno {
 
 	private long cedula;
@@ -60,17 +61,19 @@ public class Alumno {
 	
 	
 	public boolean esEgresado() {
-		boolean es = FALSE;
-		if(getCantAsigAprob == 10)
-			es = TRUE;
+		boolean es = false;
+		if(getCantAsigAprob() == 10)
+			es = true;
 		return es;
 	}
 	
-	public float calcularPromedioAprobaciones() {
-		return insc.calcularPromedioAprobaciones();
+	public float calcularPromedioAprobadas() {
+		Inscripciones insc = getInscripciones();
+		return insc.calcularPromedioAprobadas();
 	}
 	
 	public float calcularPromedioCursadas() {
+		Inscripciones insc = getInscripciones();
 		return insc.calcularPromedioCursadas();
 	}
 	
@@ -84,13 +87,13 @@ public class Alumno {
 		return vo;
 	}
 
-	
+	/*
 	public voInscripcion listarEscolaridad() {
-		voInscripcion vo;
-		vo = new voInscripcion(insc.getAnioLectivo()) 
-		string asig = ;                                    //???
+	
+	                                                               //??? q hacer 
 		
 	}
+	*/
 	
 	public float calcularRecaudado(int x) {
 		return insc.calcularRecaudado(x);

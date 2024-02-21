@@ -1,6 +1,10 @@
 package CapaLogica.Inscripciones;
 import java.util.*;
+
+import CapaLogica.Alumnos.Alumno;
+import CapaLogica.VO.voAlumnoDat;
 import CapaLogica.VO.voInscripcion;
+import CapaLogica.VO.voPromedio;
 
 public class Inscripciones  {
 	
@@ -29,41 +33,36 @@ public class Inscripciones  {
 		return lista.isEmpty();
 	}
 	
-	public float calcularPromedioAprobaciones(){ 
-		int sumador = 0;
-		int contador = 0;
-		
-		if(estaVacia)
-			   //manejar el error
-		else {
-			Iterator<Inscripcion> i = lista.i();
-			while (i.hasNext()){
-				Inscripcion insc = i.next(); //la variable se crea dentro del while o por fuera,ya que si se crea adentro, se vana crear varias
-				if (insc.getCalificacion() >= 5) {
-					sumador = sumador + insc.getCalificacion();
-					contador++;
-				}
+	public float calcularPromedioAprobadas(){
+		float notaAprobadas = 0;
+		Inscripcion insc;
+			if(!estaVacia()) {
+				Iterator<Inscripcion> i = lista.i();
+				while (i.hasNext()){   
+					insc = i.next(); 
+					if(insc.getCalificacion() > 5) 
+						notaAprobadas = notaAprobadas + insc.getCalificacion();
+					}
+				notaAprobadas = notaAprobadas / 10;
 			}
-		}
-		return (sumador / contador);	
+		return notaAprobadas;
 	}
 	
-	public float calcularPromedioCursadas(){ 
-		float sumador = 0;
-		float contador = 0;
-		if(estaVacia)
-			   //manejar el error
-		else {
-			Iterator<Inscripcion> i = lista.i();
-			Inscripcion insc;
-			while (i.hasNext()){ 
-				insc = i.next(); 
-				sumador = sumador + insc.getCalificacion();
-				contador++;
-			}
-		}
-		return (sumador / contador);
+	public float calcularPromedioCursadas(){
+		float cantCursadas = 0;
+		float notaCursadas = 0;
+		Inscripcion insc;
+				if(!estaVacia())
+					Iterator<Inscripcion> i = lista.i();
+					while (i.hasNext()){   
+						insc = i.next(); 
+						cantCursadas = cantCursadas + 1;
+						notaCursadas = notaCursadas + insc.getCalificacion();
+						}
+		notaCursadas = notaCursadas / cantCursadas;
+		return notaCursadas;
 	}
+	
 	
 	public float calcularRecaudado(int x){ 
 		float sumador = 0;
@@ -88,30 +87,22 @@ public class Inscripciones  {
 	}
 	
 	public voInscripcion[] listarEscolaridad(boolean modo){
-		
-			
-		else
+		ArrayList<voInscripcion> arre = new ArrayList<voInscripcion>();
+		Iterator<Inscripcion> i = lista.i();
+		Inscripcion insc;
+			while (i.hasNext()){
+    		insc = i.next();
+    		if (modo == true)  // true==completo
+    			voInscripcion vo = 
+    			arre.add(vo);
+    		
+    	return arre;	
+    }
 			
 		
 	}
 	
-	public voPromedio listarEgresados(){
-		float cantCursadas = 0;
-		float notaCursadas = 0;
-		float notaAprobadas = 0;
-		Inscripcion insc;
-				if(!estaVacia)
-					Iterator<Inscripcion> i = lista.i();
-					while (i.hasNext()){   
-						insc = i.next(); 
-						if(insc.getCalificacionb() > 5 ) 
-							notaAprobadas = notaAprobadas + insc.getCalificacion();
-						cantCursadas = cantCursadas + 1;
-						notaCursadas = notaCursadas + insc.getCalificacion();
-						}
-		notaCursadas = notaCursadas / cantCursadas;
-		notaAprobadas = notaAprobadas / 10;
-		voPromedio vo = new voPromedio(notaCursadas,notaAprobadas);	//parametrpos de la super?	
-		return vo;	
-	}
+	
+	
+	
 }

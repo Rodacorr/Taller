@@ -6,7 +6,6 @@ import CapaLogica.VO.*;
 
 import CapaLogica.VO.voAlumnoDat;
 import CapaLogica.VO.voPromedio;
-
 import java.lang.Object;
 
 public class Alumnos {
@@ -49,12 +48,15 @@ public class Alumnos {
     public ArrayList<voAlumnoDat> listarEgresados(boolean modo) {
     	ArrayList<voAlumnoDat> arre = new ArrayList<voAlumnoDat>();
     	Iterator <Alumno> iter = ABBAlumnos.values().iterator();
+    	float notaCursadas; 
+    	float notaAprobadas;
     	while (iter.hasNext()){
     		Alumno alum = iter.next();
-    		if(alum.getCantAsigAprob() == 10)) {
-    			if (modo == TRUE) {   //COMPLETO == TRUE
-    				Inscripciones insc = alum.getInscripciones();
-    				voPromedio vo = insc.listarEgresados();
+    		if(alum.esEgresado()) {
+    			if (modo == true) {   //COMPLETO == TRUE
+    				notaCursadas = alum.calcularPromedioCursadas();
+    				notaAprobadas = alum.calcularPromedioAprobadas();
+    				voPromedio vo = new voPromedio(alum.getCedula(),alum.getNombre(),alum.getApellido(),notaAprobadas,notaCursadas);		
     				arre.add(vo);
     			}
     			else {
@@ -63,7 +65,6 @@ public class Alumnos {
     			}
     		}
     	}
-    	return arre;
-    	
+    	return arre;	
     }
 }

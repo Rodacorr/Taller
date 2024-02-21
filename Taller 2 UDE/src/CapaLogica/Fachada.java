@@ -3,6 +3,8 @@ import CapaLogica.Alumnos.Alumnos;
 import CapaLogica.Inscripciones.Inscripciones;
 import CapaLogica.VO.voAlumno;
 import CapaLogica.VO.voAsignatura;
+import CapaLogica.VO.voBecado;
+import CapaLogica.Alumnos.Becado;
 
 public class Fachada {
 	
@@ -13,15 +15,16 @@ public class Fachada {
 		 
 	}
 	
-	public void registrarAsignatura(voAsignatura asig, tipoError &error){  ///throws AsignaturaYaExisteException{ 
+	public void registrarAsignatura(voAsignatura asig, tipoError &error){  throws AsignaturaYaExisteException{ 
 		string cod = asig.getCodigo();
 		string nom = asig.getNombre();
 		string des = asig.getDescripcion();
-		Asignatura(cod,nom,des);
+		Asignatura as;
+		as = new Asignatura(cod,nom,des);
 		if(diccioAs.member(cod))
 			/// exeption
 		else
-			InsBack(Asignatura);
+			InsBack(As);
 
 	}
 	
@@ -29,14 +32,8 @@ public class Fachada {
 		
 	}
 	
-	public void registarAlumno(voAlumno al,tipoError &error) throws AlumnoYaExisteExceptions{
+	public void registarAlumno(voBecado al,tipoError &error) throws AlumnoYaExisteExceptions{
 		long ced = al.getCedula();
-		//string nom = al.getNombre();
-		//string ape = al.getApellido();
-		//string dom = al.getDomicilio();
-		//long tel = al.getTelefono();
-		//string tipo = al.getTipo   no me da la opc el .
-		//Alumno(ced,nom,ape,dom,tel);
 		if (diccioAl.member(ced)){
 			String msg = "El alumno ya existe";
 			throw new AlumnoYaExisteExceptions(msg);
@@ -44,13 +41,10 @@ public class Fachada {
 			/// exeption			
 		else {
 			Alumno alu;
-			if (al instanceof voBecado) {
-				//crear el objeto becado
-				alu=new Becado(al.getCedula(),al.getNombre());
-			}
-			else {
-				alu=new Alumno();
-			}
+			if (al instanceof voBecado) 
+				alu=new Becado(al.getCedula(),al.getNombre(),al.getApellido(),al.getDomicilio(),al.getTelefono(),al.getPorcentajeBeca(),al.getRazon());
+			else 
+				alu=new Alumno(al.getCedula(),al.getNombre(),al.getApellido(),al.getDomicilio(),al.getTelefono());
 			diccioAl.insert(alu);
 		}
 		
@@ -60,7 +54,7 @@ public class Fachada {
 		
 	}
 	
-	public voAlumnoDatCom listarAlumnoCed(long ced){ //throws AlumnoYaExisteExceptions{
+	public voAlumnoDatCom listarAlumnoCed(long ced){ throws AlumnoYaExisteExceptions{
 		if(!diccioAl.member(ced)
 			/// exeption
 		else
@@ -113,7 +107,10 @@ public class Fachada {
 		else{
 			Alumno al = diccioAl.find(ced);
 			Inscripciones in = al.getInscripciones();
-			if (modo == TRUE) // TRUE completo
+			if(in.estaVacia())
+				//exeption
+			else
+				return in.
 			
 			else
 				
