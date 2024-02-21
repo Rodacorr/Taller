@@ -55,8 +55,9 @@ public class Inscripciones  {
 			   //manejar el error
 		else {
 			Iterator<Inscripcion> i = lista.i();
+			Inscripcion insc;
 			while (i.hasNext()){ 
-				Inscripcion insc = i.next(); //la variable se crea dentro del while o por fuera,ya que si se crea adentro, se vana crear varias
+				insc = i.next(); 
 				sumador = sumador + insc.getCalificacion();
 				contador++;
 			}
@@ -94,7 +95,7 @@ public class Inscripciones  {
 		
 	}
 	
-	public voInscripcion listarEgresados(boolean modo){
+	public voPromedio listarEgresados(){
 		float cantCursadas = 0;
 		float notaCursadas = 0;
 		float notaAprobadas = 0;
@@ -110,7 +111,7 @@ public class Inscripciones  {
 						}
 		notaCursadas = notaCursadas / cantCursadas;
 		notaAprobadas = notaAprobadas / 10;
-		voInscripcion vo = new voInscripcion(/// q hacemos con los otros parametros notaCursadas,notaAprobadas)		
+		voPromedio vo = new voPromedio(notaCursadas,notaAprobadas);	//parametrpos de la super?	
 		return vo;	
 	}
 }

@@ -53,7 +53,9 @@ public class Alumnos {
     		Alumno alum = iter.next();
     		if(alum.getCantAsigAprob() == 10)) {
     			if (modo == TRUE) {   //COMPLETO == TRUE
-    				arre = insc.
+    				Inscripciones insc = alum.getInscripciones();
+    				voPromedio vo = insc.listarEgresados();
+    				arre.add(vo);
     			}
     			else {
     				voAlumnoDat vo = new voAlumnoDat(alum.getCedula(),alum.getNombre(),alum.getApellido());
