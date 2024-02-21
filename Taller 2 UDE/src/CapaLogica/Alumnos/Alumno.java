@@ -71,7 +71,9 @@ public class Alumno {
 	}
 	
 	public void registrarCalificacion(int nroInsc,int cal) {
-		insc.registrarCalificacion(nroInsc,cal)
+		insc.registrarCalificacion(nroInsc,cal);
+		if(cal > 5)
+			this.CantAsigAprob = getCantAsigAprob() + 1;
 	}
 	
 	public Inscripcion darUltimaInscripcion() {

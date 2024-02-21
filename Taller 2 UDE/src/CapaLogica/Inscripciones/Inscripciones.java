@@ -95,7 +95,7 @@ public class Inscripciones  {
 	}
 	
 	public void registrarInscripcion(asignatura as, voInscripcionDat){ 
-		
+		/// va?
 	}
 	
 	public void registrarCalificacion(long ced, voInscripcionCal){ 

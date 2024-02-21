@@ -9,7 +9,7 @@ public class Inscripcion {
 	private int calificacion;
 	private Asignatura asig;
 	
-	public Inscripcion (int num, int anio, float mon,  Asignatura as) {    // El número de la nueva inscripción será uno más que el de la última inscripción registrada para dicho alumno (si es su primera inscripción, será la 1)
+	public Inscripcion (int num, int anio, float mon,  Asignatura as) {    
 		this.numero = num;
 		this.anioLectivo = anio;
 		this.monto = mon;
