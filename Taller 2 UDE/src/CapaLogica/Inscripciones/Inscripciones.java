@@ -99,7 +99,13 @@ public class Inscripciones  {
 	}
 	
 	public void registrarCalificacion(long ced, voInscripcionCal){ 
+		Inscripcion insc = //Tengo que iterar y buscar la inscripcion
 		
+		if(insc.getCalificacion() != 0)
+			//exception
+		
+			if (vo.getCalificacion() >= 6)
+				alumno.
 	}
 	
 	public voInscripcion[] listarEscolaridad(boolean modo){
@@ -108,10 +114,30 @@ public class Inscripciones  {
 		Inscripcion insc;
 			while (iter.hasNext()){
     		insc = iter.next();
-    		if (modo == true)  // true==completo
-    			voInscripcion vo =      ///// falta
-    			arre.add(vo);
     		
+    		if (modo == true)  // true==completo
+    			voInscripcion vo = new voInscripcion(	///// falta //ver si esta bien
+    					insc.getNumero(),
+    					insc.getCalificacion(),
+    					insc.getAnioLectivo(),
+    					insc.getAsignatura().getNombre(),
+    					insc.getMonto()
+    			); 
+    			
+    			arre.add(vo);
+    		else { //modo es resumen
+    			if(insc.getCalificacion() != 0) {
+    				voInscripcion vo = new voInscripcion(	//ver si esta bien
+        					insc.getNumero(),
+        					insc.getCalificacion(),
+        					insc.getAnioLectivo(),
+        					insc.getAsignatura().getNombre(),
+        					insc.getMonto()
+        			);
+    				
+    				arre.add(vo);
+    			}
+    		}
     	return arre;	
     }
 			
