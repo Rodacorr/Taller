@@ -120,7 +120,7 @@ public class Fachada {
 		}
 	}
 	
-	public voPromedio[] listarEgresados(boolean modo){ 
+	public voAlumnoDat[] listarEgresados(boolean modo){ 
 		
 	}
 	

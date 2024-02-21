@@ -65,11 +65,12 @@ public class Inscripciones  {
 	}
 	
 	public float calcularRecaudado(int x){ 
-		float sumador = 0
+		float sumador = 0;
+		Inscripcion insc;
 		if(!estaVacia)
 			Iterator<Inscripcion> i = lista.i();
 			while (i.hasNext() && x <= insc.getAnioLectivo()){   // lo del anio lectivo es para no recorrer de mas, ya que las insc estan ordenadas, cuando x es mayor ya no hay ninguna mas para contar
-				Inscripcion insc = i.next(); //la variable se crea dentro del while o por fuera,ya que si se crea adentro, se vana crear varias
+				insc = i.next(); 
 				if(x == insc.getAnioLectivo())
 					sumador = sumador + insc.getMonto();
 			}
@@ -85,7 +86,31 @@ public class Inscripciones  {
 		
 	}
 	
-	public voInscripcion[] listarEscolaridad(boolean modo){ 
+	public voInscripcion[] listarEscolaridad(boolean modo){
 		
+			
+		else
+			
+		
+	}
+	
+	public voInscripcion listarEgresados(boolean modo){
+		float cantCursadas = 0;
+		float notaCursadas = 0;
+		float notaAprobadas = 0;
+		Inscripcion insc;
+				if(!estaVacia)
+					Iterator<Inscripcion> i = lista.i();
+					while (i.hasNext()){   
+						insc = i.next(); 
+						if(insc.getCalificacionb() > 5 ) 
+							notaAprobadas = notaAprobadas + insc.getCalificacion();
+						cantCursadas = cantCursadas + 1;
+						notaCursadas = notaCursadas + insc.getCalificacion();
+						}
+		notaCursadas = notaCursadas / cantCursadas;
+		notaAprobadas = notaAprobadas / 10;
+		voInscripcion vo = new voInscripcion(/// q hacemos con los otros parametros notaCursadas,notaAprobadas)		
+		return vo;	
 	}
 }

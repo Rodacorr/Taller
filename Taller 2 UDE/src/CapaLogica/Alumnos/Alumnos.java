@@ -1,6 +1,8 @@
 package CapaLogica.Alumnos;
 import java.util.TreeMap;
 import java.util.*;
+import CapaLogica.Inscripciones.*;
+import CapaLogica.VO.*;
 
 import CapaLogica.VO.voAlumnoDat;
 import CapaLogica.VO.voPromedio;
@@ -9,7 +11,7 @@ import java.lang.Object;
 
 public class Alumnos {
 
-    private TreeMap<Long, Alumno> ABBAlumnos;
+    private TreeMap<Long,Alumno> ABBAlumnos;
     
     public Alumnos() {
         ABBAlumnos = new TreeMap<Long, Alumno>();
@@ -44,7 +46,22 @@ public class Alumnos {
     	return arre;
     }
     
-    public ArrayList<voPromedio> listarEgresados(boolean modo) {
+    public ArrayList<voAlumnoDat> listarEgresados(boolean modo) {
+    	ArrayList<voAlumnoDat> arre = new ArrayList<voAlumnoDat>();
+    	Iterator <Alumno> iter = ABBAlumnos.values().iterator();
+    	while (iter.hasNext()){
+    		Alumno alum = iter.next();
+    		if(alum.getCantAsigAprob() == 10)) {
+    			if (modo == TRUE) {   //COMPLETO == TRUE
+    				arre = insc.
+    			}
+    			else {
+    				voAlumnoDat vo = new voAlumnoDat(alum.getCedula(),alum.getNombre(),alum.getApellido());
+    				arre.add(vo);
+    			}
+    		}
+    	}
+    	return arre;
     	
     }
 }

@@ -1,5 +1,6 @@
 package CapaLogica.Alumnos;
 import CapaLogica.Inscripciones.*;
+import CapaLogica.VO.*;
 
 public class Alumno {
 
@@ -66,26 +67,27 @@ public class Alumno {
 	}
 	
 	public float calcularPromedioAprobaciones() {
-		Inscripciones in = getInscripciones();
-		return in.calcularPromedioAprobaciones();
+		return insc.calcularPromedioAprobaciones();
 	}
 	
 	public float calcularPromedioCursadas() {
-		Inscripciones in = getInscripciones();
-		return in.calcularPromedioCursadas();
+		return insc.calcularPromedioCursadas();
 	}
 	
 	public voAlumnoDatCom listarAlumnoCed() {
 		long cedula = getCedula();
-		string nombre = getNombre();
-		string apellido = getApellido();
+		String nombre = getNombre();
+		String apellido = getApellido();
 		int CantAprob = getCantAsigAprob();
-		return voAlumnoDatCom(cedula,nombre,apellido,CantAprob); // ???? asi o solo los datos de el y no de la super clase, abajo ejemplo
+		voAlumnoDatCom vo;
+		vo = new voAlumnoDatCom(cedula,nombre,apellido,CantAprob);
+		return vo;
 	}
 
 	
 	public voInscripcion listarEscolaridad() {
-		int anio = getAnioLectivo(); 
+		voInscripcion vo;
+		vo = new voInscripcion(insc.getAnioLectivo()) 
 		string asig = ;                                    //???
 		
 	}
