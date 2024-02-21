@@ -27,8 +27,7 @@ public class Inscripciones  {
 	public boolean esta(int num){
 		return lista.contains(num);
 	}
-	public Inscripcion k_esimo(int x){ 
-		//se valida que la pos es correcta aca?
+	public Inscripcion k_esimo(int x){           //este devuelve la inscripcion segun la posicion que le das NO el numero de inscripcion..
 		return lista.get(x);
 	}
 	
