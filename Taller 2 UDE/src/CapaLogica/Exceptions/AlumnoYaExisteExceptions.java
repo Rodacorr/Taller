@@ -1,5 +1,5 @@
 package CapaLogica.Exceptions;
-import java.lang.Exception;
+
 
 
 public class AlumnoYaExisteExceptions extends Exception{

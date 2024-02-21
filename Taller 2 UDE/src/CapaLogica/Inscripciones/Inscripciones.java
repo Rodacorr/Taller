@@ -27,22 +27,21 @@ public class Inscripciones  {
 	public boolean esta(int num){
 		return lista.contains(num);
 	}
-	/*
+	
 	public Inscripcion k_esimo(int x){           //este devuelve la inscripcion segun la posicion que le das NO el numero de inscripcion..
 		return lista.get(x);
 	}
-	*/
-	public Inscripcion k_esimo(int num){ 
-	    for (Inscripcion inscripcion : lista) {
-	        if (inscripcion.getNumero() == num) {
-	            return inscripcion;
-	        }
-	    }
-	    return null;	///va?
-	 }
 	
 	public boolean estaVacia(){ 
 		return lista.isEmpty();
+	}
+	
+	public Inscripcion darUltimaInscripcion() {
+		return lista.getLast();
+	}
+	
+	public void registrarCalificacion(int nroInsc,int cal) {
+		lista.get(nroInsc).setCalificacion(cal);
 	}
 	
 	public float calcularPromedioAprobadas(){
@@ -79,13 +78,17 @@ public class Inscripciones  {
 	
 	public float calcularRecaudado(int x){ 
 		float sumador = 0;
-		Inscripcion insc;
+		Inscripcion insc = null;
+		boolean termine = false;
 		if(!estaVacia()) {
 			Iterator<Inscripcion> iter = lista.iterator();
-			while (iter.hasNext() && x <= insc.getAnioLectivo()){   // lo del anio lectivo es para no recorrer de mas, ya que las insc estan ordenadas, cuando x es mayor ya no hay ninguna mas para contar
+			while (iter.hasNext() && !termine){   // lo del anio lectivo es para no recorrer de mas, ya que las insc estan ordenadas, cuando x es mayor ya no hay ninguna mas para contar
 				insc = iter.next(); 
 				if(x == insc.getAnioLectivo())
 					sumador = sumador + insc.getMonto();
+				else
+					if(x > insc.getAnioLectivo())
+						termine = true;
 			}
 		}
 		return sumador;
@@ -113,6 +116,26 @@ public class Inscripciones  {
     }
 			
 		
+	}
+	
+	public boolean estaInscriptoCursando(String cod, int anio) {
+		boolean termine = false;
+		Inscripcion insc;
+		Iterator<Inscripcion> iter = lista.iterator();
+		while (iter.hasNext() && !termine){   
+			insc = iter.next(); 
+			if(cod.equals(insc.getAsignatura().getCodigo())){
+				if (insc.getCalificacion() == 0)
+					termine = true;
+				else
+					if(insc.getCalificacion() > 5)
+						termine = true;
+					else
+						if(insc.getAnioLectivo() >= anio)
+							termine = true;
+			}
+		}
+		return termine;
 	}
 	
 	

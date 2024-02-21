@@ -43,12 +43,12 @@ public class Asignaturas {
     }
     
     public ArrayList<voAsignatura> listaAsignaturas() {
-    	voAsignatura as;
-    	ArrayList<voAsignatura> arre = new ArrayList<voAsignatura>();
-    	for (voAsignatura asi : arre) {
-    		as = asi;
-    		arre.add(asi);
+    	voAsignatura vo;
+    	ArrayList<voAsignatura> listado = new ArrayList<voAsignatura>();
+    	for (Asignatura asi : arre) {
+    		vo = new voAsignatura(asi.getCodigo(),asi.getNombre(),asi.getDescripcion());
+    		listado.add(vo);
     	}
-    	return arre;	
+    	return listado;	
     }
 }

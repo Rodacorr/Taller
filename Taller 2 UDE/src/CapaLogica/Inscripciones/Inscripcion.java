@@ -34,17 +34,19 @@ public class Inscripcion {
 		return calificacion; 
 	}
 	
-	/*
+	
 	public Asignatura getAsignatura(){ 
 		return asig; 
 	}
-	*/
+	
+	/*
 	public String getAsignatura(){ 
 		return asig.getNombre(); 
 	}
+		*/
 	
-	public void setCalificacion(){ 
-		this.calificacion = 0;
+	public void setCalificacion(int cal){ 
+		this.calificacion = cal;
 	}
 	
 	public float calcularRecaudado(int x){ 

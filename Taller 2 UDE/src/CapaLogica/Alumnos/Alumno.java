@@ -59,6 +59,9 @@ public class Alumno {
 	    this.CantAsigAprob = 0;
 	}
 	
+	public void agregarInscripcion(Inscripcion in) {
+		insc.insBack(in);
+	}
 	
 	public boolean esEgresado() {
 		boolean es = false;
@@ -67,13 +70,19 @@ public class Alumno {
 		return es;
 	}
 	
+	public void registrarCalificacion(int nroInsc,int cal) {
+		insc.registrarCalificacion(nroInsc,cal)
+	}
+	
+	public Inscripcion darUltimaInscripcion() {
+		return insc.darUltimaInscripcion();
+	}
+	
 	public float calcularPromedioAprobadas() {
-		Inscripciones insc = getInscripciones();
 		return insc.calcularPromedioAprobadas();
 	}
 	
 	public float calcularPromedioCursadas() {
-		Inscripciones insc = getInscripciones();
 		return insc.calcularPromedioCursadas();
 	}
 	
@@ -99,4 +108,7 @@ public class Alumno {
 		return insc.calcularRecaudado(x);
 	}
 	
+	public boolean estaInscriptoCursando(String cod, int anio) {
+		return insc.estaInscriptoCursando(cod,anio);
+	}
 }
