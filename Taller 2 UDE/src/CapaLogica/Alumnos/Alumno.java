@@ -1,4 +1,6 @@
 package CapaLogica.Alumnos;
+import java.util.ArrayList;
+
 import CapaLogica.Inscripciones.*;
 import CapaLogica.VO.*;
 
@@ -70,6 +72,13 @@ public class Alumno {
 		return es;
 	}
 	
+	public boolean existeInscripcionPorNum(int nroInsc) {
+		boolean existe = false;
+		if(nroInsc > 0 && nroInsc <= insc.largo())
+			existe = true;
+		return existe;
+	}
+	
 	public void registrarCalificacion(int nroInsc,int cal) {
 		insc.registrarCalificacion(nroInsc,cal);
 		if(cal > 5)
@@ -98,13 +107,19 @@ public class Alumno {
 		return vo;
 	}
 
-	/*
-	public voInscripcion listarEscolaridad() {
 	
-	                                                               //??? q hacer 
-		
+	public ArrayList<voInscripcion> listarEscolaridad(boolean modo) {
+		return insc.listarEscolaridad(modo);                                                   
 	}
-	*/
+	
+	
+	public boolean tieneCalificacion(int nroInsc) {
+		return insc.tieneCalificacion(nroInsc);
+	}
+	
+	public boolean tieneInscripciones() {
+		return insc.largo() > 0;
+	}
 	
 	public float calcularRecaudado(int x) {
 		return insc.calcularRecaudado(x);

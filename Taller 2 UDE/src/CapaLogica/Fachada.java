@@ -131,25 +131,30 @@ public class Fachada {
 	}
 	
 	public void registrarCalificacion(long ced, int cal, int num) throws AlumnoNoInscriptoException, NumInscripcionNoExiste, YaTieneCalificacion, NotaInvalida{ 
+		///mover para aca el if dew la nota valida
 		if(!diccioAl.member(ced)) {
 			String msg = "alumno no existe";
 			throw new AlumnoNoInscriptoException(msg);  
 		}
 		else {
 			Alumno al = diccioAl.find(ced);
-			Inscripciones Insc = al.getInscripciones();
-			if(!Insc.esta(num)) {
+			if(!al.existeInscripcionPorNum(num)) {
 				String msg = "el alumno no tiene una inscripción con dicho número";
 				throw new NumInscripcionNoExiste(msg);
 			}
 			else {
-			////	if() falta la validacion String msg = "ya tiene una calificación en esta inscripcion "; throw new YaTieneCalificacion(msg);  
-				if(cal < 1 || cal > 12) {
-					String msg = "nota invalida";
-					throw new NotaInvalida(msg);
+				if(al.tieneCalificacion(num)) {
+					String msg = "ya tiene una calificación en esta inscripcion "; 
+				 	throw new YaTieneCalificacion(msg); 
 				}
-				else {
-					al.registrarCalificacion(num, cal);
+				else{
+					if(cal < 1 || cal > 12) {
+						String msg = "nota invalida";
+						throw new NotaInvalida(msg);
+					}
+					else {
+						al.registrarCalificacion(num, cal);
+					}
 				}
 			}
 		}	                              
@@ -176,13 +181,12 @@ public class Fachada {
 		}
 		else{
 			Alumno al = diccioAl.find(ced);
-			Inscripciones in = al.getInscripciones();
-			if(in.estaVacia()) {
+			if(!al.tieneInscripciones()) {
 				String msg = "este alumno aun no a cursado materias";
 				throw new SecInscripcionesVaciaException(msg);
 			}
 			else {
-				return in.listarEscolaridad(modo);
+				return al.listarEscolaridad(modo);
 			}	
 		}
 	}

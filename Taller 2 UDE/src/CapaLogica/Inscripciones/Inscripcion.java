@@ -49,9 +49,5 @@ public class Inscripcion {
 		this.calificacion = cal;
 	}
 	
-	public float calcularRecaudado(int x){ 
-		
-	    //// ????
-	}
 	
 }
