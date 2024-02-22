@@ -1,5 +1,6 @@
-import java.util.ArrayList;
+package CapaLogica;
 
+import java.util.ArrayList;
 import CapaLogica.Alumnos.Alumno;
 import CapaLogica.Alumnos.Alumnos;
 import CapaLogica.Inscripciones.Inscripcion;
