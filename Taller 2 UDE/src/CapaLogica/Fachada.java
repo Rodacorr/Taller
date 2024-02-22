@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import CapaLogica.Alumnos.Alumno;
 import CapaLogica.Alumnos.Alumnos;
 import CapaLogica.Inscripciones.Inscripcion;
-import CapaLogica.Inscripciones.Inscripciones;
 import CapaLogica.Alumnos.Becado;
 import CapaLogica.Asignaturas.*;
 import CapaLogica.Exceptions.*;
@@ -15,9 +14,15 @@ public class Fachada {
 	private Alumnos diccioAl;
 	private Asignaturas diccioAs;
 	
+	//ESTO HAY QUE PONERLO, SINO DA ERROR, TIENE QUE ESTAR INICIALIZADO 
 	public Fachada () {
-		 
+        diccioAl = new Alumnos();
+        diccioAs = new Asignaturas();
 	}
+	
+	// ESTO NO SE ESTA VALIDANDO - Ver desgloce de requerimiento
+	// Si la colección tiene 10 asignaturas
+    //		error: ya hay 10 asignaturas registradas en la secuencia
 	
 	public void registrarAsignatura(voAsignatura asig) throws AsignaturaYaExisteException{ 
 		String cod = asig.getCodigo();
