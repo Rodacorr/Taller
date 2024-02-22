@@ -111,7 +111,7 @@ public class PrincipalConsola {
         
         
         
-        */s
+        */
         
         // REQUERIMIENTO 4 - FUNCIONA
         // LO QUE VI ES QUE EN LA LETRA DEL REQUERIMIENTO PIDE SABER EL TIPO Y EN EL VOAlumnoDat que es el vo que utiliza, no le pasa el tipo
@@ -161,7 +161,7 @@ public class PrincipalConsola {
         
         try {
             fachada.registarAlumno(alumnoBecado3);
-            System.out.println("El alumno becado2 se registro con exito.");
+            System.out.println("El alumno becado3 se registro con exito.");
         } catch (AlumnoYaExisteExceptions exc) {
             System.out.println("Error: " + exc.darMensaje());
         }
@@ -170,6 +170,8 @@ public class PrincipalConsola {
 
         String ape = "Perez";
         try {
+            System.out.println("Los alumnos que empiezan con apellido " + ape+"... son: ");
+            System.out.println("");
             ArrayList<voAlumnoDat> listaAlumnos = fachada.listarAlumnoApe(ape);
             for (voAlumnoDat alumno : listaAlumnos) {
                 System.out.println("Apellido: " + alumno.getApellido());
