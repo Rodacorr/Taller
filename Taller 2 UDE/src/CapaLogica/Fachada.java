@@ -81,7 +81,7 @@ public class Fachada {
 		}
 	}
 	
-	public voAlumnoDatCom listarAlumnoCed(long ced) throws AlumnoNoInscriptoException{
+	public voAlumnoCompleto listarAlumnoCed(long ced) throws AlumnoNoInscriptoException{
 		if(!diccioAl.member(ced)) {
 			String msg = "alumno no existe";
 			throw new AlumnoNoInscriptoException(msg);  
@@ -92,19 +92,22 @@ public class Fachada {
 			String nombre = al.getNombre();
 			String apellido = al.getApellido();
 			int cantAprob = al.getCantAsigAprob();
-			voAlumnoDatCom vo; 
+			String tipo = al.getTipo();
+			long telefono = al.getTelefono();
+			String domicilio = al.getDomicilio();
+			voAlumnoCompleto vo; 
 			if(al instanceof Becado) {
 				int porcentajeBeca = ((Becado)al).getPorcentajeBeca();
 				String razon = ((Becado)al).getRazon();
-				vo = new voBecadoDatCom(cedula,nombre,apellido,cantAprob,porcentajeBeca,razon);
+				vo = new voBecadoDatCom(cedula,nombre,apellido,cantAprob,domicilio,telefono,tipo,porcentajeBeca,razon);
 			}
 			else
-				vo = new voAlumnoDatCom(cedula,nombre,apellido,cantAprob);
+				vo = new voAlumnoCompleto(cedula,nombre,apellido,cantAprob,domicilio,telefono,tipo);
 			return vo;
 		}
 	}
 	
-	public void registrarInscripcion(String cod, long ced, float mon, int anio) throws AlumnoNoInscriptoException, AsignaturaYaExisteException,AlumnoYaCursaAsignatura,AñoMenorAlUltimoReg{ 
+	public void registrarInscripcion(String cod, long ced, float mon, int anio) throws AlumnoNoInscriptoException, AsignaturaNoExisteException,AlumnoYaCursaAsignatura,AñoMenorAlUltimoReg{ 
 		
 		if(!diccioAl.member(ced)) {
 			String msg = "alumno no existe";
@@ -114,14 +117,19 @@ public class Fachada {
 			Alumno al = diccioAl.find(ced);
 			if(!diccioAs.member(cod)) {
 				String msg = "asignatura no registrada";
-				throw new AsignaturaYaExisteException(msg);  
+				throw new AsignaturaNoExisteException(msg); 
+				
 			}
 			else{
 				if(al.estaInscriptoCursando(cod, anio))  {  
-					String msg = "el alumno ya esta cursando la asignatura";
+					String msg = "el alumno ya esta cursando la asignatura o ya la aprobo";
 					throw new AlumnoYaCursaAsignatura(msg);
 				}
-				Inscripcion ultIn = al.darUltimaInscripcion();
+				Inscripcion ultIn;
+				if(al.tieneInscripciones())
+					ultIn = al.darUltimaInscripcion();
+				else
+					ultIn = null;
 				if(ultIn != null && ultIn.getAnioLectivo() > anio) {
 					String msg = "el año dado es menor al de la ultima inscripcion";
 					throw new AñoMenorAlUltimoReg(msg);
