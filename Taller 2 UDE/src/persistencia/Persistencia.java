@@ -37,7 +37,7 @@ public class Persistencia {
 			
 			//Abro el archivo 
 			FileInputStream f = new FileInputStream(readUtil.leerPropertyMensaje(propertyName, readUtil.getFileAplicationToRead()));
-			f.available();
+			f.available(); 
 			
 			File file = new File(readUtil.leerPropertyMensaje(propertyName, readUtil.getFileAplicationToRead()));
 	

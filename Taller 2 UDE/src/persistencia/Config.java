@@ -19,7 +19,7 @@ public class Config implements Serializable{
 	
 	public String getArchivoConf(String properties){
 	
-		try {
+		try { 
 			Config conf = Config.getInstancia();
 			
 			Properties prop = new Properties();
