@@ -47,12 +47,15 @@ public class Fachada {
 	}
 	
 	public ArrayList<voAsignatura> listarAsignaturas() throws DicAsignaturasVacioException { 
+		m.comienzoLectura();
 		if(diccioAs.esVacio()) {
 			String msg = "No existen asignaturas para mostrar";
+			m.terminoLectura();
 			throw new DicAsignaturasVacioException(msg);
 		}
 		else{
 			ArrayList<voAsignatura> vo = diccioAs.listaAsignaturas();
+			m.terminoLectura();
 			return vo;
 		}
 	}
@@ -60,9 +63,11 @@ public class Fachada {
 	
 	
 	public void registarAlumno(voAlumno al) throws AlumnoYaExisteExceptions{
+		m.comienzoEscritura();
 		long ced = al.getCedula();
 		if (diccioAl.member(ced)){
 			String msg = "El alumno ya existe";
+			m.terminoEscritura();
 			throw new AlumnoYaExisteExceptions(msg);  
 		}		
 		else {
@@ -72,24 +77,30 @@ public class Fachada {
 			else 
 				alu=new Alumno(al.getCedula(),al.getNombre(),al.getApellido(),al.getDomicilio(),al.getTelefono());
 			diccioAl.insert(alu);
+			m.terminoEscritura();
 		}
 		
 	}
 	
 	public ArrayList<voAlumnoDatTipo> listarAlumnoApe(String ape) throws DicAlumnosVacioException {
+		m.comienzoLectura();
 		if(diccioAl.esVacio()) {
 			String msg = "No hay alumnos para mostrar";
+			m.terminoLectura();
 			throw new DicAlumnosVacioException(msg);  
 		}
 		else {
 			ArrayList<voAlumnoDatTipo> vo = diccioAl.listaAlumnoApe(ape);
+			m.terminoLectura();
 			return vo;
 		}
 	}
 	
 	public voAlumnoCompleto listarAlumnoCed(long ced) throws AlumnoNoInscriptoException{
+		m.comienzoLectura();
 		if(!diccioAl.member(ced)) {
 			String msg = "alumno no existe";
+			m.terminoLectura();
 			throw new AlumnoNoInscriptoException(msg);  
 		}
 		else {
@@ -109,26 +120,30 @@ public class Fachada {
 			}
 			else
 				vo = new voAlumnoCompleto(cedula,nombre,apellido,cantAprob,domicilio,telefono,tipo);
+			m.terminoLectura();
 			return vo;
 		}
 	}
 	
 	public void registrarInscripcion(String cod, long ced, float mon, int anio) throws AlumnoNoInscriptoException, AsignaturaNoExisteException,AlumnoYaCursaAsignatura,AñoMenorAlUltimoReg{ 
-		
+		m.comienzoEscritura();
 		if(!diccioAl.member(ced)) {
 			String msg = "alumno no existe";
+			m.terminoEscritura();
 			throw new AlumnoNoInscriptoException(msg);  
 		}	
 		else {
 			Alumno al = diccioAl.find(ced);
 			if(!diccioAs.member(cod)) {
 				String msg = "asignatura no registrada";
+				m.terminoEscritura();
 				throw new AsignaturaNoExisteException(msg); 
 				
 			}
 			else{
 				if(al.estaInscriptoCursando(cod, anio))  {  
 					String msg = "el alumno ya esta cursando la asignatura o ya la aprobo";
+					m.terminoEscritura();
 					throw new AlumnoYaCursaAsignatura(msg);
 				}
 				Inscripcion ultIn;
@@ -138,6 +153,7 @@ public class Fachada {
 					ultIn = null;
 				if(ultIn != null && ultIn.getAnioLectivo() > anio) {
 					String msg = "el año dado es menor al de la ultima inscripcion";
+					m.terminoEscritura();
 					throw new AñoMenorAlUltimoReg(msg);
 				}
 				else {
@@ -147,35 +163,42 @@ public class Fachada {
 					Asignatura asig = diccioAs.find(cod);
 					Inscripcion in = new Inscripcion (numInscripcion + 1,anio, mon,asig); 
 					al.agregarInscripcion(in);
+					m.terminoEscritura();
 				}
 			}
 		}
 	}
 	
 	public void registrarCalificacion(long ced, int cal, int num) throws AlumnoNoInscriptoException, NumInscripcionNoExiste, YaTieneCalificacion, NotaInvalida{ 
+		m.comienzoEscritura();
 		///mover para aca el if dew la nota valida
 		if(!diccioAl.member(ced)) {
 			String msg = "alumno no existe";
+			m.terminoEscritura();
 			throw new AlumnoNoInscriptoException(msg);  
 		}
 		else {
 			Alumno al = diccioAl.find(ced);
 			if(!al.existeInscripcionPorNum(num)) {
 				String msg = "el alumno no tiene una inscripción con dicho número";
+				m.terminoEscritura();
 				throw new NumInscripcionNoExiste(msg);
 			}
 			else {
 				if(al.tieneCalificacion(num)) {
 					String msg = "ya tiene una calificación en esta inscripcion "; 
+					m.terminoEscritura();
 				 	throw new YaTieneCalificacion(msg); 
 				}
 				else{
 					if(cal < 1 || cal > 12) {
 						String msg = "nota invalida";
+						m.terminoEscritura();
 						throw new NotaInvalida(msg);
 					}
 					else {
 						al.registrarCalificacion(num, cal);
+						m.terminoEscritura();
 					}
 				}
 			}
@@ -186,50 +209,62 @@ public class Fachada {
 	
 	
 	public float montoRecaudado (long ced, int anio) throws AlumnoNoInscriptoException{ 
+		m.comienzoLectura();
 		if(!diccioAl.member(ced)){
 			String msg = "alumno no existe";
+			m.terminoLectura();
 			throw new AlumnoNoInscriptoException(msg);
 		}
 		else{
 			Alumno al = diccioAl.find(ced);
+			m.terminoLectura();
 			return al.calcularRecaudado(anio);
 		}	
 	}
 	
 	public  ArrayList<voInscripcion> listarEscolaridad(long ced, boolean modo) throws AlumnoNoInscriptoException,SecInscripcionesVaciaException{ 
+		m.comienzoLectura();
 		if(!diccioAl.member(ced)) {
 			String msg = "alumno no existe";
+			m.terminoLectura();
 			throw new AlumnoNoInscriptoException(msg);
 		}
 		else{
 			Alumno al = diccioAl.find(ced);
 			if(!al.tieneInscripciones()) {
 				String msg = "este alumno aun no a cursado materias";
+				m.terminoLectura();
 				throw new SecInscripcionesVaciaException(msg);
 			}
 			else {
+				m.terminoLectura();
 				return al.listarEscolaridad(modo);
 			}	
 		}
 	}
 	
 	public  ArrayList<voAlumnoDat> listarEgresados(boolean modo) throws DicAlumnosVacioException{
+		m.comienzoLectura();
 		if(diccioAl.esVacio()) {
 			String msg = "No hay egresados para mostrar";
+			m.terminoLectura();
 			throw new DicAlumnosVacioException(msg);
 		}
 		else {
+			m.terminoLectura();
 			return diccioAl.listarEgresados(modo);
 		}
 		
 	}
 	
 	public void respaldar(){ 
-	
+		m.comienzoLectura();
+		m.terminoLectura();
 	}
 	
 	public void recuperar(){ 
-		
+		m.comienzoEscritura();
+		m.terminoEscritura();
 	}
 
 

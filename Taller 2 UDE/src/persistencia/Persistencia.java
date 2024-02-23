@@ -1,7 +1,6 @@
 package persistencia;
 import persistencia.exceptions.*;
 
-import generalUtils.FilePropertyReadUtil;
 
 import java.io.File;
 import java.io.FileInputStream;
