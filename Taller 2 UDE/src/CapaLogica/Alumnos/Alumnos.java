@@ -32,13 +32,13 @@ public class Alumnos {
     	return ABBAlumnos.isEmpty();
     }
     
-    public ArrayList<voAlumnoDat> listaAlumnoApe(String ape) {
-    	ArrayList<voAlumnoDat> arre = new ArrayList<voAlumnoDat>();
+    public ArrayList<voAlumnoDatTipo> listaAlumnoApe(String ape) {
+    	ArrayList<voAlumnoDatTipo> arre = new ArrayList<voAlumnoDatTipo>();
     	Iterator <Alumno> iter = ABBAlumnos.values().iterator();
     	while (iter.hasNext()){
     		Alumno alum = iter.next();
     		if(alum.getApellido().startsWith(ape)) {
-    			voAlumnoDat vo = new voAlumnoDat(alum.getCedula(),alum.getNombre(),alum.getApellido());
+    			voAlumnoDatTipo vo = new voAlumnoDatTipo(alum.getCedula(),alum.getNombre(),alum.getApellido(),alum.getTipo());
     			arre.add(vo);
     		}
     	}

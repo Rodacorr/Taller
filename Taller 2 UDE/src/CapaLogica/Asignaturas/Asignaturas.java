@@ -33,6 +33,10 @@ public class Asignaturas {
     	}
          return as;
     }
+    
+    public int largo(){
+    	return arre.size();
+    }
          
     public void insBack(Asignatura as) {
     	arre.add(as);

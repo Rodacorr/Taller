@@ -14,28 +14,30 @@ public class Fachada {
 	private Alumnos diccioAl;
 	private Asignaturas diccioAs;
 	
-	//ESTO HAY QUE PONERLO, SINO DA ERROR, TIENE QUE ESTAR INICIALIZADO 
 	public Fachada () {
         diccioAl = new Alumnos();
         diccioAs = new Asignaturas();
 	}
 	
-	// ESTO NO SE ESTA VALIDANDO - Ver desgloce de requerimiento
-	// Si la colección tiene 10 asignaturas
-    //		error: ya hay 10 asignaturas registradas en la secuencia
-	
-	public void registrarAsignatura(voAsignatura asig) throws AsignaturaYaExisteException{ 
+	public void registrarAsignatura(voAsignatura asig) throws AsignaturaYaExisteException, AsignaturasCompletaException{ 
 		String cod = asig.getCodigo();
 		String nom = asig.getNombre();
 		String des = asig.getDescripcion();
 		Asignatura as;
 		as = new Asignatura(cod,nom,des);
-		if(diccioAs.member(cod)){ 
-			String msg = "La asignatura dada ya existe con ese codigo";
-			throw new AsignaturaYaExisteException(msg);
+		if(diccioAs.largo() == 10) {
+			String msg = "Ya hay 10 asignaturas registradas";
+			throw new AsignaturasCompletaException(msg);
 		}
-		else
-			diccioAs.insBack(as);
+		else {
+			if(diccioAs.member(cod)){ 
+				String msg = "La asignatura dada ya existe con ese codigo";
+				throw new AsignaturaYaExisteException(msg);
+			}
+			else {
+				diccioAs.insBack(as);
+			}
+		}
 	}
 	
 	public ArrayList<voAsignatura> listarAsignaturas() throws DicAsignaturasVacioException { 
@@ -68,13 +70,13 @@ public class Fachada {
 		
 	}
 	
-	public ArrayList<voAlumnoDat> listarAlumnoApe(String ape) throws DicAlumnosVacioException {
+	public ArrayList<voAlumnoDatTipo> listarAlumnoApe(String ape) throws DicAlumnosVacioException {
 		if(diccioAl.esVacio()) {
 			String msg = "No hay alumnos para mostrar";
 			throw new DicAlumnosVacioException(msg);  
 		}
 		else {
-			ArrayList<voAlumnoDat> vo = diccioAl.listaAlumnoApe(ape);
+			ArrayList<voAlumnoDatTipo> vo = diccioAl.listaAlumnoApe(ape);
 			return vo;
 		}
 	}
