@@ -13,13 +13,16 @@ public class Fachada {
 	
 	private Alumnos diccioAl;
 	private Asignaturas diccioAs;
+	private Monitor m;
 	
 	public Fachada () {
         diccioAl = new Alumnos();
         diccioAs = new Asignaturas();
+        m = new Monitor();
 	}
 	
 	public void registrarAsignatura(voAsignatura asig) throws AsignaturaYaExisteException, AsignaturasCompletaException{ 
+		m.comienzoEscritura();
 		String cod = asig.getCodigo();
 		String nom = asig.getNombre();
 		String des = asig.getDescripcion();
@@ -27,15 +30,18 @@ public class Fachada {
 		as = new Asignatura(cod,nom,des);
 		if(diccioAs.largo() == 10) {
 			String msg = "Ya hay 10 asignaturas registradas";
+			m.terminoEscritura();
 			throw new AsignaturasCompletaException(msg);
 		}
 		else {
 			if(diccioAs.member(cod)){ 
 				String msg = "La asignatura dada ya existe con ese codigo";
+				m.terminoEscritura();
 				throw new AsignaturaYaExisteException(msg);
 			}
 			else {
 				diccioAs.insBack(as);
+				m.terminoEscritura();
 			}
 		}
 	}

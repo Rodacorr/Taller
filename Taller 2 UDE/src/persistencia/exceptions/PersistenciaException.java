@@ -1,15 +1,12 @@
 package persistencia.exceptions;
-
 import java.io.Serializable;
 
-import generalUtils.FilePropertyReadUtil;
-import logica.exceptions.abstractExeption;
 
-public class PersistenciaException extends abstractExeption implements Serializable{
+public class PersistenciaException extends Exception implements Serializable{
 	
 	private String mensaje;
 	
-	public MontoInvalidoException (String mensaje){ 
+	public PersistenciaException (String mensaje){ 
 		this.mensaje = mensaje; 
 	}
 	
