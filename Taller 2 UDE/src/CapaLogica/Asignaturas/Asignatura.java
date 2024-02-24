@@ -1,6 +1,8 @@
 package CapaLogica.Asignaturas;
+import java.io.*;
 
-public class Asignatura {
+
+public class Asignatura implements Serializable{
 
 	private String codigo;
 	private String nombre;

@@ -5,8 +5,9 @@ import java.util.*;
 import CapaLogica.Alumnos.Alumno;
 import CapaLogica.VO.voAlumnoDat;
 import CapaLogica.VO.voAsignatura;
+import java.io.*;
 
-public class Asignaturas {
+public class Asignaturas implements Serializable{
 
 	private ArrayList<Asignatura> arre;
 	

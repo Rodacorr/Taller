@@ -17,7 +17,7 @@ public class Config implements Serializable{
 		return instancia;
 	}
 	
-	public String getArchivoConf(String properties){
+	public String getArchivoConf(String properties) throws IOException{
 	
 		try { 
 			Config conf = Config.getInstancia();
@@ -26,8 +26,9 @@ public class Config implements Serializable{
 			prop.load(new FileInputStream(conf.getArchivoConf()));
 			String rutaArchivo = prop.getProperty(properties);
 			return rutaArchivo;
-		} catch (IOException e) {    
-			System.out.println("Error: " + e.darMensaje());
+		} catch (IOException e) {
+			System.out.println("Error: " + e.getMessage());
+			throw e;
 		}
 	}
 

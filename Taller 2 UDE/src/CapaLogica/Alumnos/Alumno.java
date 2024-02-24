@@ -3,9 +3,10 @@ import java.util.ArrayList;
 
 import CapaLogica.Inscripciones.*;
 import CapaLogica.VO.*;
+import java.io.*;
 
 
-public class Alumno {
+public class Alumno implements Serializable{
 
 	private long cedula;
 	private String nombre;

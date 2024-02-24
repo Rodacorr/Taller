@@ -1,6 +1,8 @@
 package CapaLogica.Alumnos;
 
-public class Becado extends Alumno{
+import java.io.*;
+
+public class Becado extends Alumno implements Serializable{
 	private int porcentajeBeca;
 	private String razon;
 	

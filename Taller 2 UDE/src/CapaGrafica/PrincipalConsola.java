@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import CapaLogica.Fachada;
 import CapaLogica.Exceptions.*;
+import persistencia.exceptions.*;
 
 public class PrincipalConsola {
 
@@ -498,10 +499,10 @@ public class PrincipalConsola {
 		    System.out.println("Error: " + exc.darMensaje());
 		}
 
-		 
 
-		
-		
+
+
+
 		// REQUERIMIENTO 7
 		voAlumno alumno = new voAlumno(49983130L, "Lucas", "Millan", "Andes 1118", 92066888L);		
 		voBecado alumnoBecado = new voBecado(55650767L, "Santiago", "Bonfrisco", "Por ahi", 99999999L, 60,"Nos dio lastima");
@@ -532,7 +533,7 @@ public class PrincipalConsola {
 		} catch (AsignaturaYaExisteException exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		try {
 			fachada.registrarAsignatura(asignatura2);
 			System.out.println("Primera asignatura registrada correctamente.");
@@ -557,7 +558,7 @@ public class PrincipalConsola {
 		} catch (AñoMenorAlUltimoReg exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		//2
 		float monto1 = 600;
 		int anio1 = 2024;
@@ -588,7 +589,7 @@ public class PrincipalConsola {
 		} catch (NotaInvalida exc) {
 		System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		int cal1 = 6;
 		int num1 = 2;
 		try {
@@ -603,7 +604,7 @@ public class PrincipalConsola {
 		} catch (NotaInvalida exc) {
 		System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		// Error 1
 		try {
 			fachada.registrarCalificacion(3232332L, cal, num);;
@@ -617,7 +618,7 @@ public class PrincipalConsola {
 		} catch (NotaInvalida exc) {
 		System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		// Error 2
 		try {
 			fachada.registrarCalificacion(alumno.getCedula(), cal, 6);;
@@ -631,7 +632,7 @@ public class PrincipalConsola {
 		} catch (NotaInvalida exc) {
 		System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		// Error 3
 		try {
 			fachada.registrarCalificacion(alumno.getCedula(), cal, num);;
@@ -645,7 +646,7 @@ public class PrincipalConsola {
 		} catch (NotaInvalida exc) {
 		System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		// Error 4
 		try {
 			fachada.registrarCalificacion(alumno.getCedula(), 15, 2);;
@@ -659,7 +660,7 @@ public class PrincipalConsola {
 		} catch (NotaInvalida exc) {
 		System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		float monto3 = 200;
 		int anio3 = 2025;
 		try {
@@ -674,7 +675,7 @@ public class PrincipalConsola {
 		} catch (AñoMenorAlUltimoReg exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 
 		try {
 			fachada.registrarInscripcion(asignatura1.getCodigo(),alumno.getCedula(),monto3,anio3);
@@ -688,10 +689,10 @@ public class PrincipalConsola {
 		} catch (AñoMenorAlUltimoReg exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}
-		
-		
-		
-		
+
+
+
+
 		// REQUERIMIENTO 8
 		try {
 			float mon = fachada.montoRecaudado(alumno.getCedula(), anio);
@@ -699,7 +700,7 @@ public class PrincipalConsola {
 		} catch (AlumnoNoInscriptoException exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}	
-		
+
 		// Error
 		try {
 			float mon = fachada.montoRecaudado(4343434L, anio);
@@ -707,10 +708,10 @@ public class PrincipalConsola {
 		} catch (AlumnoNoInscriptoException exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}	
-		
-		
-		
-		
+
+
+
+
 		// REQUERIMIENTO 9
 		boolean modo = true;
 		try {
@@ -740,7 +741,7 @@ public class PrincipalConsola {
 		} catch (SecInscripcionesVaciaException exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}	
-		
+
 		// Parcial
 		boolean modo2 = false;
 		try {
@@ -759,8 +760,8 @@ public class PrincipalConsola {
 		} catch (SecInscripcionesVaciaException exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}	
-		
-		
+
+
 		// Error 1
 				try {
 					 ArrayList<voInscripcion> listaEscolaridad = fachada.listarEscolaridad(34242424L, modo);
@@ -789,8 +790,8 @@ public class PrincipalConsola {
 				} catch (SecInscripcionesVaciaException exc) {
 					System.out.println("Error: " + exc.darMensaje());
 				}
-				
-				
+
+
 				// Error 2
 				try {
 					 ArrayList<voInscripcion> listaEscolaridad = fachada.listarEscolaridad(alumnoBecado.getCedula(), modo);
@@ -808,130 +809,134 @@ public class PrincipalConsola {
 				} catch (SecInscripcionesVaciaException exc) {
 					System.out.println("Error: " + exc.darMensaje());
 				}	
-				
-			*/
-		
-		
-		
-		
+
+		 */
+
+
+		try {
+			fachada.recuperar(); 
+		} catch (PersistenciaException e){
+			System.out.println("error recuperar: " + e.darMensaje());
+		}
+
 		// REQUERIMIENTO 10
 		voAlumno alumno = new voAlumno(49983130L, "Lucas", "Millan", "Andes 1118", 92066888L);		
 
-        voAsignatura asignatura1 = new voAsignatura("ABC123", "Programacion", "Codigo en C++");
-        voAsignatura asignatura2 = new voAsignatura("DEF456", "Taller", "Codigo en JAVA");
-        voAsignatura asignatura3 = new voAsignatura("GHI789", "Base de datos", "Codigo en SQL");
-        voAsignatura asignatura4 = new voAsignatura("GHIe89", "Sistemas Operativos", "SSH");
-        voAsignatura asignatura5 = new voAsignatura("GHf789", "Sistemas Operativos", "SSH");
-        voAsignatura asignatura6 = new voAsignatura("GHg789", "Sistemas Operativos", "SSH");
-        voAsignatura asignatura7 = new voAsignatura("GHh789", "Sistemas Operativos", "SSH");
-        voAsignatura asignatura8 = new voAsignatura("GHj789", "Sistemas Operativos", "SSH");
-        voAsignatura asignatura9 = new voAsignatura("GHk789", "Sistemas Operativos", "SSH");
-        voAsignatura asignatura10 = new voAsignatura("33k789", "Sistemas Operativos", "SSH");
-        
-        try {
-            fachada.registarAlumno(alumno);
-            System.out.println("El alumno se registro con exito.");
-        } catch (AlumnoYaExisteExceptions exc) {
-            System.out.println("Error: " + exc.darMensaje());
-        }
-        
-        try {
-            fachada.registrarAsignatura(asignatura1);
-            System.out.println("Primera asignatura registrada correctamente.");
-	    } catch (AsignaturasCompletaException exc) {
-	        System.out.println("Error: " + exc.darMensaje());
-        } catch (AsignaturaYaExisteException exc) {
-            System.out.println("Error: " + exc.darMensaje());
-        }
+		voAsignatura asignatura1 = new voAsignatura("ABC123", "Programacion", "Codigo en C++");
+		voAsignatura asignatura2 = new voAsignatura("DEF456", "Taller", "Codigo en JAVA");
+		voAsignatura asignatura3 = new voAsignatura("GHI789", "Base de datos", "Codigo en SQL");
+		voAsignatura asignatura4 = new voAsignatura("GHIe89", "Sistemas Operativos", "SSH");
+		voAsignatura asignatura5 = new voAsignatura("GHf789", "Sistemas Operativos", "SSH");
+		voAsignatura asignatura6 = new voAsignatura("GHg789", "Sistemas Operativos", "SSH");
+		voAsignatura asignatura7 = new voAsignatura("GHh789", "Sistemas Operativos", "SSH");
+		voAsignatura asignatura8 = new voAsignatura("GHj789", "Sistemas Operativos", "SSH");
+		voAsignatura asignatura9 = new voAsignatura("GHk789", "Sistemas Operativos", "SSH");
+		voAsignatura asignatura10 = new voAsignatura("33k789", "Sistemas Operativos", "SSH");
+		/*
+		try {
+			fachada.registarAlumno(alumno);
+			System.out.println("El alumno se registro con exito.");
+		} catch (AlumnoYaExisteExceptions exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		}
 
-        try {
-            fachada.registrarAsignatura(asignatura2);
-            System.out.println("Segunda asignatura registrada correctamente.");
-	    } catch (AsignaturasCompletaException exc) {
-	        System.out.println("Error: " + exc.darMensaje());
-        } catch (AsignaturaYaExisteException exc) {
-            System.out.println("Error: " + exc.darMensaje());
-        }
+		try {
+			fachada.registrarAsignatura(asignatura1);
+			System.out.println("Primera asignatura registrada correctamente.");
+		} catch (AsignaturasCompletaException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		} catch (AsignaturaYaExisteException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		}
 
-        try {
-            fachada.registrarAsignatura(asignatura3);
-            System.out.println("Tercera asignatura registrada correctamente.");
-	    } catch (AsignaturasCompletaException exc) {
-	        System.out.println("Error: " + exc.darMensaje());
-        } catch (AsignaturaYaExisteException exc) {
-            System.out.println("Error: " + exc.darMensaje());
-        }
+		try {
+			fachada.registrarAsignatura(asignatura2);
+			System.out.println("Segunda asignatura registrada correctamente.");
+		} catch (AsignaturasCompletaException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		} catch (AsignaturaYaExisteException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		}
 
-        try {
-            fachada.registrarAsignatura(asignatura4);
-            System.out.println("Cuarta asignatura registrada correctamente.");
-	    } catch (AsignaturasCompletaException exc) {
-	        System.out.println("Error: " + exc.darMensaje());
+		try {
+			fachada.registrarAsignatura(asignatura3);
+			System.out.println("Tercera asignatura registrada correctamente.");
+		} catch (AsignaturasCompletaException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		} catch (AsignaturaYaExisteException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		}
 
-        } catch (AsignaturaYaExisteException exc) {
-            System.out.println("Error: " + exc.darMensaje());
-        }
+		try {
+			fachada.registrarAsignatura(asignatura4);
+			System.out.println("Cuarta asignatura registrada correctamente.");
+		} catch (AsignaturasCompletaException exc) {
+			System.out.println("Error: " + exc.darMensaje());
 
-        try {
-            fachada.registrarAsignatura(asignatura5);
-            System.out.println("5 asignatura registrada correctamente.");
-	    } catch (AsignaturasCompletaException exc) {
-	        System.out.println("Error: " + exc.darMensaje());
+		} catch (AsignaturaYaExisteException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		}
 
-        } catch (AsignaturaYaExisteException exc) {
-            System.out.println("Error: " + exc.darMensaje());
-        }
+		try {
+			fachada.registrarAsignatura(asignatura5);
+			System.out.println("5 asignatura registrada correctamente.");
+		} catch (AsignaturasCompletaException exc) {
+			System.out.println("Error: " + exc.darMensaje());
 
-        try {
-            fachada.registrarAsignatura(asignatura6);
-            System.out.println("6 asignatura registrada correctamente.");
-	    } catch (AsignaturasCompletaException exc) {
-	        System.out.println("Error: " + exc.darMensaje());
+		} catch (AsignaturaYaExisteException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		}
 
-        } catch (AsignaturaYaExisteException exc) {
-            System.out.println("Error: " + exc.darMensaje());
-        }
+		try {
+			fachada.registrarAsignatura(asignatura6);
+			System.out.println("6 asignatura registrada correctamente.");
+		} catch (AsignaturasCompletaException exc) {
+			System.out.println("Error: " + exc.darMensaje());
 
-        try {
-            fachada.registrarAsignatura(asignatura7);
-            System.out.println("7 asignatura registrada correctamente.");
-	    } catch (AsignaturasCompletaException exc) {
-	        System.out.println("Error: " + exc.darMensaje());
+		} catch (AsignaturaYaExisteException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		}
 
-        } catch (AsignaturaYaExisteException exc) {
-            System.out.println("Error: " + exc.darMensaje());
-        }
+		try {
+			fachada.registrarAsignatura(asignatura7);
+			System.out.println("7 asignatura registrada correctamente.");
+		} catch (AsignaturasCompletaException exc) {
+			System.out.println("Error: " + exc.darMensaje());
 
-        try {
-            fachada.registrarAsignatura(asignatura8);
-            System.out.println("8 asignatura registrada correctamente.");
-	    } catch (AsignaturasCompletaException exc) {
-	        System.out.println("Error: " + exc.darMensaje());
+		} catch (AsignaturaYaExisteException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		}
 
-        } catch (AsignaturaYaExisteException exc) {
-            System.out.println("Error: " + exc.darMensaje());
-        }
+		try {
+			fachada.registrarAsignatura(asignatura8);
+			System.out.println("8 asignatura registrada correctamente.");
+		} catch (AsignaturasCompletaException exc) {
+			System.out.println("Error: " + exc.darMensaje());
 
-        try {
-            fachada.registrarAsignatura(asignatura9);
-            System.out.println("9 asignatura registrada correctamente.");
-	    } catch (AsignaturasCompletaException exc) {
-	        System.out.println("Error: " + exc.darMensaje());
+		} catch (AsignaturaYaExisteException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		}
 
-        } catch (AsignaturaYaExisteException exc) {
-            System.out.println("Error: " + exc.darMensaje());
-        }
+		try {
+			fachada.registrarAsignatura(asignatura9);
+			System.out.println("9 asignatura registrada correctamente.");
+		} catch (AsignaturasCompletaException exc) {
+			System.out.println("Error: " + exc.darMensaje());
 
-        try {
-            fachada.registrarAsignatura(asignatura10);
-            System.out.println("10 asignatura registrada correctamente.");
-	    } catch (AsignaturasCompletaException exc) {
-	        System.out.println("Error: " + exc.darMensaje());
+		} catch (AsignaturaYaExisteException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		}
 
-        } catch (AsignaturaYaExisteException exc) {
-            System.out.println("Error: " + exc.darMensaje());
-        }
-        
+		try {
+			fachada.registrarAsignatura(asignatura10);
+			System.out.println("10 asignatura registrada correctamente.");
+		} catch (AsignaturasCompletaException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+
+		} catch (AsignaturaYaExisteException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		}
+
 		float monto1 = 600;
 		int anio1 = 2024;
 		try {
@@ -946,7 +951,7 @@ public class PrincipalConsola {
 		} catch (AñoMenorAlUltimoReg exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 
 		try {
 			fachada.registrarInscripcion(asignatura2.getCodigo(),alumno.getCedula(),monto1,anio1);
@@ -960,7 +965,7 @@ public class PrincipalConsola {
 		} catch (AñoMenorAlUltimoReg exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 
 		try {
 			fachada.registrarInscripcion(asignatura3.getCodigo(),alumno.getCedula(),monto1,anio1);
@@ -974,7 +979,7 @@ public class PrincipalConsola {
 		} catch (AñoMenorAlUltimoReg exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 
 		try {
 			fachada.registrarInscripcion(asignatura4.getCodigo(),alumno.getCedula(),monto1,anio1);
@@ -988,7 +993,7 @@ public class PrincipalConsola {
 		} catch (AñoMenorAlUltimoReg exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 
 		try {
 			fachada.registrarInscripcion(asignatura5.getCodigo(),alumno.getCedula(),monto1,anio1);
@@ -1002,7 +1007,7 @@ public class PrincipalConsola {
 		} catch (AñoMenorAlUltimoReg exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 
 		try {
 			fachada.registrarInscripcion(asignatura6.getCodigo(),alumno.getCedula(),monto1,anio1);
@@ -1016,7 +1021,7 @@ public class PrincipalConsola {
 		} catch (AñoMenorAlUltimoReg exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 
 		try {
 			fachada.registrarInscripcion(asignatura7.getCodigo(),alumno.getCedula(),monto1,anio1);
@@ -1030,8 +1035,8 @@ public class PrincipalConsola {
 		} catch (AñoMenorAlUltimoReg exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}
-		
-		
+
+
 		try {
 			fachada.registrarInscripcion(asignatura8.getCodigo(),alumno.getCedula(),monto1,anio1);
 			System.out.println("La inscripcion se registro con exito.");
@@ -1044,7 +1049,7 @@ public class PrincipalConsola {
 		} catch (AñoMenorAlUltimoReg exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 
 		try {
 			fachada.registrarInscripcion(asignatura9.getCodigo(),alumno.getCedula(),monto1,anio1);
@@ -1058,7 +1063,7 @@ public class PrincipalConsola {
 		} catch (AñoMenorAlUltimoReg exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 
 		try {
 			fachada.registrarInscripcion(asignatura10.getCodigo(),alumno.getCedula(),monto1,anio1);
@@ -1072,7 +1077,7 @@ public class PrincipalConsola {
 		} catch (AñoMenorAlUltimoReg exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		int cal1 = 10;
 		try {
 			fachada.registrarCalificacion(alumno.getCedula(), cal1, 1);
@@ -1084,9 +1089,9 @@ public class PrincipalConsola {
 		} catch (YaTieneCalificacion exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		} catch (NotaInvalida exc) {
-		System.out.println("Error: " + exc.darMensaje());
+			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		try {
 			fachada.registrarCalificacion(alumno.getCedula(), cal1, 2);
 			System.out.println("Calificacion registrada correctamente.");
@@ -1097,9 +1102,9 @@ public class PrincipalConsola {
 		} catch (YaTieneCalificacion exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		} catch (NotaInvalida exc) {
-		System.out.println("Error: " + exc.darMensaje());
+			System.out.println("Error: " + exc.darMensaje());
 		}
-        
+
 		try {
 			fachada.registrarCalificacion(alumno.getCedula(), cal1, 3);
 			System.out.println("Calificacion registrada correctamente.");
@@ -1110,9 +1115,9 @@ public class PrincipalConsola {
 		} catch (YaTieneCalificacion exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		} catch (NotaInvalida exc) {
-		System.out.println("Error: " + exc.darMensaje());
+			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		try {
 			fachada.registrarCalificacion(alumno.getCedula(), cal1, 4);
 			System.out.println("Calificacion registrada correctamente.");
@@ -1123,9 +1128,9 @@ public class PrincipalConsola {
 		} catch (YaTieneCalificacion exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		} catch (NotaInvalida exc) {
-		System.out.println("Error: " + exc.darMensaje());
+			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		try {
 			fachada.registrarCalificacion(alumno.getCedula(), cal1, 5);
 			System.out.println("Calificacion registrada correctamente.");
@@ -1136,9 +1141,9 @@ public class PrincipalConsola {
 		} catch (YaTieneCalificacion exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		} catch (NotaInvalida exc) {
-		System.out.println("Error: " + exc.darMensaje());
+			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		try {
 			fachada.registrarCalificacion(alumno.getCedula(), cal1, 6);
 			System.out.println("Calificacion registrada correctamente.");
@@ -1149,9 +1154,9 @@ public class PrincipalConsola {
 		} catch (YaTieneCalificacion exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		} catch (NotaInvalida exc) {
-		System.out.println("Error: " + exc.darMensaje());
+			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		try {
 			fachada.registrarCalificacion(alumno.getCedula(), cal1, 7);
 			System.out.println("Calificacion registrada correctamente.");
@@ -1162,9 +1167,9 @@ public class PrincipalConsola {
 		} catch (YaTieneCalificacion exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		} catch (NotaInvalida exc) {
-		System.out.println("Error: " + exc.darMensaje());
+			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		try {
 			fachada.registrarCalificacion(alumno.getCedula(), cal1, 8);
 			System.out.println("Calificacion registrada correctamente.");
@@ -1175,9 +1180,9 @@ public class PrincipalConsola {
 		} catch (YaTieneCalificacion exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		} catch (NotaInvalida exc) {
-		System.out.println("Error: " + exc.darMensaje());
+			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		try {
 			fachada.registrarCalificacion(alumno.getCedula(), cal1, 9);
 			System.out.println("Calificacion registrada correctamente.");
@@ -1188,9 +1193,9 @@ public class PrincipalConsola {
 		} catch (YaTieneCalificacion exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		} catch (NotaInvalida exc) {
-		System.out.println("Error: " + exc.darMensaje());
+			System.out.println("Error: " + exc.darMensaje());
 		}
-		
+
 		try {
 			fachada.registrarCalificacion(alumno.getCedula(), cal1, 10);
 			System.out.println("Calificacion registrada correctamente.");
@@ -1201,58 +1206,65 @@ public class PrincipalConsola {
 		} catch (YaTieneCalificacion exc) {
 			System.out.println("Error: " + exc.darMensaje());
 		} catch (NotaInvalida exc) {
-		System.out.println("Error: " + exc.darMensaje());
+			System.out.println("Error: " + exc.darMensaje());
+		}
+		*/
+
+		System.out.println("-------------------COMPLETO----------------");
+
+		boolean modo = true;
+		try {
+			ArrayList<voAlumnoDat> listaEgresados = fachada.listarEgresados(modo);
+			if(modo) {
+				for (voAlumnoDat egresado : listaEgresados) {
+					System.out.println("Cedula: " + egresado.getCedula());
+					System.out.println("Nombre: " + egresado.getNombre());
+					System.out.println("Apellido: " + egresado.getApellido());
+					if(egresado instanceof voPromedio) {
+						System.out.println("Promedio aprobadas: " + ((voPromedio)egresado).getPromedioAprobacion());
+						System.out.println("Promedio cursadas: " + ((voPromedio)egresado).getPromedioTotal());
+					}
+					System.out.println("-----------------------------------");
+				}
+			}
+			else {
+				for (voAlumnoDat egresado : listaEgresados) {
+					System.out.println("Cedula: " + egresado.getCedula());
+					System.out.println("Nombre: " + egresado.getNombre());
+					System.out.println("Apellido: " + egresado.getApellido());
+					System.out.println("-----------------------------------");
+				}
+			}
+		} catch (DicAlumnosVacioException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		}
+
+		System.out.println("----------------PARCIAL---------------");
+
+		boolean modo2 = false;
+		try {
+			ArrayList<voAlumnoDat> listaEgresados = fachada.listarEgresados(modo2);
+			for (voAlumnoDat egresado : listaEgresados) {
+				System.out.println("Cedula: " + egresado.getCedula());
+				System.out.println("Nombre: " + egresado.getNombre());
+				System.out.println("Apellido: " + egresado.getApellido());
+				if(egresado instanceof voPromedio) {
+					System.out.println("Promedio aprobadas: " + ((voPromedio)egresado).getPromedioAprobacion());
+					System.out.println("Promedio cursadas: " + ((voPromedio)egresado).getPromedioTotal());
+				}
+				System.out.println("-----------------------------------");
+			}
+		} catch (DicAlumnosVacioException exc) {
+			System.out.println("Error: " + exc.darMensaje());
+		}
+
+		
+		try {
+			fachada.respaldar(); 
+		} catch (PersistenciaException e){
+			System.out.println("error respaldar: " + e.darMensaje());
 		}
 		
-        System.out.println("-------------------COMPLETO----------------");
 
-        boolean modo = true;
-        try {
-        	ArrayList<voAlumnoDat> listaEgresados = fachada.listarEgresados(modo);
-			 if(modo) {
-	            for (voAlumnoDat egresado : listaEgresados) {
-	                System.out.println("Cedula: " + egresado.getCedula());
-	            	System.out.println("Nombre: " + egresado.getNombre());
-	                System.out.println("Apellido: " + egresado.getApellido());
-	               	if(egresado instanceof voPromedio) {
-	                   	System.out.println("Promedio aprobadas: " + ((voPromedio)egresado).getPromedioAprobacion());
-	               		System.out.println("Promedio cursadas: " + ((voPromedio)egresado).getPromedioTotal());
-	               	}
-	                System.out.println("-----------------------------------");
-	            }
-			 }
-	          else {
-		            for (voAlumnoDat egresado : listaEgresados) {
-		            	System.out.println("Cedula: " + egresado.getCedula());
-		            	System.out.println("Nombre: " + egresado.getNombre());
-		                System.out.println("Apellido: " + egresado.getApellido());
-		                System.out.println("-----------------------------------");
-		            }
-	          }
-	    } catch (DicAlumnosVacioException exc) {
-	        System.out.println("Error: " + exc.darMensaje());
-	    }
-        
-        System.out.println("----------------PARCIAL---------------");
-
-        boolean modo2 = false;
-        try {
-        	ArrayList<voAlumnoDat> listaEgresados = fachada.listarEgresados(modo2);
-	            for (voAlumnoDat egresado : listaEgresados) {
-	                System.out.println("Cedula: " + egresado.getCedula());
-	            	System.out.println("Nombre: " + egresado.getNombre());
-	                System.out.println("Apellido: " + egresado.getApellido());
-	               	if(egresado instanceof voPromedio) {
-	                   	System.out.println("Promedio aprobadas: " + ((voPromedio)egresado).getPromedioAprobacion());
-	               		System.out.println("Promedio cursadas: " + ((voPromedio)egresado).getPromedioTotal());
-	               	}
-	                System.out.println("-----------------------------------");
-	            }
-	    } catch (DicAlumnosVacioException exc) {
-	        System.out.println("Error: " + exc.darMensaje());
-	    }
-        
-
-}
-
+	}
 }

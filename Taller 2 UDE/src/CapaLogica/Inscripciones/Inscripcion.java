@@ -1,7 +1,8 @@
 package CapaLogica.Inscripciones;
 import CapaLogica.Asignaturas.*;
+import java.io.*;
 
-public class Inscripcion {
+public class Inscripcion implements Serializable{
 
 	private int numero;
 	private int anioLectivo;

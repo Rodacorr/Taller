@@ -6,9 +6,12 @@ import CapaLogica.VO.*;
 
 import CapaLogica.VO.voAlumnoDat;
 import CapaLogica.VO.voPromedio;
+import java.io.*;
+
 import java.lang.Object;
 
-public class Alumnos {
+
+public class Alumnos implements Serializable{
 
     private TreeMap<Long,Alumno> ABBAlumnos;
     

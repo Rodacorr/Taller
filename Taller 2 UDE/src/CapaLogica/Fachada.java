@@ -1,5 +1,8 @@
 package CapaLogica;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import CapaLogica.Alumnos.Alumno;
 import CapaLogica.Alumnos.Alumnos;
@@ -8,19 +11,22 @@ import CapaLogica.Alumnos.Becado;
 import CapaLogica.Asignaturas.*;
 import CapaLogica.Exceptions.*;
 import CapaLogica.VO.*;
+import persistencia.*;
+import persistencia.exceptions.*;
+import java.util.Properties;
 
 public class Fachada {
-	
+
 	private Alumnos diccioAl;
 	private Asignaturas diccioAs;
 	private Monitor m;
-	
+
 	public Fachada () {
-        diccioAl = new Alumnos();
-        diccioAs = new Asignaturas();
-        m = new Monitor();
+		diccioAl = new Alumnos();
+		diccioAs = new Asignaturas();
+		m = new Monitor();
 	}
-	
+
 	public void registrarAsignatura(voAsignatura asig) throws AsignaturaYaExisteException, AsignaturasCompletaException{ 
 		m.comienzoEscritura();
 		String cod = asig.getCodigo();
@@ -45,7 +51,7 @@ public class Fachada {
 			}
 		}
 	}
-	
+
 	public ArrayList<voAsignatura> listarAsignaturas() throws DicAsignaturasVacioException { 
 		m.comienzoLectura();
 		if(diccioAs.esVacio()) {
@@ -59,9 +65,9 @@ public class Fachada {
 			return vo;
 		}
 	}
-		
-	
-	
+
+
+
 	public void registarAlumno(voAlumno al) throws AlumnoYaExisteExceptions{
 		m.comienzoEscritura();
 		long ced = al.getCedula();
@@ -79,9 +85,9 @@ public class Fachada {
 			diccioAl.insert(alu);
 			m.terminoEscritura();
 		}
-		
+
 	}
-	
+
 	public ArrayList<voAlumnoDatTipo> listarAlumnoApe(String ape) throws DicAlumnosVacioException {
 		m.comienzoLectura();
 		if(diccioAl.esVacio()) {
@@ -95,7 +101,7 @@ public class Fachada {
 			return vo;
 		}
 	}
-	
+
 	public voAlumnoCompleto listarAlumnoCed(long ced) throws AlumnoNoInscriptoException{
 		m.comienzoLectura();
 		if(!diccioAl.member(ced)) {
@@ -124,7 +130,7 @@ public class Fachada {
 			return vo;
 		}
 	}
-	
+
 	public void registrarInscripcion(String cod, long ced, float mon, int anio) throws AlumnoNoInscriptoException, AsignaturaNoExisteException,AlumnoYaCursaAsignatura,AñoMenorAlUltimoReg{ 
 		m.comienzoEscritura();
 		if(!diccioAl.member(ced)) {
@@ -138,7 +144,7 @@ public class Fachada {
 				String msg = "asignatura no registrada";
 				m.terminoEscritura();
 				throw new AsignaturaNoExisteException(msg); 
-				
+
 			}
 			else{
 				if(al.estaInscriptoCursando(cod, anio))  {  
@@ -168,7 +174,7 @@ public class Fachada {
 			}
 		}
 	}
-	
+
 	public void registrarCalificacion(long ced, int cal, int num) throws AlumnoNoInscriptoException, NumInscripcionNoExiste, YaTieneCalificacion, NotaInvalida{ 
 		m.comienzoEscritura();
 		///mover para aca el if dew la nota valida
@@ -188,7 +194,7 @@ public class Fachada {
 				if(al.tieneCalificacion(num)) {
 					String msg = "ya tiene una calificación en esta inscripcion "; 
 					m.terminoEscritura();
-				 	throw new YaTieneCalificacion(msg); 
+					throw new YaTieneCalificacion(msg); 
 				}
 				else{
 					if(cal < 1 || cal > 12) {
@@ -203,11 +209,11 @@ public class Fachada {
 				}
 			}
 		}	                              
-			
+
 	}
-		
-	
-	
+
+
+
 	public float montoRecaudado (long ced, int anio) throws AlumnoNoInscriptoException{ 
 		m.comienzoLectura();
 		if(!diccioAl.member(ced)){
@@ -221,7 +227,7 @@ public class Fachada {
 			return al.calcularRecaudado(anio);
 		}	
 	}
-	
+
 	public  ArrayList<voInscripcion> listarEscolaridad(long ced, boolean modo) throws AlumnoNoInscriptoException,SecInscripcionesVaciaException{ 
 		m.comienzoLectura();
 		if(!diccioAl.member(ced)) {
@@ -242,7 +248,7 @@ public class Fachada {
 			}	
 		}
 	}
-	
+
 	public  ArrayList<voAlumnoDat> listarEgresados(boolean modo) throws DicAlumnosVacioException{
 		m.comienzoLectura();
 		if(diccioAl.esVacio()) {
@@ -254,17 +260,62 @@ public class Fachada {
 			m.terminoLectura();
 			return diccioAl.listarEgresados(modo);
 		}
-		
+
 	}
-	
-	public void respaldar(){ 
+
+	public void respaldar() throws PersistenciaException{ 
 		m.comienzoLectura();
-		m.terminoLectura();
+		voPersistencia vo = new voPersistencia(diccioAl, diccioAs);
+		Persistencia p = new Persistencia();
+		try {
+			Properties prop = new Properties();
+			String nomArch = "config/txt.properties";
+			prop.load (new FileInputStream (nomArch));
+			String nombreArchivo = prop.getProperty("nombreArchivo");
+
+
+			p.respaldar(nombreArchivo, vo);
+			m.terminoLectura();
+		}catch(PersistenciaException e) {
+			m.terminoLectura();
+			throw e;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			m.terminoLectura();
+			throw new PersistenciaException(e.getMessage());
+		} catch (IOException e) {
+			e.printStackTrace();
+			m.terminoLectura();
+			throw new PersistenciaException(e.getMessage());
+		}
 	}
-	
-	public void recuperar(){ 
+
+	public void recuperar() throws PersistenciaException{ 
 		m.comienzoEscritura();
-		m.terminoEscritura();
+		Persistencia p = new Persistencia();
+		try {
+			Properties prop = new Properties();
+			String nomArch = "config/txt.properties";
+			prop.load (new FileInputStream (nomArch));
+			String nombreArchivo = prop.getProperty("nombreArchivo");
+
+			voPersistencia vo = p.recuperar(nombreArchivo);
+			diccioAl = vo.getDiccioAl();
+			diccioAs = vo.getDiccioAs();
+			m.terminoEscritura();
+		}catch(PersistenciaException e) {
+			m.terminoEscritura();
+			throw e;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			m.terminoLectura();
+			throw new PersistenciaException(e.getMessage());
+		} catch (IOException e) {
+			e.printStackTrace();
+			m.terminoLectura();
+			throw new PersistenciaException(e.getMessage());
+		}
+
 	}
 
 

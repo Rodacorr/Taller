@@ -6,8 +6,9 @@ import CapaLogica.Alumnos.Alumno;
 import CapaLogica.VO.voAlumnoDat;
 import CapaLogica.VO.voInscripcion;
 import CapaLogica.VO.voPromedio;
+import java.io.*;
 
-public class Inscripciones  {
+public class Inscripciones  implements Serializable{
 
 	private LinkedList<Inscripcion> lista;
 
