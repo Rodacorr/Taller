@@ -57,7 +57,7 @@ public class VentanaRegistrarAlumno extends JFrame {
 		
 		JButton btnCancel = new JButton("Canecelar");
 		btnCancel.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnCancel.setForeground(new Color(255, 0, 0));
+		btnCancel.setForeground(new Color(0, 0, 0));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -68,7 +68,7 @@ public class VentanaRegistrarAlumno extends JFrame {
 		
 		JButton btnAccept = new JButton("Aceptar");
 		btnAccept.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnAccept.setForeground(new Color(0, 255, 0));
+		btnAccept.setForeground(new Color(0, 0, 0));
 		btnAccept.setBackground(new Color(0, 255, 0));
 		btnAccept.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -112,53 +112,53 @@ public class VentanaRegistrarAlumno extends JFrame {
 		txtNom.setBounds(225, 110, 86, 20);
 		contentPane.add(txtNom);
 		
-		JLabel lblNewLabel = new JLabel("Cedula");
-		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblNewLabel.setBounds(75, 75, 46, 14);
-		contentPane.add(lblNewLabel);
+		JLabel lblCedula = new JLabel("Cedula");
+		lblCedula.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblCedula.setBounds(75, 75, 46, 14);
+		contentPane.add(lblCedula);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nombre");
-		lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblNewLabel_1.setBounds(75, 110, 46, 14);
-		contentPane.add(lblNewLabel_1);
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblNombre.setBounds(75, 110, 46, 14);
+		contentPane.add(lblNombre);
 		
-		JLabel lblNewLabel_2 = new JLabel("Apellido");
-		lblNewLabel_2.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblNewLabel_2.setBounds(75, 145, 46, 14);
-		contentPane.add(lblNewLabel_2);
+		JLabel lblApellido = new JLabel("Apellido");
+		lblApellido.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblApellido.setBounds(75, 145, 46, 14);
+		contentPane.add(lblApellido);
 		
-		JLabel lblNewLabel_3 = new JLabel("Domicilo");
-		lblNewLabel_3.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblNewLabel_3.setBounds(75, 180, 70, 14);
-		contentPane.add(lblNewLabel_3);
+		JLabel lblDomicilo = new JLabel("Domicilo");
+		lblDomicilo.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblDomicilo.setBounds(75, 180, 70, 14);
+		contentPane.add(lblDomicilo);
 		
-		JLabel lblNewLabel_4 = new JLabel("Telefono");
-		lblNewLabel_4.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblNewLabel_4.setBounds(75, 215, 70, 14);
-		contentPane.add(lblNewLabel_4);
+		JLabel lblTelefono = new JLabel("Telefono");
+		lblTelefono.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblTelefono.setBounds(75, 215, 70, 14);
+		contentPane.add(lblTelefono);
 		
-		JLabel lblNewLabel_5 = new JLabel("Es becado?");
-		lblNewLabel_5.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblNewLabel_5.setBounds(75, 250, 79, 14);
-		contentPane.add(lblNewLabel_5);
+		JLabel lblBecado = new JLabel("Es becado?");
+		lblBecado.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblBecado.setBounds(75, 250, 79, 14);
+		contentPane.add(lblBecado);
 		
-		JLabel lblNewLabel_6 = new JLabel("Porcentaje");
-		lblNewLabel_6.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblNewLabel_6.setBounds(75, 285, 70, 14);
-		contentPane.add(lblNewLabel_6);
+		JLabel lblPorcentaje = new JLabel("Porcentaje");
+		lblPorcentaje.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblPorcentaje.setBounds(75, 285, 70, 14);
+		contentPane.add(lblPorcentaje);
 		
-		JLabel lblNewLabel_7 = new JLabel("Razon");
-		lblNewLabel_7.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblNewLabel_7.setBounds(75, 320, 46, 14);
-		contentPane.add(lblNewLabel_7);
+		JLabel lblRazon = new JLabel("Razon");
+		lblRazon.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblRazon.setBounds(75, 320, 46, 14);
+		contentPane.add(lblRazon);
 		
 		JCheckBox chckBec = new JCheckBox("");
 		chckBec.setBounds(250, 250, 97, 23);
 		contentPane.add(chckBec);
 		
-		JLabel lblNewLabel_8 = new JLabel("Registrar Alumno");
-		lblNewLabel_8.setFont(new Font("SansSerif", Font.BOLD, 20));
-		lblNewLabel_8.setBounds(100, 25, 175, 33);
-		contentPane.add(lblNewLabel_8);
+		JLabel lblTituloRegistro = new JLabel("Registrar Alumno");
+		lblTituloRegistro.setFont(new Font("SansSerif", Font.BOLD, 20));
+		lblTituloRegistro.setBounds(100, 25, 175, 33);
+		contentPane.add(lblTituloRegistro);
 	}
 }

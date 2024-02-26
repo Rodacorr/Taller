@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextPane;
+import java.awt.Label;
 
 public class VentanaIngresarAsignatura {
 
