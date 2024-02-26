@@ -3,6 +3,8 @@ package CapaLogica;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import CapaLogica.Alumnos.Alumno;
 import CapaLogica.Alumnos.Alumnos;
@@ -15,19 +17,19 @@ import persistencia.*;
 import persistencia.exceptions.*;
 import java.util.Properties;
 
-public class Fachada {
+public class Fachada extends UnicastRemoteObject implements IFachada{
 
 	private Alumnos diccioAl;
 	private Asignaturas diccioAs;
 	private Monitor m;
 
-	public Fachada () {
+	public Fachada () throws RemoteException{
 		diccioAl = new Alumnos();
 		diccioAs = new Asignaturas();
 		m = new Monitor();
 	}
 
-	public void registrarAsignatura(voAsignatura asig) throws AsignaturaYaExisteException, AsignaturasCompletaException{ 
+	public void registrarAsignatura(voAsignatura asig) throws RemoteException, AsignaturaYaExisteException, AsignaturasCompletaException{ 
 		m.comienzoEscritura();
 		String cod = asig.getCodigo();
 		String nom = asig.getNombre();
@@ -52,7 +54,7 @@ public class Fachada {
 		}
 	}
 
-	public ArrayList<voAsignatura> listarAsignaturas() throws DicAsignaturasVacioException { 
+	public ArrayList<voAsignatura> listarAsignaturas() throws RemoteException, DicAsignaturasVacioException { 
 		m.comienzoLectura();
 		if(diccioAs.esVacio()) {
 			String msg = "No existen asignaturas para mostrar";
@@ -68,7 +70,7 @@ public class Fachada {
 
 
 
-	public void registarAlumno(voAlumno al) throws AlumnoYaExisteExceptions{
+	public void registarAlumno(voAlumno al) throws RemoteException, AlumnoYaExisteExceptions{
 		m.comienzoEscritura();
 		long ced = al.getCedula();
 		if (diccioAl.member(ced)){
@@ -88,7 +90,7 @@ public class Fachada {
 
 	}
 
-	public ArrayList<voAlumnoDatTipo> listarAlumnoApe(String ape) throws DicAlumnosVacioException {
+	public ArrayList<voAlumnoDatTipo> listarAlumnoApe(String ape) throws RemoteException, DicAlumnosVacioException {
 		m.comienzoLectura();
 		if(diccioAl.esVacio()) {
 			String msg = "No hay alumnos para mostrar";
@@ -102,7 +104,7 @@ public class Fachada {
 		}
 	}
 
-	public voAlumnoCompleto listarAlumnoCed(long ced) throws AlumnoNoInscriptoException{
+	public voAlumnoCompleto listarAlumnoCed(long ced) throws RemoteException, AlumnoNoInscriptoException{
 		m.comienzoLectura();
 		if(!diccioAl.member(ced)) {
 			String msg = "alumno no existe";
@@ -131,7 +133,7 @@ public class Fachada {
 		}
 	}
 
-	public void registrarInscripcion(String cod, long ced, float mon, int anio) throws AlumnoNoInscriptoException, AsignaturaNoExisteException,AlumnoYaCursaAsignatura,AñoMenorAlUltimoReg{ 
+	public void registrarInscripcion(String cod, long ced, float mon, int anio) throws RemoteException, AlumnoNoInscriptoException, AsignaturaNoExisteException,AlumnoYaCursaAsignatura,AñoMenorAlUltimoReg{ 
 		m.comienzoEscritura();
 		if(!diccioAl.member(ced)) {
 			String msg = "alumno no existe";
@@ -175,7 +177,7 @@ public class Fachada {
 		}
 	}
 
-	public void registrarCalificacion(long ced, int cal, int num) throws AlumnoNoInscriptoException, NumInscripcionNoExiste, YaTieneCalificacion, NotaInvalida{ 
+	public void registrarCalificacion(long ced, int cal, int num) throws RemoteException, AlumnoNoInscriptoException, NumInscripcionNoExiste, YaTieneCalificacion, NotaInvalida{ 
 		m.comienzoEscritura();
 		///mover para aca el if dew la nota valida
 		if(!diccioAl.member(ced)) {
@@ -214,7 +216,7 @@ public class Fachada {
 
 
 
-	public float montoRecaudado (long ced, int anio) throws AlumnoNoInscriptoException{ 
+	public float montoRecaudado (long ced, int anio) throws RemoteException, AlumnoNoInscriptoException{ 
 		m.comienzoLectura();
 		if(!diccioAl.member(ced)){
 			String msg = "alumno no existe";
@@ -228,7 +230,7 @@ public class Fachada {
 		}	
 	}
 
-	public  ArrayList<voInscripcion> listarEscolaridad(long ced, boolean modo) throws AlumnoNoInscriptoException,SecInscripcionesVaciaException{ 
+	public  ArrayList<voInscripcion> listarEscolaridad(long ced, boolean modo) throws RemoteException, AlumnoNoInscriptoException,SecInscripcionesVaciaException{ 
 		m.comienzoLectura();
 		if(!diccioAl.member(ced)) {
 			String msg = "alumno no existe";
@@ -249,7 +251,7 @@ public class Fachada {
 		}
 	}
 
-	public  ArrayList<voAlumnoDat> listarEgresados(boolean modo) throws DicAlumnosVacioException{
+	public  ArrayList<voAlumnoDat> listarEgresados(boolean modo) throws RemoteException, DicAlumnosVacioException{
 		m.comienzoLectura();
 		if(diccioAl.esVacio()) {
 			String msg = "No hay egresados para mostrar";
@@ -263,7 +265,7 @@ public class Fachada {
 
 	}
 
-	public void respaldar() throws PersistenciaException{ 
+	public void respaldar() throws RemoteException, PersistenciaException{ 
 		m.comienzoLectura();
 		voPersistencia vo = new voPersistencia(diccioAl, diccioAs);
 		Persistencia p = new Persistencia();
@@ -290,7 +292,7 @@ public class Fachada {
 		}
 	}
 
-	public void recuperar() throws PersistenciaException{ 
+	public void recuperar() throws RemoteException, PersistenciaException{ 
 		m.comienzoEscritura();
 		Persistencia p = new Persistencia();
 		try {

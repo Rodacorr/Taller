@@ -1,6 +1,8 @@
 package CapaLogica.VO;
 
-public class voPromedio extends voAlumnoDat  {
+import java.io.Serializable;
+
+public class voPromedio extends voAlumnoDat  implements Serializable{
 
 	private float promedioAprobacion;
 	private float promedioTotal;

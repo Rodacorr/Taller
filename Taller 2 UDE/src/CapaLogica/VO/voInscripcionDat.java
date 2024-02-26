@@ -1,6 +1,8 @@
 package CapaLogica.VO;
 
-public class voInscripcionDat extends voInscripcionCal{
+import java.io.Serializable;
+
+public class voInscripcionDat extends voInscripcionCal implements Serializable{
 
 	private int anioLectivo;
 	private float monto;

@@ -1,6 +1,8 @@
 package CapaLogica.VO;
 
-public class voInscripcionCal {
+import java.io.Serializable;
+
+public class voInscripcionCal implements Serializable {
 
 	private int numero;
 	private int calificacion;

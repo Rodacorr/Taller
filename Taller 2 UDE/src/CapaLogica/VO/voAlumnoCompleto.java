@@ -1,6 +1,8 @@
 package CapaLogica.VO;
 
-public class voAlumnoCompleto extends voAlumnoDatCom {
+import java.io.Serializable;
+
+public class voAlumnoCompleto extends voAlumnoDatCom implements Serializable{
 	private String tipo;
 	private String domicilio;
 	private long telefono;

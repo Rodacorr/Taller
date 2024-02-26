@@ -1,6 +1,8 @@
 package CapaLogica.VO;
 
-public class voAlumnoDatCom extends voAlumnoDat{
+import java.io.Serializable;
+
+public class voAlumnoDatCom extends voAlumnoDat implements Serializable{
 
 	private int CantAsigAprob;
 	

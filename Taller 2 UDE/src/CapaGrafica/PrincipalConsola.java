@@ -4,6 +4,7 @@ import CapaLogica.Asignaturas.*;
 import CapaLogica.Inscripciones.*;
 import CapaLogica.VO.*;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import CapaLogica.Fachada;
@@ -15,7 +16,13 @@ public class PrincipalConsola {
 	public static void main(String[] args) {
 
 
-		Fachada fachada = new Fachada();
+		Fachada fachada = null;
+		try {
+			fachada = new Fachada();
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		/*
 		// REQUERIMIENTO 1 - FUNCIONA
@@ -817,6 +824,9 @@ public class PrincipalConsola {
 			fachada.recuperar(); 
 		} catch (PersistenciaException e){
 			System.out.println("error recuperar: " + e.darMensaje());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		// REQUERIMIENTO 10
@@ -1237,6 +1247,9 @@ public class PrincipalConsola {
 			}
 		} catch (DicAlumnosVacioException exc) {
 			System.out.println("Error: " + exc.darMensaje());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		System.out.println("----------------PARCIAL---------------");
@@ -1256,6 +1269,9 @@ public class PrincipalConsola {
 			}
 		} catch (DicAlumnosVacioException exc) {
 			System.out.println("Error: " + exc.darMensaje());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		
@@ -1263,6 +1279,9 @@ public class PrincipalConsola {
 			fachada.respaldar(); 
 		} catch (PersistenciaException e){
 			System.out.println("error respaldar: " + e.darMensaje());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 

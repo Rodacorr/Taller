@@ -1,6 +1,8 @@
 package CapaLogica.VO;
 
-public class voAlumnoDat  {
+import java.io.Serializable;
+
+public class voAlumnoDat  implements Serializable {
 
 	private long cedula;
 	private String nombre;

@@ -1,6 +1,8 @@
 package CapaLogica.VO;
 
-public class voAsignatura {
+import java.io.Serializable;
+
+public class voAsignatura implements Serializable {
 
 	private String codigo;
 	private String nombre;

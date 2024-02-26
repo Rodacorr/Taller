@@ -1,6 +1,8 @@
 package CapaLogica.VO;
 
-public class voInscripcionCompleto extends voInscripcion {
+import java.io.Serializable;
+
+public class voInscripcionCompleto extends voInscripcion implements Serializable{
 	private float monto;
 	
 	public voInscripcionCompleto(int num, int cal, int anio, String as,float monto) {

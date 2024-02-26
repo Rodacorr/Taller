@@ -1,6 +1,8 @@
 package CapaLogica.VO;
 
-public class voBecadoDatCom extends voAlumnoCompleto {
+import java.io.Serializable;
+
+public class voBecadoDatCom extends voAlumnoCompleto implements Serializable{
 
 	private int porcentajeBeca;
 	private String razon;
