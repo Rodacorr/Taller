@@ -11,7 +11,7 @@ import java.awt.Font;
 import javax.swing.JTextPane;
 import java.awt.Label;
 
-public class VentanaIngresarAsignatura {
+public class VentanaRegistrarAsignatura {
 
 	private JFrame frame;
 	private JTextField txtNombre;
@@ -26,7 +26,7 @@ public class VentanaIngresarAsignatura {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaIngresarAsignatura window = new VentanaIngresarAsignatura();
+					VentanaRegistrarAsignatura window = new VentanaRegistrarAsignatura();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +38,7 @@ public class VentanaIngresarAsignatura {
 	/**
 	 * Create the application.
 	 */
-	public VentanaIngresarAsignatura() {
+	public VentanaRegistrarAsignatura() {
 		initialize();
 	}
 
