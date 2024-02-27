@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
 import java.awt.Font;
+import javax.swing.JComboBox;
+import javax.swing.JTextArea;
 
 public class VentanaRegistrarAlumno extends JFrame {
 
@@ -24,7 +26,7 @@ public class VentanaRegistrarAlumno extends JFrame {
 	private JTextField txtApe;
 	private JTextField txtDom;
 	private JTextField txtPorce;
-	private JTextField txtRa;
+	private JTextField txtRaz;
 	private JTextField txtNom;
 
 	/**
@@ -50,115 +52,113 @@ public class VentanaRegistrarAlumno extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 500);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnCancel = new JButton("Canecelar");
-		btnCancel.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnCancel.setForeground(new Color(0, 0, 0));
-		btnCancel.addActionListener(new ActionListener() {
+		JButton btnCancelar = new JButton("CANCELAR");
+		btnCancelar.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnCancelar.setForeground(new Color(0, 0, 0));
+		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnCancel.setBackground(new Color(255, 0, 0));
-		btnCancel.setBounds(75, 400, 100, 30);
-		contentPane.add(btnCancel);
-		
-		JButton btnAccept = new JButton("Aceptar");
-		btnAccept.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnAccept.setForeground(new Color(0, 0, 0));
-		btnAccept.setBackground(new Color(0, 255, 0));
-		btnAccept.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnAccept.setBounds(225, 400, 100, 30);
-		contentPane.add(btnAccept);
+		btnCancelar.setBackground(new Color(255, 0, 0));
+		btnCancelar.setBounds(57, 400, 100, 30);
+		contentPane.add(btnCancelar);
 		
 		txtCed = new JTextField();
-		txtCed.setBounds(225, 75, 86, 20);
+		txtCed.setBounds(223, 75, 108, 20);
 		contentPane.add(txtCed);
 		txtCed.setColumns(10);
 		
 		txtTel = new JTextField();
 		txtTel.setColumns(10);
-		txtTel.setBounds(225, 215, 86, 20);
+		txtTel.setBounds(223, 215, 108, 20);
 		contentPane.add(txtTel);
 		
 		txtApe = new JTextField();
 		txtApe.setColumns(10);
-		txtApe.setBounds(225, 145, 86, 20);
+		txtApe.setBounds(223, 141, 108, 20);
 		contentPane.add(txtApe);
 		
 		txtDom = new JTextField();
 		txtDom.setColumns(10);
-		txtDom.setBounds(225, 180, 86, 20);
+		txtDom.setBounds(223, 176, 108, 20);
 		contentPane.add(txtDom);
 		
 		txtPorce = new JTextField();
 		txtPorce.setColumns(10);
-		txtPorce.setBounds(225, 285, 86, 20);
+		txtPorce.setBounds(223, 300, 108, 20);
 		contentPane.add(txtPorce);
 		
-		txtRa = new JTextField();
-		txtRa.setColumns(10);
-		txtRa.setBounds(225, 320, 86, 20);
-		contentPane.add(txtRa);
+		txtRaz = new JTextField();
+		txtRaz.setColumns(10);
+		txtRaz.setBounds(223, 341, 108, 20);
+		contentPane.add(txtRaz);
 		
 		txtNom = new JTextField();
 		txtNom.setColumns(10);
-		txtNom.setBounds(225, 110, 86, 20);
+		txtNom.setBounds(223, 106, 108, 20);
 		contentPane.add(txtNom);
 		
-		JLabel lblCedula = new JLabel("Cedula");
+		JLabel lblCedula = new JLabel("Ingrese Cedula");
 		lblCedula.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblCedula.setBounds(75, 75, 46, 14);
+		lblCedula.setBounds(57, 78, 100, 14);
 		contentPane.add(lblCedula);
 		
-		JLabel lblNombre = new JLabel("Nombre");
+		JLabel lblNombre = new JLabel("Ingrese Nombre");
 		lblNombre.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblNombre.setBounds(75, 110, 46, 14);
+		lblNombre.setBounds(57, 113, 100, 14);
 		contentPane.add(lblNombre);
 		
-		JLabel lblApellido = new JLabel("Apellido");
+		JLabel lblApellido = new JLabel("Ingrese Apellido");
 		lblApellido.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblApellido.setBounds(75, 145, 46, 14);
+		lblApellido.setBounds(57, 148, 100, 14);
 		contentPane.add(lblApellido);
 		
-		JLabel lblDomicilo = new JLabel("Domicilo");
+		JLabel lblDomicilo = new JLabel("Ingrese Domicilo");
 		lblDomicilo.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblDomicilo.setBounds(75, 180, 70, 14);
+		lblDomicilo.setBounds(57, 183, 100, 14);
 		contentPane.add(lblDomicilo);
 		
-		JLabel lblTelefono = new JLabel("Telefono");
+		JLabel lblTelefono = new JLabel("Ingrese Telefono");
 		lblTelefono.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblTelefono.setBounds(75, 215, 70, 14);
+		lblTelefono.setBounds(57, 218, 100, 14);
 		contentPane.add(lblTelefono);
 		
-		JLabel lblBecado = new JLabel("Es becado?");
+		JLabel lblBecado = new JLabel("¿El alumno es becado?");
 		lblBecado.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblBecado.setBounds(75, 250, 79, 14);
+		lblBecado.setBounds(37, 259, 141, 14);
 		contentPane.add(lblBecado);
 		
-		JLabel lblPorcentaje = new JLabel("Porcentaje");
+		JLabel lblPorcentaje = new JLabel("Ingrese porcentaje de beca");
 		lblPorcentaje.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblPorcentaje.setBounds(75, 285, 70, 14);
+		lblPorcentaje.setBounds(37, 303, 159, 14);
 		contentPane.add(lblPorcentaje);
 		
-		JLabel lblRazon = new JLabel("Razon");
+		JLabel lblRazon = new JLabel("Ingrese Razon de la beca");
 		lblRazon.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblRazon.setBounds(75, 320, 46, 14);
+		lblRazon.setBounds(37, 344, 159, 14);
 		contentPane.add(lblRazon);
 		
 		JCheckBox chckBec = new JCheckBox("");
-		chckBec.setBounds(250, 250, 97, 23);
+		chckBec.setBackground(new Color(255, 255, 255));
+		chckBec.setBounds(263, 250, 21, 23);
 		contentPane.add(chckBec);
 		
-		JLabel lblTituloRegistro = new JLabel("Registrar Alumno");
-		lblTituloRegistro.setFont(new Font("SansSerif", Font.BOLD, 20));
-		lblTituloRegistro.setBounds(100, 25, 175, 33);
-		contentPane.add(lblTituloRegistro);
+		JLabel lblTituloRegAlum = new JLabel("REGISTRAR ALUMNO");
+		lblTituloRegAlum.setFont(new Font("SansSerif", Font.BOLD, 20));
+		lblTituloRegAlum.setBounds(88, 11, 225, 33);
+		contentPane.add(lblTituloRegAlum);
+		
+		JButton btnRegistrar = new JButton("REGISTRAR");
+		btnRegistrar.setForeground(Color.BLACK);
+		btnRegistrar.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnRegistrar.setBackground(Color.GREEN);
+		btnRegistrar.setBounds(206, 400, 114, 30);
+		contentPane.add(btnRegistrar);
 	}
 }

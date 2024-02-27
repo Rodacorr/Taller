@@ -8,6 +8,10 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaMontoRecaudad extends JFrame {
 
@@ -37,41 +41,56 @@ public class VentanaMontoRecaudad extends JFrame {
 	 */
 	public VentanaMontoRecaudad() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 398, 272);
+		setBounds(100, 100, 398, 251);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblTituloMontoRecaudado = new JLabel("Monto Recaudado");
-		lblTituloMontoRecaudado.setBounds(118, 0, 177, 26);
+		JLabel lblTituloMontoRecaudado = new JLabel("MONTO RECAUDADO");
+		lblTituloMontoRecaudado.setBounds(92, 0, 216, 26);
 		lblTituloMontoRecaudado.setFont(new Font("SansSerif", Font.BOLD, 20));
 		contentPane.add(lblTituloMontoRecaudado);
 		
-		JLabel lblCedAlumno = new JLabel("Cedula Alumno");
+		JLabel lblCedAlumno = new JLabel("Ingrese cedula del alumno");
 		lblCedAlumno.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblCedAlumno.setBounds(55, 56, 101, 19);
+		lblCedAlumno.setBounds(36, 56, 152, 19);
 		contentPane.add(lblCedAlumno);
 		
 		textCed = new JTextField();
 		textCed.setColumns(10);
-		textCed.setBounds(248, 55, 86, 20);
+		textCed.setBounds(212, 55, 122, 20);
 		contentPane.add(textCed);
 		
-		JLabel lblAnioLectivo = new JLabel("Año Lectivo");
+		JLabel lblAnioLectivo = new JLabel("Ingrese año lectivo");
 		lblAnioLectivo.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblAnioLectivo.setBounds(55, 89, 101, 19);
+		lblAnioLectivo.setBounds(36, 97, 109, 19);
 		contentPane.add(lblAnioLectivo);
 		
 		textAnioLec = new JTextField();
 		textAnioLec.setColumns(10);
-		textAnioLec.setBounds(248, 86, 86, 20);
+		textAnioLec.setBounds(212, 96, 122, 20);
 		contentPane.add(textAnioLec);
 		
-		JLabel lblMontoRecaudado = new JLabel("\"monto\"");
-		lblMontoRecaudado.setBounds(118, 141, 177, 50);
-		contentPane.add(lblMontoRecaudado);
+		JButton btnCancelar = new JButton("CANCELAR");
+		btnCancelar.setForeground(Color.BLACK);
+		btnCancelar.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnCancelar.setBackground(Color.RED);
+		btnCancelar.setBounds(45, 147, 100, 30);
+		contentPane.add(btnCancelar);
+		
+		JButton btnCalcular = new JButton("CALCULAR");
+		btnCalcular.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnCalcular.setForeground(Color.BLACK);
+		btnCalcular.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnCalcular.setBackground(Color.GREEN);
+		btnCalcular.setBounds(222, 147, 100, 30);
+		contentPane.add(btnCalcular);
 	}
 
 }

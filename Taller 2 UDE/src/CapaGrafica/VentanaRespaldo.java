@@ -8,6 +8,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JCheckBox;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import java.awt.Color;
+import javax.swing.JEditorPane;
+import javax.swing.JTextPane;
 
 public class VentanaRespaldo extends JFrame {
 
@@ -35,30 +43,35 @@ public class VentanaRespaldo extends JFrame {
 	 */
 	public VentanaRespaldo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 274, 180);
+		setBounds(100, 100, 325, 165);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblTituloRespaldo = new JLabel("Respaldar");
-		lblTituloRespaldo.setFont(new Font("SansSerif", Font.BOLD, 20));
-		lblTituloRespaldo.setBounds(73, 0, 103, 26);
-		contentPane.add(lblTituloRespaldo);
+		JLabel lblTituloRespaldar = new JLabel("RESPALDAR");
+		lblTituloRespaldar.setFont(new Font("SansSerif", Font.BOLD, 20));
+		lblTituloRespaldar.setBounds(100, 0, 141, 26);
+		contentPane.add(lblTituloRespaldar);
 		
-		JLabel lblRespaldar = new JLabel("Deseas Respaldar?");
-		lblRespaldar.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblRespaldar.setBounds(59, 49, 123, 19);
-		contentPane.add(lblRespaldar);
+		JButton btnRespaldar = new JButton("RESPALDAR");
+		btnRespaldar.setForeground(Color.BLACK);
+		btnRespaldar.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnRespaldar.setBackground(Color.GREEN);
+		btnRespaldar.setBounds(166, 58, 114, 30);
+		contentPane.add(btnRespaldar);
 		
-		JCheckBox chckbxRespal = new JCheckBox("SI");
-		chckbxRespal.setBounds(59, 94, 41, 23);
-		contentPane.add(chckbxRespal);
-		
-		JCheckBox chckbxRespal2 = new JCheckBox("NO");
-		chckbxRespal2.setBounds(141, 94, 41, 23);
-		contentPane.add(chckbxRespal2);
+		JButton btnCancelar = new JButton("CANCELAR");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnCancelar.setForeground(Color.BLACK);
+		btnCancelar.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnCancelar.setBackground(Color.RED);
+		btnCancelar.setBounds(26, 58, 100, 30);
+		contentPane.add(btnCancelar);
 	}
-
 }

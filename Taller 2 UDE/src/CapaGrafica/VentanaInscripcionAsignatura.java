@@ -9,13 +9,16 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaInscripcionAsignatura extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textCedAlu;
-	private JTextField textCodAsi;
+	private JTextField textCed;
+	private JTextField textCod;
 	private JTextField textMonto;
 	private JTextField textAnio;
 
@@ -42,59 +45,73 @@ public class VentanaInscripcionAsignatura extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 445, 319);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblTitituloInscribir = new JLabel("Inscribir Alumno");
+		JLabel lblTitituloInscribir = new JLabel("INSCRIBIR ALUMNO");
 		lblTitituloInscribir.setFont(new Font("SansSerif", Font.BOLD, 20));
-		lblTitituloInscribir.setBounds(124, 0, 163, 40);
+		lblTitituloInscribir.setBounds(124, 0, 213, 40);
 		contentPane.add(lblTitituloInscribir);
 		
-		JLabel lblCedulaAlumno = new JLabel("Ingrese Cedula");
+		JLabel lblCedulaAlumno = new JLabel("Ingrese cedula del alumno");
 		lblCedulaAlumno.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblCedulaAlumno.setBounds(61, 52, 86, 19);
+		lblCedulaAlumno.setBounds(33, 51, 153, 19);
 		contentPane.add(lblCedulaAlumno);
 		
-		textCedAlu = new JTextField();
-		textCedAlu.setColumns(10);
-		textCedAlu.setBounds(287, 51, 86, 20);
-		contentPane.add(textCedAlu);
+		textCed = new JTextField();
+		textCed.setColumns(10);
+		textCed.setBounds(240, 51, 133, 20);
+		contentPane.add(textCed);
 		
-		JButton btnRegistrar = new JButton("Registrar");
-		btnRegistrar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnRegistrar.setBounds(61, 224, 332, 32);
-		contentPane.add(btnRegistrar);
-		
-		JLabel lblCodigoAsignatura = new JLabel("Ingrese Codigo Asignatura");
+		JLabel lblCodigoAsignatura = new JLabel("Ingrese codigo de la asignatura");
 		lblCodigoAsignatura.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblCodigoAsignatura.setBounds(61, 95, 153, 19);
+		lblCodigoAsignatura.setBounds(33, 95, 181, 19);
 		contentPane.add(lblCodigoAsignatura);
 		
-		textCodAsi = new JTextField();
-		textCodAsi.setColumns(10);
-		textCodAsi.setBounds(287, 94, 86, 20);
-		contentPane.add(textCodAsi);
+		textCod = new JTextField();
+		textCod.setColumns(10);
+		textCod.setBounds(240, 94, 133, 20);
+		contentPane.add(textCod);
 		
-		JLabel lblCodigoAsignatura_1 = new JLabel("Monto Base");
-		lblCodigoAsignatura_1.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblCodigoAsignatura_1.setBounds(61, 125, 153, 19);
-		contentPane.add(lblCodigoAsignatura_1);
+		JLabel lblMontoBase = new JLabel("Ingrese monto base");
+		lblMontoBase.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblMontoBase.setBounds(33, 138, 118, 19);
+		contentPane.add(lblMontoBase);
 		
-		JLabel lblCodigoAsignatura_2 = new JLabel("Año Lectivo");
-		lblCodigoAsignatura_2.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblCodigoAsignatura_2.setBounds(61, 168, 153, 19);
-		contentPane.add(lblCodigoAsignatura_2);
+		JLabel lblAnioLectivo = new JLabel("Ingrese año lectivo");
+		lblAnioLectivo.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblAnioLectivo.setBounds(33, 179, 118, 19);
+		contentPane.add(lblAnioLectivo);
 		
 		textMonto = new JTextField();
 		textMonto.setColumns(10);
-		textMonto.setBounds(287, 125, 86, 20);
+		textMonto.setBounds(240, 137, 133, 20);
 		contentPane.add(textMonto);
 		
 		textAnio = new JTextField();
 		textAnio.setColumns(10);
-		textAnio.setBounds(287, 167, 86, 20);
+		textAnio.setBounds(240, 178, 133, 20);
 		contentPane.add(textAnio);
+		
+		JButton btnInscribir = new JButton("INSCRIBIR");
+		btnInscribir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnInscribir.setForeground(Color.BLACK);
+		btnInscribir.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnInscribir.setBackground(Color.GREEN);
+		btnInscribir.setBounds(240, 229, 100, 30);
+		contentPane.add(btnInscribir);
+		
+		JButton btnCancelar = new JButton("CANCELAR");
+		btnCancelar.setForeground(Color.BLACK);
+		btnCancelar.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnCancelar.setBackground(Color.RED);
+		btnCancelar.setBounds(77, 229, 100, 30);
+		contentPane.add(btnCancelar);
 	}
 }
