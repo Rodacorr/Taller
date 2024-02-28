@@ -6,8 +6,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -21,6 +27,8 @@ public class VentanaListadoEgresados extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JRadioButton rdbtnCompleto;
+	private JRadioButton rdbtnParcial;
 
 	/**
 	 * Launch the application.
@@ -52,22 +60,42 @@ public class VentanaListadoEgresados extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		ButtonGroup bgp = new ButtonGroup();
+		
 		JLabel lblModoListado = new JLabel("Indique modo");
 		lblModoListado.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblModoListado.setBounds(25, 21, 101, 19);
 		contentPane.add(lblModoListado);
 		
-		JRadioButton rdbtnCompleto = new JRadioButton("Completo");
+		rdbtnCompleto = new JRadioButton("Completo");
 		rdbtnCompleto.setBackground(new Color(255, 255, 255));
 		rdbtnCompleto.setBounds(205, 19, 79, 23);
 		contentPane.add(rdbtnCompleto);
+		bgp.add(rdbtnCompleto);
 		
-		JRadioButton rdbtnParcial = new JRadioButton("Parcial");
+		rdbtnParcial = new JRadioButton("Parcial");
 		rdbtnParcial.setBackground(new Color(255, 255, 255));
 		rdbtnParcial.setBounds(132, 19, 71, 23);
 		contentPane.add(rdbtnParcial);
+		bgp.add(rdbtnParcial);
 		
 		JButton btnListar = new JButton("LISTAR");
+		btnListar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnCompleto.isSelected()) {
+					JOptionPane.showMessageDialog(null, "completo");
+					///ventana.setVisible(true);
+				}
+				else if(rdbtnParcial.isSelected()) {
+					JOptionPane.showMessageDialog(null, "parcial");
+					///ventana.setVisible(true);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Por favor, seleccione una opcion");
+				}
+	
+			}
+		});
 		btnListar.setForeground(Color.BLACK);
 		btnListar.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnListar.setBackground(Color.GREEN);

@@ -4,11 +4,15 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextPane;
+
+import CapaGrafica.Controladores.ControladorRegistrarAsignatura;
+
 import java.awt.Label;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -21,6 +25,7 @@ public class VentanaRegistrarAsignatura {
 	private JTextField txtCod;
 	private JTextField txtDesc;
 	private JButton btnRegistrar;
+	private ControladorRegistrarAsignatura controlador;
 
 	/**
 	 * Launch the application.
@@ -43,6 +48,7 @@ public class VentanaRegistrarAsignatura {
 	 */
 	public VentanaRegistrarAsignatura() {
 		initialize();
+		controlador = new ControladorRegistrarAsignatura(this);
 	}
 
 	/**
@@ -90,6 +96,10 @@ public class VentanaRegistrarAsignatura {
 		btnRegistrar = new JButton("REGISTRAR");
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String codigo = txtCod.getText();
+				String nombre = txtNom.getText();
+				String descripcion = txtDesc.getText();
+				controlador.registrarAsignatura(codigo, nombre, descripcion);
 			}
 		});
 		btnRegistrar.setForeground(Color.BLACK);
@@ -111,5 +121,9 @@ public class VentanaRegistrarAsignatura {
 	}
 	public void setVisible(boolean mostrar) {
 		frmRegistrarAsignatura.setVisible(mostrar);
+	}
+	
+	public void mostrarMensajeError (String mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje);
 	}
 }

@@ -28,6 +28,9 @@ public class VentanaRegistrarAlumno extends JFrame {
 	private JTextField txtPorce;
 	private JTextField txtRaz;
 	private JTextField txtNom;
+	private JCheckBox chckBec;
+	private JLabel lblPorcentaje;
+	private JLabel lblRazon;
 
 	/**
 	 * Launch the application.
@@ -80,11 +83,13 @@ public class VentanaRegistrarAlumno extends JFrame {
 		contentPane.add(txtDom);
 		
 		txtPorce = new JTextField();
+		txtPorce.setVisible(false);
 		txtPorce.setColumns(10);
 		txtPorce.setBounds(223, 235, 108, 20);
 		contentPane.add(txtPorce);
 		
 		txtRaz = new JTextField();
+		txtRaz.setVisible(false);
 		txtRaz.setColumns(10);
 		txtRaz.setBounds(223, 274, 108, 20);
 		contentPane.add(txtRaz);
@@ -124,17 +129,35 @@ public class VentanaRegistrarAlumno extends JFrame {
 		lblBecado.setBounds(57, 199, 141, 14);
 		contentPane.add(lblBecado);
 		
-		JLabel lblPorcentaje = new JLabel("Ingrese porcentaje de beca");
+		lblPorcentaje = new JLabel("Ingrese porcentaje de beca");
+		lblPorcentaje.setVisible(false);
 		lblPorcentaje.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblPorcentaje.setBounds(39, 238, 159, 14);
 		contentPane.add(lblPorcentaje);
 		
-		JLabel lblRazon = new JLabel("Ingrese Razon de la beca");
+		lblRazon = new JLabel("Ingrese Razon de la beca");
+		lblRazon.setVisible(false);
 		lblRazon.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblRazon.setBounds(39, 277, 159, 14);
 		contentPane.add(lblRazon);
 		
-		JCheckBox chckBec = new JCheckBox("");
+		chckBec = new JCheckBox("");
+		chckBec.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(chckBec.isSelected()) {
+					lblRazon.setVisible(true);
+					lblPorcentaje.setVisible(true);
+					txtRaz.setVisible(true);
+					txtPorce.setVisible(true);
+				}
+				else {
+					lblRazon.setVisible(false);
+					lblPorcentaje.setVisible(false);
+					txtRaz.setVisible(false);
+					txtPorce.setVisible(false);
+				}
+			}
+		});
 		chckBec.setBackground(new Color(255, 255, 255));
 		chckBec.setBounds(265, 190, 21, 23);
 		contentPane.add(chckBec);

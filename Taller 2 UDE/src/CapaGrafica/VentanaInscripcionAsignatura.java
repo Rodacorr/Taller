@@ -42,7 +42,7 @@ public class VentanaInscripcionAsignatura extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaInscripcionAsignatura() {
-		setTitle("INSCRIBIR ALUMNO");
+		setTitle("REGISTRAR INSCRIPCION");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 445, 277);
 		contentPane = new JPanel();
