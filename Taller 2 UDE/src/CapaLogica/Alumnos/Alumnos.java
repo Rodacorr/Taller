@@ -4,8 +4,7 @@ import java.util.*;
 import CapaLogica.Inscripciones.*;
 import CapaLogica.VO.*;
 
-import CapaLogica.VO.voAlumnoDat;
-import CapaLogica.VO.voPromedio;
+
 import java.io.*;
 
 import java.lang.Object;

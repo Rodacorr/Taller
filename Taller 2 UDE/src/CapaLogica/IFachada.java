@@ -3,25 +3,8 @@ package CapaLogica;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import CapaLogica.Exceptions.AlumnoNoInscriptoException;
-import CapaLogica.Exceptions.AlumnoYaCursaAsignatura;
-import CapaLogica.Exceptions.AlumnoYaExisteExceptions;
-import CapaLogica.Exceptions.AsignaturaNoExisteException;
-import CapaLogica.Exceptions.AsignaturaYaExisteException;
-import CapaLogica.Exceptions.AsignaturasCompletaException;
-import CapaLogica.Exceptions.AñoMenorAlUltimoReg;
-import CapaLogica.Exceptions.DicAlumnosVacioException;
-import CapaLogica.Exceptions.DicAsignaturasVacioException;
-import CapaLogica.Exceptions.NotaInvalida;
-import CapaLogica.Exceptions.NumInscripcionNoExiste;
-import CapaLogica.Exceptions.SecInscripcionesVaciaException;
-import CapaLogica.Exceptions.YaTieneCalificacion;
-import CapaLogica.VO.voAlumno;
-import CapaLogica.VO.voAlumnoCompleto;
-import CapaLogica.VO.voAlumnoDat;
-import CapaLogica.VO.voAlumnoDatTipo;
-import CapaLogica.VO.voAsignatura;
-import CapaLogica.VO.voInscripcion;
+import CapaLogica.Exceptions.*;
+import CapaLogica.VO.*;
 import persistencia.exceptions.PersistenciaException;
 
 public interface IFachada extends Remote{
