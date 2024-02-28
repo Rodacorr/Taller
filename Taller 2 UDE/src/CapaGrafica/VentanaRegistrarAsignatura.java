@@ -16,11 +16,10 @@ import javax.swing.JTextArea;
 
 public class VentanaRegistrarAsignatura {
 
-	private JFrame frame;
+	private JFrame frmRegistrarAsignatura;
 	private JTextField txtNom;
 	private JTextField txtCod;
 	private JTextField txtDesc;
-	private JLabel lblTituloRegAsig;
 	private JButton btnRegistrar;
 
 	/**
@@ -31,7 +30,7 @@ public class VentanaRegistrarAsignatura {
 			public void run() {
 				try {
 					VentanaRegistrarAsignatura window = new VentanaRegistrarAsignatura();
-					window.frame.setVisible(true);
+					window.frmRegistrarAsignatura.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -50,47 +49,43 @@ public class VentanaRegistrarAsignatura {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(255, 255, 255));
-		frame.getContentPane().setForeground(new Color(255, 255, 255));
-		frame.setBounds(100, 100, 400, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmRegistrarAsignatura = new JFrame();
+		frmRegistrarAsignatura.setTitle("REGISTRAR ASIGNATURA");
+		frmRegistrarAsignatura.getContentPane().setBackground(new Color(255, 255, 255));
+		frmRegistrarAsignatura.getContentPane().setForeground(new Color(255, 255, 255));
+		frmRegistrarAsignatura.setBounds(100, 100, 367, 226);
+		frmRegistrarAsignatura.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRegistrarAsignatura.getContentPane().setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Ingrese nombre");
 		lblNombre.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblNombre.setBounds(47, 89, 88, 15);
-		frame.getContentPane().add(lblNombre);
+		lblNombre.setBounds(47, 59, 88, 15);
+		frmRegistrarAsignatura.getContentPane().add(lblNombre);
 		
 		JLabel lblCodigo = new JLabel("Ingrese codigo");
 		lblCodigo.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblCodigo.setBounds(47, 53, 88, 15);
-		frame.getContentPane().add(lblCodigo);
+		lblCodigo.setBounds(47, 23, 88, 15);
+		frmRegistrarAsignatura.getContentPane().add(lblCodigo);
 		
 		JLabel lblDescripcion = new JLabel("Ingrese descripcion");
 		lblDescripcion.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblDescripcion.setBounds(47, 127, 114, 15);
-		frame.getContentPane().add(lblDescripcion);
+		lblDescripcion.setBounds(47, 99, 114, 15);
+		frmRegistrarAsignatura.getContentPane().add(lblDescripcion);
 		
 		txtNom = new JTextField();
-		txtNom.setBounds(197, 89, 114, 20);
-		frame.getContentPane().add(txtNom);
+		txtNom.setBounds(197, 56, 114, 20);
+		frmRegistrarAsignatura.getContentPane().add(txtNom);
 		txtNom.setColumns(10);
 		
 		txtCod = new JTextField();
 		txtCod.setColumns(10);
-		txtCod.setBounds(197, 50, 114, 20);
-		frame.getContentPane().add(txtCod);
+		txtCod.setBounds(197, 20, 114, 20);
+		frmRegistrarAsignatura.getContentPane().add(txtCod);
 		
 		txtDesc = new JTextField();
 		txtDesc.setColumns(10);
-		txtDesc.setBounds(197, 124, 114, 20);
-		frame.getContentPane().add(txtDesc);
-		
-		lblTituloRegAsig = new JLabel("REGISTRAR ASIGNATURA");
-		lblTituloRegAsig.setFont(new Font("SansSerif", Font.BOLD, 20));
-		lblTituloRegAsig.setBounds(75, 0, 260, 30);
-		frame.getContentPane().add(lblTituloRegAsig);
+		txtDesc.setBounds(197, 96, 114, 20);
+		frmRegistrarAsignatura.getContentPane().add(txtDesc);
 		
 		btnRegistrar = new JButton("REGISTRAR");
 		btnRegistrar.addActionListener(new ActionListener() {
@@ -100,17 +95,21 @@ public class VentanaRegistrarAsignatura {
 		btnRegistrar.setForeground(Color.BLACK);
 		btnRegistrar.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnRegistrar.setBackground(Color.GREEN);
-		btnRegistrar.setBounds(221, 205, 114, 30);
-		frame.getContentPane().add(btnRegistrar);
+		btnRegistrar.setBounds(185, 140, 114, 30);
+		frmRegistrarAsignatura.getContentPane().add(btnRegistrar);
 		
 		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnVolver.setBackground(Color.LIGHT_GRAY);
-		btnVolver.setBounds(58, 205, 92, 30);
-		frame.getContentPane().add(btnVolver);
+		btnVolver.setBounds(56, 140, 92, 30);
+		frmRegistrarAsignatura.getContentPane().add(btnVolver);
 	}
 	public void setVisible(boolean mostrar) {
-		frame.setVisible(mostrar);
+		frmRegistrarAsignatura.setVisible(mostrar);
 	}
 }

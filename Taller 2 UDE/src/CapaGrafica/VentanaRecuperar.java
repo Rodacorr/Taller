@@ -35,8 +35,9 @@ public class VentanaRecuperar extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaRecuperar() {
+		setTitle("RECUPERAR");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 290, 139);
+		setBounds(100, 100, 322, 139);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -44,23 +45,18 @@ public class VentanaRecuperar extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblTituloRecuperar = new JLabel("RECUPERAR");
-		lblTituloRecuperar.setFont(new Font("SansSerif", Font.BOLD, 20));
-		lblTituloRecuperar.setBounds(74, 0, 141, 26);
-		contentPane.add(lblTituloRecuperar);
-		
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnVolver.setBackground(Color.LIGHT_GRAY);
-		btnVolver.setBounds(10, 48, 92, 30);
+		btnVolver.setBounds(27, 30, 92, 30);
 		contentPane.add(btnVolver);
 		
 		JButton btnTituloRecuperar = new JButton("RECUPERAR");
 		btnTituloRecuperar.setForeground(Color.BLACK);
 		btnTituloRecuperar.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnTituloRecuperar.setBackground(Color.GREEN);
-		btnTituloRecuperar.setBounds(150, 48, 114, 30);
+		btnTituloRecuperar.setBounds(165, 30, 114, 30);
 		contentPane.add(btnTituloRecuperar);
 	}
 }

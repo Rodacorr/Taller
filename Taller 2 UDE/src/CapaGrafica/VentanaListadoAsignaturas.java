@@ -39,26 +39,22 @@ public class VentanaListadoAsignaturas extends JFrame {
 	
 	
 	public VentanaListadoAsignaturas() {
+		setTitle("LISTAR ASIGNATURAS");
 		getContentPane().setBackground(new Color(255, 255, 255));
 		getContentPane().setLayout(null);
-		
-		JLabel lblListarAsignaturas = new JLabel("LISTAR ASIGNATURAS");
-		lblListarAsignaturas.setFont(new Font("SansSerif", Font.BOLD, 20));
-		lblListarAsignaturas.setBounds(46, 11, 224, 26);
-		getContentPane().add(lblListarAsignaturas);
 		
 		JButton btnListar = new JButton("LISTAR");
 		btnListar.setForeground(Color.BLACK);
 		btnListar.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnListar.setBackground(Color.GREEN);
-		btnListar.setBounds(168, 62, 100, 30);
+		btnListar.setBounds(166, 36, 100, 30);
 		getContentPane().add(btnListar);
 		
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnVolver.setBackground(Color.LIGHT_GRAY);
-		btnVolver.setBounds(38, 62, 92, 30);
+		btnVolver.setBounds(37, 36, 92, 30);
 		getContentPane().add(btnVolver);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 320, 147);

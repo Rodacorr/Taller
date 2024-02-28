@@ -42,8 +42,9 @@ public class VentanaListadoEgresados extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaListadoEgresados() {
+		setTitle("LISTAR EGRESADOS");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 322, 188);
+		setBounds(100, 100, 322, 142);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -51,38 +52,33 @@ public class VentanaListadoEgresados extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblTituloListar = new JLabel("LISTAR EGRESADOS");
-		lblTituloListar.setBounds(59, 0, 206, 26);
-		lblTituloListar.setFont(new Font("SansSerif", Font.BOLD, 20));
-		contentPane.add(lblTituloListar);
-		
 		JLabel lblModoListado = new JLabel("Indique modo");
 		lblModoListado.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblModoListado.setBounds(26, 53, 101, 19);
+		lblModoListado.setBounds(25, 21, 101, 19);
 		contentPane.add(lblModoListado);
 		
 		JRadioButton rdbtnCompleto = new JRadioButton("Completo");
 		rdbtnCompleto.setBackground(new Color(255, 255, 255));
-		rdbtnCompleto.setBounds(221, 51, 79, 23);
+		rdbtnCompleto.setBounds(205, 19, 79, 23);
 		contentPane.add(rdbtnCompleto);
 		
 		JRadioButton rdbtnParcial = new JRadioButton("Parcial");
 		rdbtnParcial.setBackground(new Color(255, 255, 255));
-		rdbtnParcial.setBounds(139, 51, 71, 23);
+		rdbtnParcial.setBounds(132, 19, 71, 23);
 		contentPane.add(rdbtnParcial);
 		
 		JButton btnListar = new JButton("LISTAR");
 		btnListar.setForeground(Color.BLACK);
 		btnListar.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnListar.setBackground(Color.GREEN);
-		btnListar.setBounds(178, 97, 100, 30);
+		btnListar.setBounds(173, 59, 100, 30);
 		contentPane.add(btnListar);
 		
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnVolver.setBackground(Color.LIGHT_GRAY);
-		btnVolver.setBounds(45, 97, 92, 30);
+		btnVolver.setBounds(49, 59, 92, 30);
 		contentPane.add(btnVolver);
 	}
 }

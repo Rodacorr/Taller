@@ -42,8 +42,9 @@ public class VentanaListadoCedula extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaListadoCedula() {
+		setTitle("LISTAR ALUMNO DADO SU CEDULA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 404, 167);
+		setBounds(100, 100, 404, 141);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -51,19 +52,14 @@ public class VentanaListadoCedula extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblTituloListar = new JLabel("LISTAR ALUMNO DADO SU CEDULA");
-		lblTituloListar.setFont(new Font("SansSerif", Font.BOLD, 20));
-		lblTituloListar.setBounds(25, 0, 353, 40);
-		contentPane.add(lblTituloListar);
-		
 		JLabel lblCedulaIngresado = new JLabel("Indique cedula");
 		lblCedulaIngresado.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblCedulaIngresado.setBounds(51, 51, 101, 19);
+		lblCedulaIngresado.setBounds(52, 11, 101, 19);
 		contentPane.add(lblCedulaIngresado);
 		
 		textCed = new JTextField();
 		textCed.setColumns(10);
-		textCed.setBounds(196, 51, 136, 20);
+		textCed.setBounds(193, 10, 136, 20);
 		contentPane.add(textCed);
 		
 		JSeparator separator_1 = new JSeparator();
@@ -74,14 +70,14 @@ public class VentanaListadoCedula extends JFrame {
 		btnListar.setForeground(Color.BLACK);
 		btnListar.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnListar.setBackground(Color.GREEN);
-		btnListar.setBounds(218, 90, 100, 30);
+		btnListar.setBounds(203, 51, 100, 30);
 		contentPane.add(btnListar);
 		
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnVolver.setBackground(Color.LIGHT_GRAY);
-		btnVolver.setBounds(61, 90, 92, 30);
+		btnVolver.setBounds(62, 51, 92, 30);
 		contentPane.add(btnVolver);
 	}
 }

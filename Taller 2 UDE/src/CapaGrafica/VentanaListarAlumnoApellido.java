@@ -39,8 +39,9 @@ public class VentanaListarAlumnoApellido extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaListarAlumnoApellido() {
+		setTitle("LISTAR ALUMNOS DADO APELLIDO");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 410, 176);
+		setBounds(100, 100, 379, 148);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -48,18 +49,13 @@ public class VentanaListarAlumnoApellido extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblTituloListarAlumXApe = new JLabel("LISTAR ALUMNOS DADO APELLIDO");
-		lblTituloListarAlumXApe.setFont(new Font("SansSerif", Font.BOLD, 20));
-		lblTituloListarAlumXApe.setBounds(24, 0, 344, 40);
-		contentPane.add(lblTituloListarAlumXApe);
-		
 		JLabel lblApellidoIngresado = new JLabel("Ingrese apellido o prefijo");
 		lblApellidoIngresado.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblApellidoIngresado.setBounds(50, 51, 141, 19);
+		lblApellidoIngresado.setBounds(32, 11, 141, 19);
 		contentPane.add(lblApellidoIngresado);
 		
 		txtApellido = new JTextField();
-		txtApellido.setBounds(201, 50, 122, 20);
+		txtApellido.setBounds(194, 10, 122, 20);
 		contentPane.add(txtApellido);
 		txtApellido.setColumns(10);
 		
@@ -67,14 +63,14 @@ public class VentanaListarAlumnoApellido extends JFrame {
 		btnListar.setForeground(Color.BLACK);
 		btnListar.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnListar.setBackground(Color.GREEN);
-		btnListar.setBounds(216, 96, 100, 30);
+		btnListar.setBounds(194, 50, 100, 30);
 		contentPane.add(btnListar);
 		
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnVolver.setBackground(Color.LIGHT_GRAY);
-		btnVolver.setBounds(71, 96, 92, 30);
+		btnVolver.setBounds(53, 50, 92, 30);
 		contentPane.add(btnVolver);
 	}
 }
