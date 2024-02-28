@@ -126,4 +126,8 @@ public class VentanaRegistrarAsignatura {
 	public void mostrarMensajeError (String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
+	
+	public void mostrarMensajeExito (String mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje);
+	}
 }

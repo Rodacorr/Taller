@@ -39,7 +39,7 @@ private IFachada fachada;
 		try {
 			voAsignatura asignatura = new voAsignatura(codigo, nombre, descripcion);
             fachada.registrarAsignatura(asignatura);
-            ventana.mostrarMensajeError("asignatura registrada correctamente.");
+            ventana.mostrarMensajeExito("asignatura registrada correctamente.");
 	    } catch (AsignaturasCompletaException exc) {
 	        ventana.mostrarMensajeError(exc.darMensaje());
         } catch (AsignaturaYaExisteException exc) {
