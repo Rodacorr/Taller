@@ -107,11 +107,11 @@ public class VentanaInscripcionAsignatura extends JFrame {
 		btnInscribir.setBounds(240, 229, 100, 30);
 		contentPane.add(btnInscribir);
 		
-		JButton btnCancelar = new JButton("CANCELAR");
-		btnCancelar.setForeground(Color.BLACK);
-		btnCancelar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnCancelar.setBackground(Color.RED);
-		btnCancelar.setBounds(77, 229, 100, 30);
-		contentPane.add(btnCancelar);
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setForeground(Color.BLACK);
+		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setBounds(78, 229, 92, 30);
+		contentPane.add(btnVolver);
 	}
 }

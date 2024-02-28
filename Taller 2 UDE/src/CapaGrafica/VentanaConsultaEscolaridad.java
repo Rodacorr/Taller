@@ -78,19 +78,19 @@ public class VentanaConsultaEscolaridad extends JFrame {
 		rdbtnCompleto.setBounds(222, 100, 79, 23);
 		contentPane.add(rdbtnCompleto);
 		
-		JButton btnCancelar = new JButton("CANCELAR");
-		btnCancelar.setForeground(Color.BLACK);
-		btnCancelar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnCancelar.setBackground(Color.RED);
-		btnCancelar.setBounds(46, 146, 100, 30);
-		contentPane.add(btnCancelar);
-		
 		JButton btnListar = new JButton("LISTAR");
 		btnListar.setForeground(Color.BLACK);
 		btnListar.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnListar.setBackground(Color.GREEN);
 		btnListar.setBounds(173, 146, 100, 30);
 		contentPane.add(btnListar);
+		
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setForeground(Color.BLACK);
+		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setBounds(43, 146, 92, 30);
+		contentPane.add(btnVolver);
 		
 	}
 }

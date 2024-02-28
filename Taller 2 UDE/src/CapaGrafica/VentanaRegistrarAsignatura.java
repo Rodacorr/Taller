@@ -22,7 +22,6 @@ public class VentanaRegistrarAsignatura {
 	private JTextField txtDesc;
 	private JLabel lblTituloRegAsig;
 	private JButton btnRegistrar;
-	private JButton btnCancelar;
 
 	/**
 	 * Launch the application.
@@ -104,12 +103,12 @@ public class VentanaRegistrarAsignatura {
 		btnRegistrar.setBounds(221, 205, 114, 30);
 		frame.getContentPane().add(btnRegistrar);
 		
-		btnCancelar = new JButton("CANCELAR");
-		btnCancelar.setForeground(Color.BLACK);
-		btnCancelar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnCancelar.setBackground(Color.RED);
-		btnCancelar.setBounds(61, 205, 100, 30);
-		frame.getContentPane().add(btnCancelar);
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setForeground(Color.BLACK);
+		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setBounds(58, 205, 92, 30);
+		frame.getContentPane().add(btnVolver);
 	}
 	public void setVisible(boolean mostrar) {
 		frame.setVisible(mostrar);

@@ -92,11 +92,11 @@ public class VentananRegistroResultado extends JFrame {
 		btnRegistrar.setBounds(229, 196, 114, 30);
 		contentPane.add(btnRegistrar);
 		
-		JButton btnCancelar = new JButton("CANCELAR");
-		btnCancelar.setForeground(Color.BLACK);
-		btnCancelar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnCancelar.setBackground(Color.RED);
-		btnCancelar.setBounds(67, 196, 100, 30);
-		contentPane.add(btnCancelar);
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setForeground(Color.BLACK);
+		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setBounds(72, 196, 92, 30);
+		contentPane.add(btnVolver);
 	}
 }

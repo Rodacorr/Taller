@@ -58,17 +58,6 @@ public class VentanaRegistrarAlumno extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnCancelar = new JButton("CANCELAR");
-		btnCancelar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnCancelar.setForeground(new Color(0, 0, 0));
-		btnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnCancelar.setBackground(new Color(255, 0, 0));
-		btnCancelar.setBounds(57, 400, 100, 30);
-		contentPane.add(btnCancelar);
-		
 		txtCed = new JTextField();
 		txtCed.setBounds(223, 75, 108, 20);
 		contentPane.add(txtCed);
@@ -160,5 +149,12 @@ public class VentanaRegistrarAlumno extends JFrame {
 		btnRegistrar.setBackground(Color.GREEN);
 		btnRegistrar.setBounds(206, 400, 114, 30);
 		contentPane.add(btnRegistrar);
+		
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setForeground(Color.BLACK);
+		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setBounds(57, 400, 92, 30);
+		contentPane.add(btnVolver);
 	}
 }

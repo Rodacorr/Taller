@@ -24,7 +24,7 @@ public class PrincipalVentanas {
 		ventana6.setVisible(true);
 		VentanaListarAlumnoApellido ventana7 = new VentanaListarAlumnoApellido();
 		ventana7.setVisible(true);
-		VentanaMontoRecaudad ventana8 = new VentanaMontoRecaudad();
+		VentanaMontoRecaudado ventana8 = new VentanaMontoRecaudado();
 		ventana8.setVisible(true);
 		VentananRegistroResultado ventana9 = new VentananRegistroResultado();
 		ventana9.setVisible(true);
@@ -32,6 +32,8 @@ public class PrincipalVentanas {
 		ventana10.setVisible(true);
 		VentanaRespaldo ventana11 = new VentanaRespaldo();
 		ventana11.setVisible(true);
+		VentanaRecuperar ventana12 = new VentanaRecuperar();
+		ventana12.setVisible(true);
 		*/
 	}
 

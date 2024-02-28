@@ -63,15 +63,15 @@ public class VentanaRespaldo extends JFrame {
 		btnRespaldar.setBounds(166, 58, 114, 30);
 		contentPane.add(btnRespaldar);
 		
-		JButton btnCancelar = new JButton("CANCELAR");
-		btnCancelar.addActionListener(new ActionListener() {
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnCancelar.setForeground(Color.BLACK);
-		btnCancelar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnCancelar.setBackground(Color.RED);
-		btnCancelar.setBounds(26, 58, 100, 30);
-		contentPane.add(btnCancelar);
+		btnVolver.setForeground(Color.BLACK);
+		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnVolver.setBackground(new Color(192, 192, 192));
+		btnVolver.setBounds(32, 58, 92, 30);
+		contentPane.add(btnVolver);
 	}
 }

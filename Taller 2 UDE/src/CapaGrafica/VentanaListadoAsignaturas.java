@@ -54,12 +54,12 @@ public class VentanaListadoAsignaturas extends JFrame {
 		btnListar.setBounds(168, 62, 100, 30);
 		getContentPane().add(btnListar);
 		
-		JButton btnCancelar = new JButton("CANCELAR");
-		btnCancelar.setForeground(Color.BLACK);
-		btnCancelar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnCancelar.setBackground(Color.RED);
-		btnCancelar.setBounds(27, 62, 100, 30);
-		getContentPane().add(btnCancelar);
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setForeground(Color.BLACK);
+		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setBounds(38, 62, 92, 30);
+		getContentPane().add(btnVolver);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 320, 147);
 	}

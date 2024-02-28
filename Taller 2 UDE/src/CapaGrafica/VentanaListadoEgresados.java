@@ -78,11 +78,11 @@ public class VentanaListadoEgresados extends JFrame {
 		btnListar.setBounds(178, 97, 100, 30);
 		contentPane.add(btnListar);
 		
-		JButton btnCancelar = new JButton("CANCELAR");
-		btnCancelar.setForeground(Color.BLACK);
-		btnCancelar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnCancelar.setBackground(Color.RED);
-		btnCancelar.setBounds(27, 97, 100, 30);
-		contentPane.add(btnCancelar);
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setForeground(Color.BLACK);
+		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setBounds(45, 97, 92, 30);
+		contentPane.add(btnVolver);
 	}
 }

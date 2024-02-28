@@ -63,18 +63,18 @@ public class VentanaListarAlumnoApellido extends JFrame {
 		contentPane.add(txtApellido);
 		txtApellido.setColumns(10);
 		
-		JButton btnCancelar = new JButton("CANCELAR");
-		btnCancelar.setForeground(Color.BLACK);
-		btnCancelar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnCancelar.setBackground(Color.RED);
-		btnCancelar.setBounds(58, 96, 100, 30);
-		contentPane.add(btnCancelar);
-		
 		JButton btnListar = new JButton("LISTAR");
 		btnListar.setForeground(Color.BLACK);
 		btnListar.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnListar.setBackground(Color.GREEN);
 		btnListar.setBounds(216, 96, 100, 30);
 		contentPane.add(btnListar);
+		
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setForeground(Color.BLACK);
+		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setBounds(71, 96, 92, 30);
+		contentPane.add(btnVolver);
 	}
 }
