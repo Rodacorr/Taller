@@ -7,7 +7,7 @@ public class PrincipalVentanas {
 	}
 
 	public static void main(String[] args) {
-		VentanaRegistrarAsignatura ventana1 = new VentanaRegistrarAsignatura();
+		VentanaRegistrarAsignatura ventana1 = new VentanaRegistrarAsignatura(null);
 		ventana1.setVisible(true);
 		/*
 		VentanaRegistrarAsignatura ventana1 = new VentanaRegistrarAsignatura();

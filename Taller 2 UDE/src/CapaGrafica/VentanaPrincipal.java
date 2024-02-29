@@ -147,7 +147,7 @@ public class VentanaPrincipal extends JFrame {
 					ventana.setVisible(true);
 				}
 				else if(rdbtnReq3.isSelected()) {
-					VentanaRegistrarAlumno ventana = new VentanaRegistrarAlumno();
+					VentanaRegistrarAlumno ventana = new VentanaRegistrarAlumno(VentanaPrincipal.this);
 					ventana.setVisible(true);
 				}
 				else if(rdbtnReq4.isSelected()) {
