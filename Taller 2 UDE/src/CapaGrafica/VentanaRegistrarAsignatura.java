@@ -5,11 +5,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
+
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextPane;
+import javax.swing.border.Border;
 
 import CapaGrafica.Controladores.ControladorRegistrarAsignatura;
 
@@ -23,7 +28,7 @@ public class VentanaRegistrarAsignatura {
 	private JFrame frmRegistrarAsignatura;
 	private JTextField txtNom;
 	private JTextField txtCod;
-	private JTextField txtDesc;
+	private JTextArea txtDesc;
 	private JButton btnRegistrar;
 	private ControladorRegistrarAsignatura controlador;
 
@@ -59,7 +64,7 @@ public class VentanaRegistrarAsignatura {
 		frmRegistrarAsignatura.setTitle("REGISTRAR ASIGNATURA");
 		frmRegistrarAsignatura.getContentPane().setBackground(new Color(255, 255, 255));
 		frmRegistrarAsignatura.getContentPane().setForeground(new Color(255, 255, 255));
-		frmRegistrarAsignatura.setBounds(100, 100, 367, 226);
+		frmRegistrarAsignatura.setBounds(100, 100, 367, 298);
 		frmRegistrarAsignatura.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRegistrarAsignatura.getContentPane().setLayout(null);
 		
@@ -79,6 +84,7 @@ public class VentanaRegistrarAsignatura {
 		frmRegistrarAsignatura.getContentPane().add(lblDescripcion);
 		
 		txtNom = new JTextField();
+		txtNom.setForeground(new Color(0, 0, 0));
 		txtNom.setBounds(197, 56, 114, 20);
 		frmRegistrarAsignatura.getContentPane().add(txtNom);
 		txtNom.setColumns(10);
@@ -88,9 +94,13 @@ public class VentanaRegistrarAsignatura {
 		txtCod.setBounds(197, 20, 114, 20);
 		frmRegistrarAsignatura.getContentPane().add(txtCod);
 		
-		txtDesc = new JTextField();
-		txtDesc.setColumns(10);
-		txtDesc.setBounds(197, 96, 114, 20);
+		final JTextArea txtDesc = new JTextArea();
+		txtDesc.setWrapStyleWord(true);
+		txtDesc.setLineWrap(true);
+		txtDesc.setRows(3);
+		txtDesc.setBounds(197, 99, 114, 93);
+		Border border = BorderFactory.createLineBorder(Color.GRAY); 
+		txtDesc.setBorder(BorderFactory.createCompoundBorder(border, BorderFactory.createEmptyBorder(10, 10, 10, 10))); // Añadir un margen al borde
 		frmRegistrarAsignatura.getContentPane().add(txtDesc);
 		
 		btnRegistrar = new JButton("REGISTRAR");
@@ -105,7 +115,7 @@ public class VentanaRegistrarAsignatura {
 		btnRegistrar.setForeground(Color.BLACK);
 		btnRegistrar.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnRegistrar.setBackground(Color.GREEN);
-		btnRegistrar.setBounds(185, 140, 114, 30);
+		btnRegistrar.setBounds(186, 215, 114, 30);
 		frmRegistrarAsignatura.getContentPane().add(btnRegistrar);
 		
 		JButton btnVolver = new JButton("VOLVER");
@@ -116,8 +126,10 @@ public class VentanaRegistrarAsignatura {
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnVolver.setBackground(Color.LIGHT_GRAY);
-		btnVolver.setBounds(56, 140, 92, 30);
+		btnVolver.setBounds(57, 215, 92, 30);
 		frmRegistrarAsignatura.getContentPane().add(btnVolver);
+		
+	
 	}
 	public void setVisible(boolean mostrar) {
 		frmRegistrarAsignatura.setVisible(mostrar);

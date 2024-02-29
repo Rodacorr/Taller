@@ -31,7 +31,6 @@ public class VentanaPrincipal extends JFrame {
 	private JRadioButton rdbtnReq9;
 	private JRadioButton rdbtnReq10;
 	private JRadioButton rdbtnReq11;
-	private JRadioButton rdbtnReq12;
 
 
 	/**
@@ -135,12 +134,6 @@ public class VentanaPrincipal extends JFrame {
 		rdbtnReq11.setBounds(268, 166, 109, 23);
 		contentPane.add(rdbtnReq11);
 		bgp.add(rdbtnReq11);
-		
-		rdbtnReq12 = new JRadioButton("Recuperar");
-		rdbtnReq12.setBackground(Color.WHITE);
-		rdbtnReq12.setBounds(268, 198, 109, 23);
-		contentPane.add(rdbtnReq12);
-		bgp.add(rdbtnReq12);
 		
 		JButton btnAbrir = new JButton("ABRIR");
 		btnAbrir.addActionListener(new ActionListener() {
