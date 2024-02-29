@@ -31,6 +31,7 @@ public class VentanaRegistrarAlumno extends JFrame {
 	private JCheckBox chckBec;
 	private JLabel lblPorcentaje;
 	private JLabel lblRazon;
+	
 
 	/**
 	 * Launch the application.

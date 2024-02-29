@@ -19,6 +19,7 @@ public class VentanaMontoRecaudado extends JFrame {
 	private JPanel contentPane;
 	private JTextField textCed;
 	private JTextField textAnioLec;
+	
 
 	/**
 	 * Launch the application.

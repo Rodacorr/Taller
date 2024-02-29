@@ -13,11 +13,14 @@ import javax.swing.JSeparator;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Font;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 
 public class VentanaListadoAsignaturas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private JTable table;
+	
 
 	/**
 	 * Launch the application.
@@ -43,20 +46,23 @@ public class VentanaListadoAsignaturas extends JFrame {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		getContentPane().setLayout(null);
 		
-		JButton btnListar = new JButton("LISTAR");
-		btnListar.setForeground(Color.BLACK);
-		btnListar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnListar.setBackground(Color.GREEN);
-		btnListar.setBounds(166, 36, 100, 30);
-		getContentPane().add(btnListar);
-		
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnVolver.setBackground(Color.LIGHT_GRAY);
-		btnVolver.setBounds(37, 36, 92, 30);
+		btnVolver.setBounds(106, 268, 92, 30);
 		getContentPane().add(btnVolver);
+		
+		table = new JTable();
+		table.setBounds(60, 45, 148, 0);
+		getContentPane().add(table);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 320, 147);
+		setBounds(100, 100, 320, 348);
+	}
+
+
+
+	public void mostrarMensajeError (String mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje);
 	}
 }

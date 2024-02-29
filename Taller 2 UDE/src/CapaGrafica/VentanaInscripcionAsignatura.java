@@ -21,6 +21,7 @@ public class VentanaInscripcionAsignatura extends JFrame {
 	private JTextField textCod;
 	private JTextField textMonto;
 	private JTextField textAnio;
+	
 
 	/**
 	 * Launch the application.

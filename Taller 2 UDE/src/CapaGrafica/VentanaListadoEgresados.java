@@ -29,6 +29,7 @@ public class VentanaListadoEgresados extends JFrame {
 	private JPanel contentPane;
 	private JRadioButton rdbtnCompleto;
 	private JRadioButton rdbtnParcial;
+	
 
 	/**
 	 * Launch the application.

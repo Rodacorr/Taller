@@ -26,6 +26,7 @@ public class VentanaConsultaEscolaridad extends JFrame {
 	private JTextField textCed;
 	private JRadioButton rdbtnCompleto;
 	private JRadioButton rdbtnParcial;
+	
 
 	/**
 	 * Launch the application.

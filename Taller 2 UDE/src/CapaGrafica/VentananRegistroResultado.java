@@ -20,6 +20,7 @@ public class VentananRegistroResultado extends JFrame {
 	private JPanel contentPane;
 	private JTextField textCed;
 	private JTextField textNum;
+	
 
 	/**
 	 * Launch the application.

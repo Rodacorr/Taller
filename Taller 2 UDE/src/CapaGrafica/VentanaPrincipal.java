@@ -139,7 +139,7 @@ public class VentanaPrincipal extends JFrame {
 		btnAbrir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(rdbtnReq1.isSelected()) {
-					VentanaRegistrarAsignatura ventana = new VentanaRegistrarAsignatura();
+					VentanaRegistrarAsignatura ventana = new VentanaRegistrarAsignatura(VentanaPrincipal.this);
 					ventana.setVisible(true);
 				}
 				else if(rdbtnReq2.isSelected()) {
