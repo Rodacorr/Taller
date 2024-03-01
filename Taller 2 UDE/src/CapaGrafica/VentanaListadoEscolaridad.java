@@ -13,6 +13,8 @@ import CapaGrafica.Controladores.ControladorRegistrarAlumno;
 
 import javax.swing.JRadioButton;
 import java.awt.Color;
+
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -77,16 +79,20 @@ public class VentanaListadoEscolaridad {
 		lblModoListado.setBounds(32, 105, 101, 19);
 		frmListarEscolaridad.getContentPane().add(lblModoListado);
 		
-		JRadioButton rdbtnParcial = new JRadioButton("Parcial");
+		ButtonGroup bgp = new ButtonGroup();
+		
+		final JRadioButton rdbtnParcial = new JRadioButton("Parcial");
 		rdbtnParcial.setBackground(Color.WHITE);
 		rdbtnParcial.setBounds(183, 104, 71, 23);
 		frmListarEscolaridad.getContentPane().add(rdbtnParcial);
+		bgp.add(rdbtnParcial);
 		
-		JRadioButton rdbtnCompleto = new JRadioButton("Completo");
+		final JRadioButton rdbtnCompleto = new JRadioButton("Completo");
 		rdbtnCompleto.setBackground(Color.WHITE);
 		rdbtnCompleto.setBounds(279, 104, 79, 23);
 		frmListarEscolaridad.getContentPane().add(rdbtnCompleto);
-		
+		bgp.add(rdbtnCompleto);
+
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -100,9 +106,21 @@ public class VentanaListadoEscolaridad {
 		btnVolver.setBounds(69, 159, 92, 30);
 		frmListarEscolaridad.getContentPane().add(btnVolver);
 		
+		
 		JButton btnListar = new JButton("LISTAR");
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(rdbtnCompleto.isSelected()) {
+					JOptionPane.showMessageDialog(null, "completo");
+					///ventana.setVisible(true);
+				}
+				else if(rdbtnParcial.isSelected()) {
+					JOptionPane.showMessageDialog(null, "parcial");
+					///ventana.setVisible(true);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Por favor, seleccione una opcion");
+				}
 			}
 		});
 		btnListar.setForeground(Color.BLACK);

@@ -3,24 +3,23 @@ package CapaGrafica;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.Button;
-import javax.swing.JTree;
-import javax.swing.JTable;
-import java.awt.Color;
-import javax.swing.JSeparator;
-import javax.swing.table.DefaultTableModel;
-import java.awt.Font;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+
+
+
 import javax.swing.JButton;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Window;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class VentanaListadoAsignaturas extends JFrame {
+public class VentanaListadoAsignaturas {
 
-	private static final long serialVersionUID = 1L;
-	private JTable table;
-	
+	private JFrame frmListarAsignaturas;
+	///private Controlador controlador;
+	private VentanaPrincipal ventanaPrincipal;
 
 	/**
 	 * Launch the application.
@@ -29,39 +28,56 @@ public class VentanaListadoAsignaturas extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaListadoAsignaturas frame = new VentanaListadoAsignaturas();
-					frame.setVisible(true);
+					VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
+					ventanaPrincipal.setVisible(true); 
+					VentanaListadoAsignaturas window = new VentanaListadoAsignaturas(ventanaPrincipal);
+					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-//creemos que la tabla se insertan valores dimamicamente por el arreglo lo mismo para listar alumno apellido
-	
-	
-	
-	public VentanaListadoAsignaturas() {
-		setTitle("LISTAR ASIGNATURAS");
-		getContentPane().setBackground(new Color(255, 255, 255));
-		getContentPane().setLayout(null);
+
+	/**
+	 * Create the application.
+	 */
+	public VentanaListadoAsignaturas(VentanaPrincipal ventanaPrincipal) {
+		this.ventanaPrincipal = ventanaPrincipal;
+		initialize();
+		///controlador = new Controlador(this);
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmListarAsignaturas = new JFrame();
+		frmListarAsignaturas.getContentPane().setBackground(new Color(255, 255, 255));
+		frmListarAsignaturas.setTitle("LISTAR ASIGNATURAS");
+		frmListarAsignaturas.setBounds(100, 100, 450, 300);
+		frmListarAsignaturas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmListarAsignaturas.getContentPane().setLayout(null);
 		
 		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.setVisible(true);
+				frmListarAsignaturas.dispose();
+			}
+		});
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnVolver.setBackground(Color.LIGHT_GRAY);
-		btnVolver.setBounds(106, 268, 92, 30);
-		getContentPane().add(btnVolver);
-		
-		table = new JTable();
-		table.setBounds(60, 45, 148, 0);
-		getContentPane().add(table);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 320, 348);
+		btnVolver.setBounds(172, 220, 92, 30);
+		frmListarAsignaturas.getContentPane().add(btnVolver);
+	}
+	
+	public void setVisible(boolean mostrar) {
+		frmListarAsignaturas.setVisible(mostrar);
 	}
 
-
-
+	
 	public void mostrarMensajeError (String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
