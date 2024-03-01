@@ -7,34 +7,9 @@ public class PrincipalVentanas {
 	}
 
 	public static void main(String[] args) {
-		VentanaRegistrarAsignatura ventana1 = new VentanaRegistrarAsignatura(null);
-		ventana1.setVisible(true);
-		/*
-		VentanaRegistrarAsignatura ventana1 = new VentanaRegistrarAsignatura();
-		ventana1.setVisible(true);
-		VentanaConsultaEscolaridad ventana2 = new VentanaConsultaEscolaridad();
-		ventana2.setVisible(true);
-		VentanaInscripcionAsignatura ventana3 = new VentanaInscripcionAsignatura();
-		ventana3.setVisible(true);
-		VentanaListadoAsignaturas ventana4 = new VentanaListadoAsignaturas();
-		ventana4.setVisible(true);
-		VentanaListadoCedula ventana5 = new VentanaListadoCedula();
-		ventana5.setVisible(true);
-		VentanaListadoEgresados ventana6 = new VentanaListadoEgresados();
-		ventana6.setVisible(true);
-		VentanaListarAlumnoApellido ventana7 = new VentanaListarAlumnoApellido();
-		ventana7.setVisible(true);
-		VentanaMontoRecaudado ventana8 = new VentanaMontoRecaudado();
-		ventana8.setVisible(true);
-		VentananRegistroResultado ventana9 = new VentananRegistroResultado();
-		ventana9.setVisible(true);
-		VentanaRegistrarAlumno ventana10 = new VentanaRegistrarAlumno();
-		ventana10.setVisible(true);
-		VentanaRespaldo ventana11 = new VentanaRespaldo();
-		ventana11.setVisible(true);
-		VentanaRecuperar ventana12 = new VentanaRecuperar();
-		ventana12.setVisible(true);
-		*/
+		VentanaPrincipal ventana = new VentanaPrincipal();
+		ventana.setVisible(true);
+
 	}
 
 }

@@ -7,6 +7,7 @@ import java.rmi.registry.LocateRegistry;
 
 import CapaLogica.Fachada;
 import CapaLogica.IFachada;
+import persistencia.exceptions.PersistenciaException;
 
 public class MainServidor {
 
@@ -20,6 +21,7 @@ public class MainServidor {
 		LocateRegistry.createRegistry(1099);
 		// instancio mi Objeto Remoto y lo publico
 		IFachada fachada = new Fachada();
+		fachada.recuperar();
 		System.out.println ("Antes de publicarlo");
 		Naming.rebind("//localhost:1099/fachada", fachada);
 		System.out.println ("Luego de publicarlo");
@@ -28,6 +30,10 @@ public class MainServidor {
 		{ e.printStackTrace(); }
 		catch (MalformedURLException e)
 		{ e.printStackTrace(); }
+		 catch (PersistenciaException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		}
 
 	}
 

@@ -29,18 +29,7 @@ public class VentanaPrincipal {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaPrincipal window = new VentanaPrincipal();
-					window.frmMenuPrincipal.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the application.
@@ -69,7 +58,7 @@ public class VentanaPrincipal {
 		btnSalir.setBounds(24, 231, 92, 30);
 		frmMenuPrincipal.getContentPane().add(btnSalir);
 		
-	ButtonGroup bgp = new ButtonGroup();
+		ButtonGroup bgp = new ButtonGroup();
 		
 		final JRadioButton rdbtnReq1 = new JRadioButton("Registrar Asignatura");
 		rdbtnReq1.setBackground(Color.WHITE);
@@ -190,6 +179,11 @@ public class VentanaPrincipal {
 		frmMenuPrincipal.getContentPane().add(btnAbrir);
 		
 		JButton btnRespaldar = new JButton("RESPALDAR");
+		btnRespaldar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnRespaldar.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnRespaldar.setBackground(Color.LIGHT_GRAY);
 		btnRespaldar.setBounds(344, 231, 107, 31);

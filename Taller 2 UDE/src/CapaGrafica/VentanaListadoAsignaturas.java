@@ -14,12 +14,16 @@ import java.awt.Font;
 import java.awt.Window;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
 
 public class VentanaListadoAsignaturas {
 
 	private JFrame frmListarAsignaturas;
 	private ControladorListadoAsignaturas controlador;
 	private VentanaPrincipal ventanaPrincipal;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -46,6 +50,7 @@ public class VentanaListadoAsignaturas {
 		this.ventanaPrincipal = ventanaPrincipal;
 		initialize();
 		controlador = new ControladorListadoAsignaturas(this);
+		controlador.listarAsignaturas();
 	}
 
 	/**
@@ -55,7 +60,7 @@ public class VentanaListadoAsignaturas {
 		frmListarAsignaturas = new JFrame();
 		frmListarAsignaturas.getContentPane().setBackground(new Color(255, 255, 255));
 		frmListarAsignaturas.setTitle("LISTAR ASIGNATURAS");
-		frmListarAsignaturas.setBounds(100, 100, 450, 300);
+		frmListarAsignaturas.setBounds(100, 100, 450, 320);
 		frmListarAsignaturas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmListarAsignaturas.getContentPane().setLayout(null);
 		
@@ -69,8 +74,27 @@ public class VentanaListadoAsignaturas {
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnVolver.setBackground(Color.LIGHT_GRAY);
-		btnVolver.setBounds(172, 220, 92, 30);
+		btnVolver.setBounds(170, 240, 92, 30);
 		frmListarAsignaturas.getContentPane().add(btnVolver);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 14, 414, 215);
+		frmListarAsignaturas.getContentPane().add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+	}
+	
+	public void setearDatos(Object[][] data) {
+	
+
+		String[] columnNames = {"Codigo",
+				 "Nombre",
+				 "Descripcion"};
+		
+		DefaultTableModel dtm= new DefaultTableModel(data, columnNames);
+		table.setModel(dtm);
+
 	}
 	
 	public void setVisible(boolean mostrar) {

@@ -39,15 +39,23 @@ public class ControladorListadoAsignaturas {
 		}
 		
 		
-			public ArrayList<voAsignatura> listarAsignaturas() {
+			public void listarAsignaturas() {
 				  ArrayList<voAsignatura> listaAsignaturas = null; // Inicializamos a null
 				    try {
 				        listaAsignaturas = fachada.listarAsignaturas();
+				        Object[][] data = new Object [listaAsignaturas.size()][3];
+				        int numFila = 0;
+				        for(voAsignatura vo : listaAsignaturas) {
+				        	Object [] fila = {vo.getCodigo(),vo.getNombre(),vo.getDescripcion()};
+				        	data[numFila] = fila;
+				        	numFila++;
+				        }
+				        ventana.setearDatos(data);
 				    } catch (DicAsignaturasVacioException exc) {
 				    	ventana.mostrarMensajeError(exc.darMensaje());
 				    } catch (RemoteException exc) {
 				        ventana.mostrarMensajeError(exc.getMessage());
 				    }
-				    return listaAsignaturas; // Devolvemos la lista
+				    
 			}
 }
