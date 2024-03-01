@@ -5,7 +5,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import CapaGrafica.Controladores.ControladorRegistrarInscripcion;
+import CapaGrafica.Controladores.ControladorRegistrarResultado;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -17,11 +23,13 @@ public class VentanaInscripcionAsignatura extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textCed;
-	private JTextField textCod;
-	private JTextField textMonto;
-	private JTextField textAnio;
-	
+	private JTextField txtCed;
+	private JTextField txtCod;
+	private JTextField txtMonto;
+	private JTextField txtAnio;
+	private JFrame frmInscripcionAsignatura;
+	private ControladorRegistrarInscripcion controlador;
+	private VentanaPrincipal ventanaPrincipal;
 
 	/**
 	 * Launch the application.
@@ -30,19 +38,28 @@ public class VentanaInscripcionAsignatura extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaInscripcionAsignatura frame = new VentanaInscripcionAsignatura();
-					frame.setVisible(true);
+					VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
+					ventanaPrincipal.setVisible(true); 
+					VentanaInscripcionAsignatura window = new VentanaInscripcionAsignatura(ventanaPrincipal); //Ta mal escrita la clase
+					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
+	
+	public VentanaInscripcionAsignatura(VentanaPrincipal ventanaPrincipal) {
+		this.ventanaPrincipal = ventanaPrincipal;
+		intialize();
+		controlador = new ControladorRegistrarInscripcion(this);
+	}
+
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaInscripcionAsignatura() {
+	private void intialize() {
 		setTitle("REGISTRAR INSCRIPCION");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 445, 277);
@@ -58,20 +75,20 @@ public class VentanaInscripcionAsignatura extends JFrame {
 		lblCedulaAlumno.setBounds(33, 23, 153, 19);
 		contentPane.add(lblCedulaAlumno);
 		
-		textCed = new JTextField();
-		textCed.setColumns(10);
-		textCed.setBounds(240, 22, 133, 20);
-		contentPane.add(textCed);
+		txtCed = new JTextField();
+		txtCed.setColumns(10);
+		txtCed.setBounds(240, 22, 133, 20);
+		contentPane.add(txtCed);
 		
 		JLabel lblCodigoAsignatura = new JLabel("Ingrese codigo de la asignatura");
 		lblCodigoAsignatura.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblCodigoAsignatura.setBounds(33, 65, 181, 19);
 		contentPane.add(lblCodigoAsignatura);
 		
-		textCod = new JTextField();
-		textCod.setColumns(10);
-		textCod.setBounds(240, 64, 133, 20);
-		contentPane.add(textCod);
+		txtCod = new JTextField();
+		txtCod.setColumns(10);
+		txtCod.setBounds(240, 64, 133, 20);
+		contentPane.add(txtCod);
 		
 		JLabel lblMontoBase = new JLabel("Ingrese monto base");
 		lblMontoBase.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -83,19 +100,24 @@ public class VentanaInscripcionAsignatura extends JFrame {
 		lblAnioLectivo.setBounds(33, 148, 118, 19);
 		contentPane.add(lblAnioLectivo);
 		
-		textMonto = new JTextField();
-		textMonto.setColumns(10);
-		textMonto.setBounds(240, 105, 133, 20);
-		contentPane.add(textMonto);
+		txtMonto = new JTextField();
+		txtMonto.setColumns(10);
+		txtMonto.setBounds(240, 105, 133, 20);
+		contentPane.add(txtMonto);
 		
-		textAnio = new JTextField();
-		textAnio.setColumns(10);
-		textAnio.setBounds(240, 147, 133, 20);
-		contentPane.add(textAnio);
+		txtAnio = new JTextField();
+		txtAnio.setColumns(10);
+		txtAnio.setBounds(240, 147, 133, 20);
+		contentPane.add(txtAnio);
 		
 		JButton btnInscribir = new JButton("INSCRIBIR");
 		btnInscribir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				long cedula = Long.parseLong(txtCed.getText());
+				String codigo = txtCod.getText();
+				float monto = Float.parseFloat(txtMonto.getText());
+				int anio = Integer.parseInt(txtAnio.getText());
+				controlador.registrarInscripcion(codigo, cedula, monto, anio);
 			}
 		});
 		btnInscribir.setForeground(Color.BLACK);
@@ -105,10 +127,24 @@ public class VentanaInscripcionAsignatura extends JFrame {
 		contentPane.add(btnInscribir);
 		
 		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaPrincipal.setVisible(true);
+				frmInscripcionAsignatura.dispose();
+			}
+		});
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnVolver.setBackground(Color.LIGHT_GRAY);
 		btnVolver.setBounds(78, 197, 92, 30);
 		contentPane.add(btnVolver);
+	}
+	
+	public void mostrarMensajeError (String mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje);
+	}
+
+	public void mostrarMensajeExito (String mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje);
 	}
 }

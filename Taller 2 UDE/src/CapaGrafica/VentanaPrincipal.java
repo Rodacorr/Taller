@@ -30,7 +30,6 @@ public class VentanaPrincipal extends JFrame {
 	private JRadioButton rdbtnReq8;
 	private JRadioButton rdbtnReq9;
 	private JRadioButton rdbtnReq10;
-	private JRadioButton rdbtnReq11;
 
 
 	/**
@@ -55,7 +54,7 @@ public class VentanaPrincipal extends JFrame {
 	public VentanaPrincipal() {
 		setTitle("MENU PRINCIPAL");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 479, 326);
+		setBounds(100, 100, 514, 326);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -71,69 +70,63 @@ public class VentanaPrincipal extends JFrame {
 		
 		rdbtnReq1 = new JRadioButton("Registrar Asignatura");
 		rdbtnReq1.setBackground(new Color(255, 255, 255));
-		rdbtnReq1.setBounds(40, 32, 180, 31);
+		rdbtnReq1.setBounds(40, 43, 180, 31);
 		contentPane.add(rdbtnReq1);
 		bgp.add(rdbtnReq1);
 		
 		rdbtnReq2 = new JRadioButton("Listado de Asignaturas");
 		rdbtnReq2.setBackground(new Color(255, 255, 255));
-		rdbtnReq2.setBounds(40, 66, 159, 23);
+		rdbtnReq2.setBounds(268, 178, 159, 23);
 		contentPane.add(rdbtnReq2);
 		bgp.add(rdbtnReq2);
 		
 		rdbtnReq3 = new JRadioButton("Registrar Alumno");
 		rdbtnReq3.setBackground(Color.WHITE);
-		rdbtnReq3.setBounds(40, 101, 135, 23);
+		rdbtnReq3.setBounds(40, 78, 135, 23);
 		contentPane.add(rdbtnReq3);
 		bgp.add(rdbtnReq3);
 		
 		rdbtnReq4 = new JRadioButton("Listado de Alumno dado Apellido");
 		rdbtnReq4.setBackground(Color.WHITE);
-		rdbtnReq4.setBounds(40, 133, 217, 23);
+		rdbtnReq4.setBounds(268, 78, 217, 23);
 		contentPane.add(rdbtnReq4);
 		bgp.add(rdbtnReq4);
 		
 		rdbtnReq5 = new JRadioButton("Listado de Alumno dada Cedula");
 		rdbtnReq5.setBackground(Color.WHITE);
-		rdbtnReq5.setBounds(40, 166, 217, 23);
+		rdbtnReq5.setBounds(268, 47, 217, 23);
 		contentPane.add(rdbtnReq5);
 		bgp.add(rdbtnReq5);
 		
 		rdbtnReq6 = new JRadioButton("Registrar Inscripcion");
 		rdbtnReq6.setBackground(Color.WHITE);
-		rdbtnReq6.setBounds(40, 198, 159, 23);
+		rdbtnReq6.setBounds(40, 113, 159, 23);
 		contentPane.add(rdbtnReq6);
 		bgp.add(rdbtnReq6);
 		
 		rdbtnReq7 = new JRadioButton("Registrar Calificacion");
 		rdbtnReq7.setBackground(Color.WHITE);
-		rdbtnReq7.setBounds(268, 32, 159, 23);
+		rdbtnReq7.setBounds(40, 144, 159, 23);
 		contentPane.add(rdbtnReq7);
 		bgp.add(rdbtnReq7);
 		
 		rdbtnReq8 = new JRadioButton("Calcular Monto Recaudado");
 		rdbtnReq8.setBackground(Color.WHITE);
-		rdbtnReq8.setBounds(268, 66, 186, 23);
+		rdbtnReq8.setBounds(40, 178, 186, 23);
 		contentPane.add(rdbtnReq8);
 		bgp.add(rdbtnReq8);
 		
 		rdbtnReq9 = new JRadioButton("Listar Escolaridad ");
 		rdbtnReq9.setBackground(Color.WHITE);
-		rdbtnReq9.setBounds(268, 101, 135, 23);
+		rdbtnReq9.setBounds(268, 113, 135, 23);
 		contentPane.add(rdbtnReq9);
 		bgp.add(rdbtnReq9);
 		
 		rdbtnReq10 = new JRadioButton("Listar Egresados");
 		rdbtnReq10.setBackground(Color.WHITE);
-		rdbtnReq10.setBounds(268, 133, 135, 23);
+		rdbtnReq10.setBounds(268, 144, 135, 23);
 		contentPane.add(rdbtnReq10);
 		bgp.add(rdbtnReq10);
-		
-		rdbtnReq11 = new JRadioButton("Respaldar");
-		rdbtnReq11.setBackground(Color.WHITE);
-		rdbtnReq11.setBounds(268, 166, 109, 23);
-		contentPane.add(rdbtnReq11);
-		bgp.add(rdbtnReq11);
 		
 		JButton btnAbrir = new JButton("ABRIR");
 		btnAbrir.addActionListener(new ActionListener() {
@@ -159,11 +152,11 @@ public class VentanaPrincipal extends JFrame {
 					ventana.setVisible(true);
 				}
 				else if(rdbtnReq6.isSelected()) {
-					VentanaInscripcionAsignatura ventana = new VentanaInscripcionAsignatura();
+					VentanaInscripcionAsignatura ventana = new VentanaInscripcionAsignatura(VentanaPrincipal.this);
 					ventana.setVisible(true);
 				}
 				else if(rdbtnReq7.isSelected()) {
-					VentananRegistroResultado ventana = new VentananRegistroResultado();
+					VentananRegistroResultado ventana = new VentananRegistroResultado(VentanaPrincipal.this);
 					ventana.setVisible(true);
 				}
 				else if(rdbtnReq8.isSelected()) {
@@ -189,14 +182,20 @@ public class VentanaPrincipal extends JFrame {
 		btnAbrir.setForeground(Color.BLACK);
 		btnAbrir.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnAbrir.setBackground(Color.GREEN);
-		btnAbrir.setBounds(226, 240, 114, 30);
+		btnAbrir.setBounds(183, 240, 114, 30);
 		contentPane.add(btnAbrir);
 		
 		JButton btnSalir = new JButton("SALIR");
 		btnSalir.setForeground(Color.BLACK);
 		btnSalir.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnSalir.setBackground(new Color(255, 0, 0));
-		btnSalir.setBounds(83, 240, 92, 30);
+		btnSalir.setBounds(29, 240, 92, 30);
 		contentPane.add(btnSalir);
+		
+		JButton btnRespaldar = new JButton("RESPALDAR");
+		btnRespaldar.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnRespaldar.setBackground(new Color(192, 192, 192));
+		btnRespaldar.setBounds(349, 240, 107, 31);
+		contentPane.add(btnRespaldar);
 	}
 }

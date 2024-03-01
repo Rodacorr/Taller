@@ -67,7 +67,7 @@ public class VentanaRegistrarAlumno {
 		frmRegistrarAlumno.setTitle("REGISTRAR ALUMNO");
 		frmRegistrarAlumno.getContentPane().setBackground(new Color(255, 255, 255));
 		frmRegistrarAlumno.getContentPane().setForeground(new Color(255, 255, 255));
-		frmRegistrarAlumno.setBounds(100, 100, 367, 298);
+		frmRegistrarAlumno.setBounds(100, 100, 367, 410);
 		frmRegistrarAlumno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRegistrarAlumno.getContentPane().setLayout(null);
 		

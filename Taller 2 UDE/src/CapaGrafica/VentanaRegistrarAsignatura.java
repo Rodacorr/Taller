@@ -3,7 +3,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -97,7 +96,7 @@ public class VentanaRegistrarAsignatura {
 		txtDesc.setRows(3);
 		txtDesc.setBounds(197, 99, 114, 93);
 		Border border = BorderFactory.createLineBorder(Color.GRAY); 
-		txtDesc.setBorder(BorderFactory.createCompoundBorder(border, BorderFactory.createEmptyBorder(10, 10, 10, 10))); // Añadir un margen al borde
+		txtDesc.setBorder(BorderFactory.createCompoundBorder(border, BorderFactory.createEmptyBorder(10, 10, 10, 10))); 
 		frmRegistrarAsignatura.getContentPane().add(txtDesc);
 
 		btnRegistrar = new JButton("REGISTRAR");
