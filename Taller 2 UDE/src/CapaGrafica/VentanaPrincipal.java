@@ -7,6 +7,9 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
+
+import CapaGrafica.Controladores.ControladorPrincipal;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -26,6 +29,7 @@ public class VentanaPrincipal {
 	private JRadioButton rdbtnReq8;
 	private JRadioButton rdbtnReq9;
 	private JRadioButton rdbtnReq10;
+	private ControladorPrincipal controlador;
 	/**
 	 * Launch the application.
 	 */
@@ -36,6 +40,7 @@ public class VentanaPrincipal {
 	 */
 	public VentanaPrincipal() {
 		initialize();
+		controlador = new ControladorPrincipal(this);
 	}
 
 	/**
@@ -181,7 +186,7 @@ public class VentanaPrincipal {
 		JButton btnRespaldar = new JButton("RESPALDAR");
 		btnRespaldar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				controlador.respaldar();
 			}
 		});
 		btnRespaldar.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -195,5 +200,13 @@ public class VentanaPrincipal {
 	
 	public void setVisible(boolean mostrar) {
 		frmMenuPrincipal.setVisible(mostrar);
+	}
+	
+	public void mostrarMensajeError (String mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje);
+	}
+
+	public void mostrarMensajeExito (String mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje);
 	}
 }
