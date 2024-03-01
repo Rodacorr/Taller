@@ -10,6 +10,9 @@ import javax.swing.JOptionPane;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import CapaGrafica.Controladores.ControladorListadoAlumnoCedula;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -18,7 +21,7 @@ public class VentanaListadoAlumnoCedula {
 
 	private JFrame frmListarAlumnoCed;
 	private JTextField textField;
-	//private Controlador controlador;
+	private ControladorListadoAlumnoCedula controlador;
 	private VentanaPrincipal ventanaPrincipal;
 	/**
 	 * Launch the application.
@@ -44,7 +47,7 @@ public class VentanaListadoAlumnoCedula {
 	public VentanaListadoAlumnoCedula(VentanaPrincipal ventanaPrincipal) {
 		this.ventanaPrincipal = ventanaPrincipal;
 		initialize();
-		//controlador = new Controlador(this);
+		controlador = new ControladorListadoAlumnoCedula(this);
 	}
 
 	/**

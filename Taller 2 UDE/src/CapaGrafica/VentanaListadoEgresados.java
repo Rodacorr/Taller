@@ -9,6 +9,9 @@ import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.JRadioButton;
+
+import CapaGrafica.Controladores.ControladorListadoEgresados;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -20,7 +23,7 @@ public class VentanaListadoEgresados {
 	private JRadioButton rdbtnCompleto;
 	private JRadioButton rdbtnParcial;
 	private VentanaPrincipal ventanaPrincipal;
-	///private Controlador controlador;
+	private ControladorListadoEgresados controlador;
 
 	/**
 	 * Launch the application.
@@ -46,7 +49,7 @@ public class VentanaListadoEgresados {
 	public VentanaListadoEgresados(VentanaPrincipal ventanaPrincipal) {
 		this.ventanaPrincipal = ventanaPrincipal;
 		initialize();
-		///controlador = new Controlador(this);
+		controlador = new ControladorListadoEgresados(this);
 	}
 
 	/**

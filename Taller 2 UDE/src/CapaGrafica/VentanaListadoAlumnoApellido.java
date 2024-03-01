@@ -9,6 +9,9 @@ import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import CapaGrafica.Controladores.ControladorListadoAlumnoApellido;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -17,7 +20,7 @@ public class VentanaListadoAlumnoApellido {
 
 	private JFrame frmListarAlumnosApe;
 	private JTextField textField;
-	//private Controlador controlador;
+	private ControladorListadoAlumnoApellido controlador;
 	private VentanaPrincipal ventanaPrincipal;
 	/**
 	 * Launch the application.
@@ -43,7 +46,7 @@ public class VentanaListadoAlumnoApellido {
 	public VentanaListadoAlumnoApellido(VentanaPrincipal ventanaPrincipal) {
 		this.ventanaPrincipal = ventanaPrincipal;
 		initialize();
-		//controlador = new Controlador(this);
+		controlador = new ControladorListadoAlumnoApellido(this);
 	}
 
 	/**

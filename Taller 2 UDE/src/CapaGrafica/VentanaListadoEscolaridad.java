@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.JTextField;
 
+import CapaGrafica.Controladores.ControladorListadoEscolaridad;
 import CapaGrafica.Controladores.ControladorRegistrarAlumno;
 
 import javax.swing.JRadioButton;
@@ -23,7 +24,7 @@ public class VentanaListadoEscolaridad {
 
 	private JFrame frmListarEscolaridad;
 	private JTextField txtCed;
-	//private Controlador controlador;
+	private ControladorListadoEscolaridad controlador;
 	private VentanaPrincipal ventanaPrincipal;
 
 	/**
@@ -50,7 +51,7 @@ public class VentanaListadoEscolaridad {
 	public VentanaListadoEscolaridad(VentanaPrincipal ventanaPrincipal) {
 		this.ventanaPrincipal = ventanaPrincipal;
 		initialize();
-		//controlador = new Controlador(this);
+		controlador = new ControladorListadoEscolaridad(this);
 	}
 
 	/**
