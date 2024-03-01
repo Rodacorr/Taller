@@ -5,7 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-
+import CapaGrafica.Controladores.ControladorListadoAsignaturas;
 
 import javax.swing.JButton;
 import java.awt.BorderLayout;
@@ -18,7 +18,7 @@ import java.awt.event.ActionEvent;
 public class VentanaListadoAsignaturas {
 
 	private JFrame frmListarAsignaturas;
-	///private Controlador controlador;
+	private ControladorListadoAsignaturas controlador;
 	private VentanaPrincipal ventanaPrincipal;
 
 	/**
@@ -45,7 +45,7 @@ public class VentanaListadoAsignaturas {
 	public VentanaListadoAsignaturas(VentanaPrincipal ventanaPrincipal) {
 		this.ventanaPrincipal = ventanaPrincipal;
 		initialize();
-		///controlador = new Controlador(this);
+		controlador = new ControladorListadoAsignaturas(this);
 	}
 
 	/**

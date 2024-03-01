@@ -9,6 +9,9 @@ import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import CapaGrafica.Controladores.ControladorCalcularMontoRecaudado;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -18,7 +21,7 @@ public class VentanaCalcularMontoRecaudado {
 	private JFrame frmMontoRecaudado;
 	private JTextField txtCed;
 	private JTextField txtAnio;
-	///private Controlador controlador;
+	private ControladorCalcularMontoRecaudado controlador;
 	private VentanaPrincipal ventanaPrincipal;
 
 	/**
@@ -79,9 +82,12 @@ public class VentanaCalcularMontoRecaudado {
 		txtAnio.setBounds(220, 82, 122, 20);
 		frmMontoRecaudado.getContentPane().add(txtAnio);
 		
-		JButton btnCalcular = new JButton("CALCULAR");
+		final JButton btnCalcular = new JButton("CALCULAR");
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				long cedula = Long.parseLong(txtCed.getText());
+				int anio = Integer.parseInt(txtAnio.getText());
+				//JOptionPane.showMessageDialog(null, controlador.montoRecaudado(cedula, anio));
 			}
 		});
 		btnCalcular.setForeground(Color.BLACK);

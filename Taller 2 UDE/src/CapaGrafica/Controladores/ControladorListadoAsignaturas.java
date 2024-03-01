@@ -16,12 +16,12 @@ import CapaLogica.Exceptions.AsignaturasCompletaException;
 import CapaLogica.Exceptions.DicAsignaturasVacioException;
 import CapaLogica.VO.voAsignatura;
 
-public class ControladorListarAsignatura {
+public class ControladorListadoAsignaturas {
 
 	private VentanaListadoAsignaturas ventana;
 	private IFachada fachada;
 
-		public ControladorListarAsignatura(VentanaListadoAsignaturas ven) {
+		public ControladorListadoAsignaturas(VentanaListadoAsignaturas ven) {
 			this.ventana = ven;
 			try {
 				fachada = (IFachada)
