@@ -7,15 +7,15 @@ import java.rmi.RemoteException;
 
 import javax.swing.JOptionPane;
 
-import CapaGrafica.VentananRegistroResultado;
+import CapaGrafica.VentanaRegistrarResultado;
 import CapaLogica.IFachada;
 import CapaLogica.Exceptions.*;
 
 public class ControladorRegistrarResultado {
-private VentananRegistroResultado ventana;
+private VentanaRegistrarResultado ventana;
 private IFachada fachada;
 
-	public ControladorRegistrarResultado(VentananRegistroResultado ven) {
+	public ControladorRegistrarResultado(VentanaRegistrarResultado ven) {
 		this.ventana = ven;
 		try {
 			fachada = (IFachada)

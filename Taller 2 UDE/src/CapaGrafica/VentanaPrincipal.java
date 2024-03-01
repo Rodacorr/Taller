@@ -152,11 +152,11 @@ public class VentanaPrincipal extends JFrame {
 					ventana.setVisible(true);
 				}
 				else if(rdbtnReq6.isSelected()) {
-					VentanaInscripcionAsignatura ventana = new VentanaInscripcionAsignatura(VentanaPrincipal.this);
+					VentanaRegistrarInscripcion ventana = new VentanaRegistrarInscripcion(VentanaPrincipal.this);
 					ventana.setVisible(true);
 				}
 				else if(rdbtnReq7.isSelected()) {
-					VentananRegistroResultado ventana = new VentananRegistroResultado(VentanaPrincipal.this);
+					VentanaRegistrarResultado ventana = new VentanaRegistrarResultado(VentanaPrincipal.this);
 					ventana.setVisible(true);
 				}
 				else if(rdbtnReq8.isSelected()) {
@@ -164,7 +164,7 @@ public class VentanaPrincipal extends JFrame {
 					ventana.setVisible(true);
 				}
 				else if(rdbtnReq9.isSelected()) {
-					VentanaConsultaEscolaridad ventana = new VentanaConsultaEscolaridad();
+					VentanaListadoEscolaridad ventana = new VentanaListadoEscolaridad(VentanaPrincipal.this);
 					ventana.setVisible(true);
 				}
 				else if(rdbtnReq10.isSelected()) {

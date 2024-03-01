@@ -59,10 +59,10 @@ public class VentanaRegistrarAlumno {
 	 */
 	public VentanaRegistrarAlumno(VentanaPrincipal ventanaPrincipal) {
 		this.ventanaPrincipal = ventanaPrincipal;
-		initalize();
+		initialize();
 		controlador = new ControladorRegistrarAlumno(this);
 	}
-	private void initalize() { 	
+	private void initialize() { 	
 		frmRegistrarAlumno = new JFrame();
 		frmRegistrarAlumno.setTitle("REGISTRAR ALUMNO");
 		frmRegistrarAlumno.getContentPane().setBackground(new Color(255, 255, 255));
@@ -179,7 +179,14 @@ public class VentanaRegistrarAlumno {
 				String apellido = txtApe.getText();
 				String domicilio = txtDom.getText();
 				long telefono = Long.parseLong(txtTel.getText());
-				controlador.registrarAlumno(cedula,nombre,apellido,domicilio,telefono);
+				if(chckBec.isSelected()){
+					int porcentaje = Integer.parseInt(txtPorce.getText());
+					String razon = txtRaz.getText();
+					controlador.registrarAlumnoBecado(cedula, nombre, apellido, domicilio, telefono,porcentaje,razon);
+				}
+				else {
+					controlador.registrarAlumno(cedula,nombre,apellido,domicilio,telefono);
+				}
 			}
 		});
 		btnRegistrar.setForeground(Color.BLACK);

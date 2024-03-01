@@ -15,6 +15,7 @@ import CapaLogica.Exceptions.AsignaturaYaExisteException;
 import CapaLogica.Exceptions.AsignaturasCompletaException;
 import CapaLogica.Inscripciones.Inscripciones;
 import CapaLogica.VO.voAlumno;
+import CapaLogica.VO.voBecado;
 
 public class ControladorRegistrarAlumno {
 
@@ -36,11 +37,25 @@ public class ControladorRegistrarAlumno {
 			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion con el servidor");
 		}
 	}
-	public void registrarAlumno(long cedula,String nombre,	String apellido,String domicilio,long telefono) {
+	
+	public void registrarAlumno(long cedula,String nombre,String apellido,String domicilio,long telefono) {
 		try {
 			voAlumno alumno = new voAlumno(cedula,nombre,apellido,domicilio,telefono);
 			fachada.registarAlumno(alumno);
 			ventana.mostrarMensajeExito("Alumno ingresado correctamente.");
+		}
+		 catch (AlumnoYaExisteExceptions exc) {
+        	ventana.mostrarMensajeError(exc.darMensaje());
+        } catch (RemoteException exc) {
+        	ventana.mostrarMensajeError(exc.getMessage());
+        }
+	}
+	
+	public void registrarAlumnoBecado(long cedula,String nombre,String apellido,String domicilio,long telefono, int porcentaje, String razon) {
+		try {
+			voBecado becado = new voBecado(cedula,nombre,apellido,domicilio,telefono, porcentaje, razon);
+			fachada.registarAlumno(becado);
+			ventana.mostrarMensajeExito("Alumno becado ingresado correctamente.");
 		}
 		 catch (AlumnoYaExisteExceptions exc) {
         	ventana.mostrarMensajeError(exc.darMensaje());
