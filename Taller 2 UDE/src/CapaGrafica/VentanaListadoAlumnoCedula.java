@@ -10,12 +10,16 @@ import javax.swing.JOptionPane;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 import CapaGrafica.Controladores.ControladorListadoAlumnoCedula;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
 
 public class VentanaListadoAlumnoCedula {
 
@@ -23,6 +27,8 @@ public class VentanaListadoAlumnoCedula {
 	private JTextField txtCed;
 	private ControladorListadoAlumnoCedula controlador;
 	private VentanaPrincipal ventanaPrincipal;
+	private JTable table;
+	private JTextArea textArea;
 	/**
 	 * Launch the application.
 	 */
@@ -55,8 +61,8 @@ public class VentanaListadoAlumnoCedula {
 	 */
 	private void initialize() {
 		frmListarAlumnoCed = new JFrame();
-		frmListarAlumnoCed.getContentPane().setBackground(new Color(255, 255, 255));
-		frmListarAlumnoCed.getContentPane().setLayout(null);
+	    frmListarAlumnoCed.getContentPane().setBackground(new Color(255, 255, 255));
+	    frmListarAlumnoCed.getContentPane().setLayout(null);
 		
 		JLabel lblCedulaIngresado = new JLabel("Indique cedula");
 		lblCedulaIngresado.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -81,11 +87,23 @@ public class VentanaListadoAlumnoCedula {
 		btnVolver.setBounds(50, 91, 92, 30);
 		frmListarAlumnoCed.getContentPane().add(btnVolver);
 		
+		final JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setVisible(false);
+		scrollPane.setBounds(10, 142, 414, 222);
+		frmListarAlumnoCed.getContentPane().add(scrollPane);
+		
+		textArea = new JTextArea();
+        textArea.setEditable(false);
+        scrollPane.setViewportView(textArea);
+        
+		
 		JButton btnListar = new JButton("LISTAR");
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 	            long cedula = Long.parseLong(txtCed.getText());
+	    		
 	            controlador.listarAlumnoCed(cedula);
+	            scrollPane.setVisible(true); 
 			}
 		});
 		btnListar.setForeground(Color.BLACK);
@@ -93,10 +111,16 @@ public class VentanaListadoAlumnoCedula {
 		btnListar.setBackground(Color.GREEN);
 		btnListar.setBounds(192, 91, 100, 30);
 		frmListarAlumnoCed.getContentPane().add(btnListar);
+		
+
 		frmListarAlumnoCed.setTitle("LISTAR ALUMNO DADO SU CEDULA");
-		frmListarAlumnoCed.setBounds(100, 100, 376, 174);
+		frmListarAlumnoCed.setBounds(100, 100, 451, 419);
 		frmListarAlumnoCed.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
+	public void setearDatosEnTextArea(String mensaje) {
+		textArea.setText(mensaje);
+    }
 	
 	public void setVisible(boolean mostrar) {
 		frmListarAlumnoCed.setVisible(mostrar);

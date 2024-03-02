@@ -1,11 +1,13 @@
 package CapaGrafica.Controladores;
 
+import java.awt.Font;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import CapaGrafica.VentanaListadoAlumnoApellido;
@@ -15,6 +17,7 @@ import CapaLogica.Alumnos.Becado;
 import CapaLogica.Exceptions.AlumnoNoInscriptoException;
 import CapaLogica.Exceptions.DicAsignaturasVacioException;
 import CapaLogica.VO.voAlumnoCompleto;
+import CapaLogica.VO.voAlumnoDatTipo;
 import CapaLogica.VO.voAsignatura;
 import CapaLogica.VO.voBecadoDatCom;
 
@@ -41,8 +44,9 @@ public class ControladorListadoAlumnoCedula {
 	public void listarAlumnoCed(long ced) {
 		try {
 			voAlumnoCompleto alumno = fachada.listarAlumnoCed(ced);
+			String mensaje = ""; 
 
-			String mensaje = "Cedula: " + alumno.getCedula() + "\n" +
+			mensaje = "Cedula: " + alumno.getCedula() + "\n" +
 					"Nombre: " + alumno.getNombre() + "\n" +
 					"Apellido: " + alumno.getApellido() + "\n" +
 					"Cantidad de asignaturas aprobadas: " + alumno.getCantAsigAprob() + "\n" +
@@ -52,10 +56,10 @@ public class ControladorListadoAlumnoCedula {
 			String mensaje2 = "Tipo: Becado \n" +
 							  "PorcentajeBeca: "  +((voBecadoDatCom)alumno).getPorcentajeBeca() + "\n" +
 						      "Razon: " + ((voBecadoDatCom)alumno).getRazon();
-			ventana.mostrarMensajeExito(mensaje+ "\n" +mensaje2);
+			ventana.setearDatosEnTextArea(mensaje+ "\n" +mensaje2);
 			}
 			else {
-				ventana.mostrarMensajeExito(mensaje+"\n"+"Tipo: Alumno");
+				ventana.setearDatosEnTextArea(mensaje+"\n"+"Tipo: Alumno");
 			}
 		} catch (AlumnoNoInscriptoException exc) {
 			ventana.mostrarMensajeError(exc.darMensaje());
@@ -67,8 +71,9 @@ public class ControladorListadoAlumnoCedula {
 	public void listarAlumnoBecadoCed(long ced) {
 		try {
 			voBecadoDatCom becado = (voBecadoDatCom) fachada.listarAlumnoCed(ced);
+			String mensaje = ""; 
 
-			String mensaje = "Cedula: " + becado.getCedula() + "\n" +
+			mensaje = "Cedula: " + becado.getCedula() + "\n" +
 					"Nombre: " + becado.getNombre() + "\n" +
 					"Apellido: " + becado.getApellido() + "\n" +
 					"Cantidad de asignaturas aprobadas: " + becado.getCantAsigAprob() + "\n" +
@@ -78,7 +83,7 @@ public class ControladorListadoAlumnoCedula {
 					"Porcentaje Beca: " + becado.getPorcentajeBeca() + "\n" +
 					"Razon: " + becado.getRazon();
 
-			ventana.mostrarMensajeExito(mensaje);
+			ventana.setearDatosEnTextArea(mensaje);
 		} catch (AlumnoNoInscriptoException exc) {
 			ventana.mostrarMensajeError(exc.darMensaje());
 		} catch (RemoteException exc) {
