@@ -54,7 +54,7 @@ public class VentanaPrincipal {
 		frmMenuPrincipal.getContentPane().setLayout(null);
 		
 		JLabel lblSubtitulo = new JLabel("Seleccione la opcion deseada");
-		lblSubtitulo.setBounds(173, 10, 164, 14);
+		lblSubtitulo.setBounds(153, 11, 196, 14);
 		frmMenuPrincipal.getContentPane().add(lblSubtitulo);
 		
 		JButton btnSalir = new JButton("SALIR");
