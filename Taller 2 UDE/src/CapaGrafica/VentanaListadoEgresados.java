@@ -99,6 +99,15 @@ public class VentanaListadoEgresados {
 		btnVolver.setBounds(42, 81, 92, 30);
 		frmListarEgresados.getContentPane().add(btnVolver);
 		
+		final JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 143, 281, 238);
+		frmListarEgresados.getContentPane().add(scrollPane);
+		
+		table = new JTable();
+		table.setEnabled(false);
+		scrollPane.setViewportView(table);
+		scrollPane.setVisible(false);
+		
 		JButton btnListar = new JButton("LISTAR");
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -106,10 +115,12 @@ public class VentanaListadoEgresados {
 				if(rdbtnCompleto.isSelected()) {
 					modo = true;
 					controlador.listarEgresados(modo);
+					scrollPane.setVisible(true);
 				}
 				else if(rdbtnParcial.isSelected()) {
 					modo = false;
 					controlador.listarEgresados(modo);
+					scrollPane.setVisible(true);
 				}
 				else {
 					JOptionPane.showMessageDialog(null, "Por favor, seleccione una opcion");
@@ -122,12 +133,8 @@ public class VentanaListadoEgresados {
 		btnListar.setBounds(172, 81, 100, 30);
 		frmListarEgresados.getContentPane().add(btnListar);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 143, 281, 238);
-		frmListarEgresados.getContentPane().add(scrollPane);
 		
-		table = new JTable();
-		scrollPane.setViewportView(table);
+		
 	}
 	
 	public void setearDatosCompleto(Object[][] data) {

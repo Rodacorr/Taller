@@ -8,11 +8,15 @@ import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 import CapaGrafica.Controladores.ControladorListadoEscolaridad;
 import CapaGrafica.Controladores.ControladorRegistrarAlumno;
 
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
 import java.awt.Color;
 
 import javax.swing.ButtonGroup;
@@ -26,6 +30,7 @@ public class VentanaListadoEscolaridad {
 	private JTextField txtCed;
 	private ControladorListadoEscolaridad controlador;
 	private VentanaPrincipal ventanaPrincipal;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -61,7 +66,7 @@ public class VentanaListadoEscolaridad {
 		frmListarEscolaridad = new JFrame();
 		frmListarEscolaridad.getContentPane().setBackground(new Color(255, 255, 255));
 		frmListarEscolaridad.setTitle("LISTAR ESCOLARIDAD");
-		frmListarEscolaridad.setBounds(100, 100, 395, 246);
+		frmListarEscolaridad.setBounds(100, 100, 395, 490);
 		frmListarEscolaridad.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmListarEscolaridad.getContentPane().setLayout(null);
 		
@@ -107,17 +112,31 @@ public class VentanaListadoEscolaridad {
 		btnVolver.setBounds(69, 159, 92, 30);
 		frmListarEscolaridad.getContentPane().add(btnVolver);
 		
+		final JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(53, 200, 281, 238);
+		frmListarEscolaridad.getContentPane().add(scrollPane);
+		
+		table = new JTable();
+		table.setEnabled(false);
+		scrollPane.setViewportView(table);
+		scrollPane.setVisible(false);
+		
 		
 		JButton btnListar = new JButton("LISTAR");
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				boolean modo;
 				if(rdbtnCompleto.isSelected()) {
-					JOptionPane.showMessageDialog(null, "completo");
-					///ventana.setVisible(true);
+					modo = true;
+					long ced = Long.parseLong(txtCed.getText());
+					controlador.listarEscolaridad(ced,modo);
+					scrollPane.setVisible(true);
 				}
 				else if(rdbtnParcial.isSelected()) {
-					JOptionPane.showMessageDialog(null, "parcial");
-					///ventana.setVisible(true);
+					modo = false;
+					long ced = Long.parseLong(txtCed.getText());
+					controlador.listarEscolaridad(ced,modo);
+					scrollPane.setVisible(true);
 				}
 				else {
 					JOptionPane.showMessageDialog(null, "Por favor, seleccione una opcion");
@@ -129,6 +148,31 @@ public class VentanaListadoEscolaridad {
 		btnListar.setBackground(Color.GREEN);
 		btnListar.setBounds(219, 159, 100, 30);
 		frmListarEscolaridad.getContentPane().add(btnListar);
+		
+	
+	}
+	
+	public void setearDatosCompleto(Object[][] data) {
+		String[] columnNames = {"Numero",
+				"Asignatura",
+				"Anio",
+				"Calificacion",
+				"Monto"
+		};
+		
+		DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
+		table.setModel(dtm);
+	}
+	
+	public void setearDatosParcial(Object[][] data) {
+		String[] columnNames = {"Numero",
+				"Asignatura",
+				"Anio",
+				"Calificacion"	
+		};
+		
+		DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
+		table.setModel(dtm);
 	}
 	
 	public void setVisible(boolean mostrar) {
