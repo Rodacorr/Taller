@@ -70,11 +70,9 @@ public class ControladorListadoEscolaridad {
 	    } catch (RemoteException exc) {
 	        ventana.mostrarMensajeError(exc.getMessage());
 	    } catch (AlumnoNoInscriptoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	    	 ventana.mostrarMensajeError(e.darMensaje());
 		} catch (SecInscripcionesVaciaException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ventana.mostrarMensajeError(e.darMensaje());
 		}
 	}
 	

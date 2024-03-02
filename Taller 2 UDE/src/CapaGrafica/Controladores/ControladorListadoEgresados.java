@@ -65,7 +65,7 @@ public class ControladorListadoEgresados {
 	    } catch (RemoteException exc) {
 	        ventana.mostrarMensajeError(exc.getMessage());
 	    } catch (DicAlumnosVacioException e) {
-			e.printStackTrace();
+	    	 ventana.mostrarMensajeError(e.darMensaje());
 		}
 	}
 	

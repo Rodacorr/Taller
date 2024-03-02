@@ -33,7 +33,7 @@ public class MainServidor {
 		 catch (PersistenciaException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
-		}
+		 }
 
 	}
 

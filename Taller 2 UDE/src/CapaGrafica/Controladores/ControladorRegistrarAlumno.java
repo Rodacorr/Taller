@@ -38,11 +38,22 @@ public class ControladorRegistrarAlumno {
 		}
 	}
 	
-	public void registrarAlumno(long cedula,String nombre,String apellido,String domicilio,long telefono) {
+	public void registrarAlumno(String cedula,String nombre,String apellido,String domicilio,String telefono) {
 		try {
-			voAlumno alumno = new voAlumno(cedula,nombre,apellido,domicilio,telefono);
-			fachada.registarAlumno(alumno);
-			ventana.mostrarMensajeExito("Alumno ingresado correctamente.");
+			if (!cedula.matches("\\d+")) {
+				ventana.mostrarMensajeError("La cedula no tiene formato numerico");
+			}
+			else {
+				if (!telefono.matches("\\d+")) {
+					ventana.mostrarMensajeError("El telefono no tiene formato numerico");
+				}
+				else {
+					voAlumno alumno = new voAlumno(Long.parseLong(cedula),nombre,apellido,domicilio,Long.parseLong(telefono));
+					fachada.registarAlumno(alumno);
+					ventana.mostrarMensajeExito("Alumno ingresado correctamente.");
+					ventana.cerrarVentana();
+				}
+			}	
 		}
 		 catch (AlumnoYaExisteExceptions exc) {
         	ventana.mostrarMensajeError(exc.darMensaje());
@@ -51,11 +62,27 @@ public class ControladorRegistrarAlumno {
         }
 	}
 	
-	public void registrarAlumnoBecado(long cedula,String nombre,String apellido,String domicilio,long telefono, int porcentaje, String razon) {
+	public void registrarAlumnoBecado(String cedula,String nombre,String apellido,String domicilio,String telefono, String porcentaje, String razon) {
 		try {
-			voBecado becado = new voBecado(cedula,nombre,apellido,domicilio,telefono, porcentaje, razon);
-			fachada.registarAlumno(becado);
-			ventana.mostrarMensajeExito("Alumno becado ingresado correctamente.");
+			if (!cedula.matches("\\d+")) {
+				ventana.mostrarMensajeError("La cedula no tiene formato numerico");
+			}
+			else {
+				if (!telefono.matches("\\d+")) {
+					ventana.mostrarMensajeError("El telefono no tiene formato numerico");
+				}
+				else {
+					if (!porcentaje.matches("\\d+")) {
+						ventana.mostrarMensajeError("El porcentaje no tiene formato numerico");
+					}
+					else {
+						voBecado becado = new voBecado(Long.parseLong(cedula),nombre,apellido,domicilio,Long.parseLong(telefono), Integer.parseInt(porcentaje), razon);
+						fachada.registarAlumno(becado);
+						ventana.mostrarMensajeExito("Alumno becado ingresado correctamente.");
+						ventana.cerrarVentana();
+					}
+				}
+			}	
 		}
 		 catch (AlumnoYaExisteExceptions exc) {
         	ventana.mostrarMensajeError(exc.darMensaje());

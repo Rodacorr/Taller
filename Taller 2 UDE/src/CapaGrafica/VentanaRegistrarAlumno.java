@@ -6,6 +6,7 @@ import javax.swing.border.EmptyBorder;
 import CapaGrafica.Controladores.ControladorRegistrarAlumno;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JTextField;
@@ -174,13 +175,13 @@ public class VentanaRegistrarAlumno {
 		JButton btnRegistrar = new JButton("REGISTRAR");
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				long cedula = Long.parseLong(txtCed.getText());
+				String cedula = txtCed.getText();
 				String nombre = txtNom.getText();
 				String apellido = txtApe.getText();
 				String domicilio = txtDom.getText();
-				long telefono = Long.parseLong(txtTel.getText());
+				String telefono = txtTel.getText();
 				if(chckBec.isSelected()){
-					int porcentaje = Integer.parseInt(txtPorce.getText());
+					String porcentaje = txtPorce.getText();
 					String razon = txtRaz.getText();
 					controlador.registrarAlumnoBecado(cedula, nombre, apellido, domicilio, telefono,porcentaje,razon);
 				}
@@ -219,6 +220,11 @@ public class VentanaRegistrarAlumno {
 
 	public void mostrarMensajeExito (String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
+	}
+	
+	public void cerrarVentana() {
+		setVisible(false);
+		frmRegistrarAlumno.dispose();
 	}
 }
 

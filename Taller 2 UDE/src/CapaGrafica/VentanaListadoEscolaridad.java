@@ -31,6 +31,7 @@ public class VentanaListadoEscolaridad {
 	private ControladorListadoEscolaridad controlador;
 	private VentanaPrincipal ventanaPrincipal;
 	private JTable table;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -112,7 +113,7 @@ public class VentanaListadoEscolaridad {
 		btnVolver.setBounds(69, 159, 92, 30);
 		frmListarEscolaridad.getContentPane().add(btnVolver);
 		
-		final JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(53, 200, 281, 238);
 		frmListarEscolaridad.getContentPane().add(scrollPane);
 		
@@ -130,13 +131,11 @@ public class VentanaListadoEscolaridad {
 					modo = true;
 					long ced = Long.parseLong(txtCed.getText());
 					controlador.listarEscolaridad(ced,modo);
-					scrollPane.setVisible(true);
 				}
 				else if(rdbtnParcial.isSelected()) {
 					modo = false;
 					long ced = Long.parseLong(txtCed.getText());
 					controlador.listarEscolaridad(ced,modo);
-					scrollPane.setVisible(true);
 				}
 				else {
 					JOptionPane.showMessageDialog(null, "Por favor, seleccione una opcion");
@@ -162,6 +161,7 @@ public class VentanaListadoEscolaridad {
 		
 		DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
 		table.setModel(dtm);
+		scrollPane.setVisible(true);
 	}
 	
 	public void setearDatosParcial(Object[][] data) {
@@ -173,6 +173,7 @@ public class VentanaListadoEscolaridad {
 		
 		DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
 		table.setModel(dtm);
+		scrollPane.setVisible(true);
 	}
 	
 	public void setVisible(boolean mostrar) {

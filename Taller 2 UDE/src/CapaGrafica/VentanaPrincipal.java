@@ -14,6 +14,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class VentanaPrincipal {
@@ -57,6 +58,11 @@ public class VentanaPrincipal {
 		frmMenuPrincipal.getContentPane().add(lblSubtitulo);
 		
 		JButton btnSalir = new JButton("SALIR");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmMenuPrincipal.dispatchEvent(new WindowEvent(frmMenuPrincipal, WindowEvent.WINDOW_CLOSING));
+			}
+		});
 		btnSalir.setForeground(Color.BLACK);
 		btnSalir.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnSalir.setBackground(Color.RED);
