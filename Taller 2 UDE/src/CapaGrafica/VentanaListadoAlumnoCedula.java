@@ -20,7 +20,7 @@ import java.awt.event.ActionEvent;
 public class VentanaListadoAlumnoCedula {
 
 	private JFrame frmListarAlumnoCed;
-	private JTextField textField;
+	private JTextField txtCed;
 	private ControladorListadoAlumnoCedula controlador;
 	private VentanaPrincipal ventanaPrincipal;
 	/**
@@ -63,10 +63,10 @@ public class VentanaListadoAlumnoCedula {
 		lblCedulaIngresado.setBounds(41, 33, 101, 19);
 		frmListarAlumnoCed.getContentPane().add(lblCedulaIngresado);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(172, 33, 136, 20);
-		frmListarAlumnoCed.getContentPane().add(textField);
+		txtCed = new JTextField();
+		txtCed.setColumns(10);
+		txtCed.setBounds(172, 33, 136, 20);
+		frmListarAlumnoCed.getContentPane().add(txtCed);
 		
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.addActionListener(new ActionListener() {
@@ -84,7 +84,8 @@ public class VentanaListadoAlumnoCedula {
 		JButton btnListar = new JButton("LISTAR");
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+	            long cedula = Long.parseLong(txtCed.getText());
+	            controlador.listarAlumnoCed(cedula);
 			}
 		});
 		btnListar.setForeground(Color.BLACK);
@@ -101,6 +102,10 @@ public class VentanaListadoAlumnoCedula {
 		frmListarAlumnoCed.setVisible(mostrar);
 	}
 
+	public void mostrarMensajeExito (String mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje);
+	}
+	
 	public void mostrarMensajeError (String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}

@@ -86,6 +86,7 @@ public class VentanaListadoAsignaturas {
 	}
 	
 	public void setearDatos(Object[][] data) {
+	
 
 		String[] columnNames = {"Codigo",
 				 "Nombre",

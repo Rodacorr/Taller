@@ -48,7 +48,7 @@ public class VentanaCalcularMontoRecaudado {
 	public VentanaCalcularMontoRecaudado(VentanaPrincipal ventanaPrincipal) {
 		this.ventanaPrincipal = ventanaPrincipal;
 		initialize();
-		///controlador = new Controlador(this);
+		controlador = new ControladorCalcularMontoRecaudado(this);
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class VentanaCalcularMontoRecaudado {
 			public void actionPerformed(ActionEvent e) {
 				long cedula = Long.parseLong(txtCed.getText());
 				int anio = Integer.parseInt(txtAnio.getText());
-				//JOptionPane.showMessageDialog(null, controlador.montoRecaudado(cedula, anio));
+				controlador.montoRecaudado(cedula, anio);
 			}
 		});
 		btnCalcular.setForeground(Color.BLACK);
@@ -114,6 +114,9 @@ public class VentanaCalcularMontoRecaudado {
 		frmMontoRecaudado.setVisible(mostrar);
 	}
 
+	public void mostrarMensajeExito (String mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje);
+	}
 	
 	public void mostrarMensajeError (String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);

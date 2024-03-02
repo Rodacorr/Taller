@@ -12,13 +12,10 @@ import CapaGrafica.VentanaListadoEgresados;
 import CapaGrafica.VentanaRegistrarAlumno;
 import CapaLogica.IFachada;
 import CapaLogica.Exceptions.DicAlumnosVacioException;
-import CapaLogica.Exceptions.DicAsignaturasVacioException;
-import CapaLogica.VO.voAlumno;
 import CapaLogica.VO.voAlumnoDat;
-import CapaLogica.VO.voAsignatura;
+import CapaLogica.VO.voPromedio;
 
 public class ControladorListadoEgresados {
-	
 	private VentanaListadoEgresados ventana;
 	private IFachada fachada;
 
@@ -41,21 +38,38 @@ public class ControladorListadoEgresados {
 	public void listarEgresados(boolean modo) {
 		ArrayList<voAlumnoDat> listaEgresados = null;
 		try {
-			listaEgresados = fachada.listarEgresados(modo);
-	        Object[][] data = new Object [listaEgresados.size()][3];
-	        int numFila = 0;
-	        for(voAlumnoDat vo : listaEgresados) {
-	        	Object [] fila = {vo.getNombre(),vo.getNombre(),vo.getCedula()};
-	        	data[numFila] = fila;
-	        	numFila++;
-	        }
-	        ventana.setearDatos(data);
+				if(modo) {
+				listaEgresados = fachada.listarEgresados(modo);
+		        Object[][] data = new Object [listaEgresados.size()][5];
+		        int numFila = 0;
+		        for(voAlumnoDat vo : listaEgresados) {
+		        	if(vo instanceof voPromedio) {
+		        	Object [] fila = {vo.getNombre(),vo.getApellido(),vo.getCedula(),((voPromedio) vo).getPromedioAprobacion(),((voPromedio) vo).getPromedioTotal()};
+		        	data[numFila] = fila;
+		        	numFila++;
+		        	}
+		        }
+		        ventana.setearDatosCompleto(data);
+				}
+				else {
+					listaEgresados = fachada.listarEgresados(modo);
+			        Object[][] data = new Object [listaEgresados.size()][3];
+			        int numFila = 0;
+			        for(voAlumnoDat vo : listaEgresados) {
+			        	Object [] fila = {vo.getNombre(),vo.getApellido(),vo.getCedula()};
+			        	data[numFila] = fila;
+			        	numFila++;
+			        	}
+			        ventana.setearDatosParcial(data);	
+			        }  
 	    } catch (RemoteException exc) {
 	        ventana.mostrarMensajeError(exc.getMessage());
 	    } catch (DicAlumnosVacioException e) {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	
 	
 	

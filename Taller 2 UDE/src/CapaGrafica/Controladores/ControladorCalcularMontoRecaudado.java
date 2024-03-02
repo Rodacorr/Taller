@@ -12,6 +12,7 @@ import CapaGrafica.VentanaCalcularMontoRecaudado;
 import CapaLogica.IFachada;
 import CapaLogica.Exceptions.AlumnoNoInscriptoException;
 import CapaLogica.Exceptions.DicAsignaturasVacioException;
+import CapaLogica.VO.voAlumnoCompleto;
 import CapaLogica.VO.voAsignatura;
 
 public class ControladorCalcularMontoRecaudado {
@@ -36,15 +37,14 @@ public class ControladorCalcularMontoRecaudado {
 	}
 
 
-	public float montoRecaudado (long ced, int anio) {
+	public void montoRecaudado (long ced, int anio) {
 		try {
-			float mon = fachada.montoRecaudado(ced, anio);
-			return mon;
+			float monto = fachada.montoRecaudado(ced,anio);
+			ventana.mostrarMensajeExito("El monto recaudado es: " + monto);
 		} catch (AlumnoNoInscriptoException exc) {
 			ventana.mostrarMensajeError(exc.darMensaje());
 		} catch (RemoteException exc) {
 			ventana.mostrarMensajeError(exc.getMessage());
 		}
-		return 0;
 	}
 }

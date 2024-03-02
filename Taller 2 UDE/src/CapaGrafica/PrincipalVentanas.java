@@ -11,5 +11,7 @@ public class PrincipalVentanas {
 		ventana.setVisible(true);
 
 	}
+	
+	/// VER POR QUE EL ALUMNOAPE ES ARRAYLIST Y EL ALUMNOCED ES UN VO NOMAS
 
 }
