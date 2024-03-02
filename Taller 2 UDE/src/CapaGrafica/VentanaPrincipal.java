@@ -196,7 +196,7 @@ public class VentanaPrincipal {
 			}
 		});
 		btnRespaldar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnRespaldar.setBackground(Color.LIGHT_GRAY);
+		btnRespaldar.setBackground(Color.YELLOW);
 		btnRespaldar.setBounds(344, 231, 107, 31);
 		frmMenuPrincipal.getContentPane().add(btnRespaldar);
 		
