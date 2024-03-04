@@ -68,27 +68,5 @@ public class ControladorListadoAlumnoCedula {
 		}	  
 	}
 
-	public void listarAlumnoBecadoCed(long ced) {
-		try {
-			voBecadoDatCom becado = (voBecadoDatCom) fachada.listarAlumnoCed(ced);
-			String mensaje = ""; 
-
-			mensaje = "Cedula: " + becado.getCedula() + "\n" +
-					"Nombre: " + becado.getNombre() + "\n" +
-					"Apellido: " + becado.getApellido() + "\n" +
-					"Cantidad de asignaturas aprobadas: " + becado.getCantAsigAprob() + "\n" +
-					"Domicilio: " + becado.getDomicilio() + "\n" +
-					"Teléfono: " + becado.getTelefono() + "\n" +
-					"Tipo: " + becado.getTipo() + "\n" +
-					"Porcentaje Beca: " + becado.getPorcentajeBeca() + "\n" +
-					"Razon: " + becado.getRazon();
-
-			ventana.setearDatosEnTextArea(mensaje);
-		} catch (AlumnoNoInscriptoException exc) {
-			ventana.mostrarMensajeError(exc.darMensaje());
-		} catch (RemoteException exc) {
-			ventana.mostrarMensajeError("Error de conexión con el servidor");
-		}	  
-	}
 
 }
