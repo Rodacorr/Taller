@@ -18,12 +18,15 @@ import persistencia.exceptions.PersistenciaException;
 public class ControladorPrincipal {
 	private VentanaPrincipal ventana;
 	private IFachada fachada;
+    private boolean conexionExitosa = false;
+
 
 		public ControladorPrincipal(VentanaPrincipal ven) {
 			this.ventana = ven;
 			try {
 				fachada = (IFachada)
 				Naming.lookup("//localhost:1099/fachada");
+				conexionExitosa = true;
 			} catch (MalformedURLException e) {
 				JOptionPane.showMessageDialog(null, "No se pudo establecer conexion con el servidor");
 				e.printStackTrace();
@@ -35,6 +38,10 @@ public class ControladorPrincipal {
 			}
 			
 		}
+		
+	    public boolean isConexionExitosa() {
+	        return conexionExitosa;
+	    }
 
 	
 	public void respaldar() {

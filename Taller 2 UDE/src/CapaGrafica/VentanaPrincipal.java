@@ -40,8 +40,10 @@ public class VentanaPrincipal {
 	 * Create the application.
 	 */
 	public VentanaPrincipal() {
-		initialize();
 		controlador = new ControladorPrincipal(this);
+		if(controlador.isConexionExitosa()) {
+			initialize();
+		}
 	}
 
 	/**
@@ -53,8 +55,11 @@ public class VentanaPrincipal {
 		frmMenuPrincipal.getContentPane().setBackground(new Color(255, 255, 255));
 		frmMenuPrincipal.getContentPane().setLayout(null);
 		
-		JLabel lblSubtitulo = new JLabel("Seleccione la opcion deseada");
-		lblSubtitulo.setBounds(153, 11, 196, 14);
+		frmMenuPrincipal.setResizable(false);
+		
+		JLabel lblSubtitulo = new JLabel("Seleccione la opción deseada");
+		lblSubtitulo.setBounds(125, 10, 273, 14);
+		lblSubtitulo.setFont(new Font("Arial", Font.BOLD, 15));
 		frmMenuPrincipal.getContentPane().add(lblSubtitulo);
 		
 		JButton btnSalir = new JButton("SALIR");
@@ -64,14 +69,16 @@ public class VentanaPrincipal {
 			}
 		});
 		btnSalir.setForeground(Color.BLACK);
-		btnSalir.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnSalir.setBackground(Color.RED);
+		btnSalir.setFont(new Font("Arial", Font.BOLD, 12));
+		btnSalir.setBackground(new Color(0xdc3545));
 		btnSalir.setBounds(24, 231, 92, 30);
 		frmMenuPrincipal.getContentPane().add(btnSalir);
+		
 		
 		ButtonGroup bgp = new ButtonGroup();
 		
 		final JRadioButton rdbtnReq1 = new JRadioButton("Registrar Asignatura");
+		rdbtnReq1.setToolTipText("Registrar los datos de una asignatura de la carrera. Los datos que se ingresarán son código alfanumérico, nombre de la asignatura y una breve descripción del contenido temático");
 		rdbtnReq1.setBackground(Color.WHITE);
 		rdbtnReq1.setBounds(35, 34, 180, 31);
 		frmMenuPrincipal.getContentPane().add(rdbtnReq1);
@@ -84,33 +91,36 @@ public class VentanaPrincipal {
 		bgp.add(rdbtnReq2);
 		
 		final JRadioButton rdbtnReq3 = new JRadioButton("Registrar Alumno");
+		rdbtnReq3.setToolTipText("Registrar los datos de un nuevo alumno que se inscribe en la academia. Los datos que se ingresarán son cédula, nombre, apellido, domicilio y teléfono.");
 		rdbtnReq3.setBackground(Color.WHITE);
 		rdbtnReq3.setBounds(35, 69, 135, 23);
 		frmMenuPrincipal.getContentPane().add(rdbtnReq3);
 		bgp.add(rdbtnReq3);
 		
 
-		final JRadioButton rdbtnReq4 = new JRadioButton("Listado de Alumno dado Apellido");
+		final JRadioButton rdbtnReq4 = new JRadioButton("Listado de Alumno por Apellido");
 		rdbtnReq4.setBackground(Color.WHITE);
 		rdbtnReq4.setBounds(263, 69, 217, 23);
 		frmMenuPrincipal.getContentPane().add(rdbtnReq4);
 		bgp.add(rdbtnReq4);
 
 		
-		final JRadioButton rdbtnReq5 = new JRadioButton("Listado de Alumno dada Cedula");
+		final JRadioButton rdbtnReq5 = new JRadioButton("Listado de Alumno por Cedula");
 		rdbtnReq5.setBackground(Color.WHITE);
 		rdbtnReq5.setBounds(263, 38, 217, 23);
 		frmMenuPrincipal.getContentPane().add(rdbtnReq5);
 		bgp.add(rdbtnReq5);
 		
-		final JRadioButton rdbtnReq6 = new JRadioButton("Registrar Inscripcion");
+		final JRadioButton rdbtnReq6 = new JRadioButton("Registrar Inscripción");
+		rdbtnReq6.setToolTipText("Dados un código de asignatura y la cédula de un alumno, registrar la inscripción de dicho alumno a esa asignatura. Los datos que se ingresarán de la nueva inscripción son el año lectivo y el monto base de la misma. ");
 		rdbtnReq6.setBackground(Color.WHITE);
 		rdbtnReq6.setBounds(35, 104, 159, 23);
 		frmMenuPrincipal.getContentPane().add(rdbtnReq6);
 		bgp.add(rdbtnReq6);
 
 		
-		final JRadioButton rdbtnReq7 = new JRadioButton("Registrar Calificacion");
+		final JRadioButton rdbtnReq7 = new JRadioButton("Registrar Calificación");
+		rdbtnReq7.setToolTipText("Dados la cédula de un alumno, una nota (en la escala de 1 a 12) y un número de inscripción para dicho alumno, registrar el resultado de ese alumno en la asignatura correspondiente a dicha inscripción.");
 		rdbtnReq7.setBackground(Color.WHITE);
 		rdbtnReq7.setBounds(35, 135, 159, 23);
 		frmMenuPrincipal.getContentPane().add(rdbtnReq7);
@@ -118,6 +128,7 @@ public class VentanaPrincipal {
 
 		
 		final JRadioButton rdbtnReq8 = new JRadioButton("Calcular Monto Recaudado");
+		rdbtnReq8.setToolTipText("Dados un año lectivo y la cédula de un alumno, calcular el monto total recaudado por concepto de inscripciones de ese alumno a asignaturas en dicho año lectivo.");
 		rdbtnReq8.setBackground(Color.WHITE);
 		rdbtnReq8.setBounds(35, 169, 186, 23);
 		frmMenuPrincipal.getContentPane().add(rdbtnReq8);
@@ -184,9 +195,9 @@ public class VentanaPrincipal {
 			}
 		});
 		btnAbrir.setForeground(Color.BLACK);
-		btnAbrir.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnAbrir.setBackground(Color.GREEN);
-		btnAbrir.setBounds(178, 231, 114, 30);
+		btnAbrir.setFont(new Font("Arial", Font.BOLD, 12));
+		btnAbrir.setBackground(new Color(0x198754));
+		btnAbrir.setBounds(174, 231, 114, 30);
 		frmMenuPrincipal.getContentPane().add(btnAbrir);
 		
 		JButton btnRespaldar = new JButton("RESPALDAR");
@@ -195,12 +206,13 @@ public class VentanaPrincipal {
 				controlador.respaldar();
 			}
 		});
-		btnRespaldar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnRespaldar.setBackground(Color.YELLOW);
-		btnRespaldar.setBounds(344, 231, 107, 31);
+		btnRespaldar.setForeground(Color.BLACK);
+		btnRespaldar.setFont(new Font("Arial", Font.BOLD, 12));
+		btnRespaldar.setBackground(new Color(0xffe082));
+		btnRespaldar.setBounds(354, 231, 107, 31);
 		frmMenuPrincipal.getContentPane().add(btnRespaldar);
 		
-		frmMenuPrincipal.setBounds(100, 100, 495, 329);
+		frmMenuPrincipal.setBounds(100, 100, 498, 329);
 		frmMenuPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
