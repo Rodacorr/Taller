@@ -48,6 +48,7 @@ public class ControladorCalcularMontoRecaudado {
 				}
 				else {
 					float monto = fachada.montoRecaudado(Long.parseLong(ced),Integer.parseInt(anio));
+					String.format("%.2f",monto);
 					String montoString = String.valueOf(monto);
 					ventana.setearMonto(montoString);
 				}

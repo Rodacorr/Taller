@@ -44,7 +44,7 @@ public class ControladorListadoEgresados {
 		        int numFila = 0;
 		        for(voAlumnoDat vo : listaEgresados) {
 		        	if(vo instanceof voPromedio) {
-		        	Object [] fila = {vo.getNombre(),vo.getApellido(),vo.getCedula(),((voPromedio) vo).getPromedioAprobacion(),((voPromedio) vo).getPromedioTotal()};
+		        	Object [] fila = {vo.getNombre(),vo.getApellido(),vo.getCedula(),String.format("%.2f",((voPromedio) vo).getPromedioAprobacion()),String.format("%.2f",((voPromedio) vo).getPromedioTotal())};
 		        	data[numFila] = fila;
 		        	numFila++;
 		        	}

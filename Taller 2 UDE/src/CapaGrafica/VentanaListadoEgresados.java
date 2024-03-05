@@ -64,7 +64,7 @@ public class VentanaListadoEgresados {
 		frmListarEgresados = new JFrame();
 		frmListarEgresados.getContentPane().setBackground(new Color(255, 255, 255));
 		frmListarEgresados.setTitle("LISTAR EGRESADOS");
-		frmListarEgresados.setBounds(100, 100, 317, 443);
+		frmListarEgresados.setBounds(100, 100, 496, 443);
 		frmListarEgresados.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmListarEgresados.getContentPane().setLayout(null);
 		
@@ -75,18 +75,18 @@ public class VentanaListadoEgresados {
 		
 		JLabel lblModoListado = new JLabel("Indique modo");
 		lblModoListado.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblModoListado.setBounds(32, 41, 101, 19);
+		lblModoListado.setBounds(97, 41, 101, 19);
 		frmListarEgresados.getContentPane().add(lblModoListado);
 		
 		final JRadioButton rdbtnParcial = new JRadioButton("Parcial");
 		rdbtnParcial.setBackground(Color.WHITE);
-		rdbtnParcial.setBounds(139, 39, 71, 23);
+		rdbtnParcial.setBounds(204, 37, 71, 23);
 		frmListarEgresados.getContentPane().add(rdbtnParcial);
 		bgp.add(rdbtnParcial);
 		
 		final JRadioButton rdbtnCompleto = new JRadioButton("Completo");
 		rdbtnCompleto.setBackground(Color.WHITE);
-		rdbtnCompleto.setBounds(212, 39, 79, 23);
+		rdbtnCompleto.setBounds(277, 37, 79, 23);
 		frmListarEgresados.getContentPane().add(rdbtnCompleto);
 		bgp.add(rdbtnCompleto);
 		
@@ -100,11 +100,11 @@ public class VentanaListadoEgresados {
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
 		btnVolver.setBackground(new Color(0x8fe1f7));
-		btnVolver.setBounds(42, 81, 92, 30);
+		btnVolver.setBounds(91, 81, 92, 30);
 		frmListarEgresados.getContentPane().add(btnVolver);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 143, 281, 238);
+		scrollPane.setBounds(10, 143, 462, 238);
 		frmListarEgresados.getContentPane().add(scrollPane);
 		
 		table = new JTable();
@@ -134,7 +134,7 @@ public class VentanaListadoEgresados {
 		btnListar.setForeground(Color.BLACK);
 		btnListar.setFont(new Font("Arial", Font.BOLD, 12));
 		btnListar.setBackground(new Color(0x198754));
-		btnListar.setBounds(172, 81, 100, 30);
+		btnListar.setBounds(256, 81, 100, 30);
 		frmListarEgresados.getContentPane().add(btnListar);
 		
 		

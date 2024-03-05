@@ -52,7 +52,7 @@ public class ControladorListadoEscolaridad {
 					int numFila = 0;
 					for(voInscripcion vo : listaEscolaridad) {
 						if(vo instanceof voInscripcionCompleto) {
-							Object [] fila = {vo.getNumero(),vo.getAsignatura(),vo.getAnioLectivo(),vo.getCalificacion(),((voInscripcionCompleto) vo).getMonto()};
+							Object [] fila = {vo.getNumero(),vo.getAsignatura(),vo.getAnioLectivo(),vo.getCalificacion(),String.format("%.2f",(((voInscripcionCompleto) vo).getMonto()))};
 							data[numFila] = fila;
 							numFila++;
 						}

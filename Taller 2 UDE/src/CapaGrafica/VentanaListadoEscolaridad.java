@@ -117,7 +117,7 @@ public class VentanaListadoEscolaridad {
 		frmListarEscolaridad.getContentPane().add(btnVolver);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(53, 200, 281, 238);
+		scrollPane.setBounds(10, 199, 361, 238);
 		frmListarEscolaridad.getContentPane().add(scrollPane);
 		
 		table = new JTable();
