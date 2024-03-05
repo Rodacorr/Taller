@@ -39,7 +39,7 @@ public class Alumnos implements Serializable{
     	Iterator <Alumno> iter = ABBAlumnos.values().iterator();
     	while (iter.hasNext()){
     		Alumno alum = iter.next();
-    		if(alum.getApellido().startsWith(ape)) {
+    		if(alum.getApellido().toLowerCase().startsWith(ape.toLowerCase())) {
     			voAlumnoDatTipo vo = new voAlumnoDatTipo(alum.getCedula(),alum.getNombre(),alum.getApellido(),alum.getTipo());
     			arre.add(vo);
     		}
