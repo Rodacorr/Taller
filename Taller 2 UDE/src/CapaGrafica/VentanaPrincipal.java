@@ -155,7 +155,7 @@ public class VentanaPrincipal {
 				}
 				else if(rdbtnReq2.isSelected()) {
 					VentanaListadoAsignaturas ventana = new VentanaListadoAsignaturas(VentanaPrincipal.this);
-					ventana.setVisible(true);
+					//ventana.setVisible(false);
 				}
 				else if(rdbtnReq3.isSelected()) {
 					VentanaRegistrarAlumno ventana = new VentanaRegistrarAlumno(VentanaPrincipal.this);

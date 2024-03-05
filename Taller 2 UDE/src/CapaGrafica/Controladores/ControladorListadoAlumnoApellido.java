@@ -48,7 +48,12 @@ public class ControladorListadoAlumnoApellido {
 					data[numFila] = fila;
 					numFila++;
 				}
-				ventana.setearDatos(data);
+				if(!listaAlumnoApe.isEmpty()){
+					ventana.setearDatos(data);
+				}
+				else {
+					ventana.mostrarMensajeError("No hay alumnos con ese apellido/prefijo");
+				}
 			} catch (DicAlumnosVacioException exc) {
 				ventana.mostrarMensajeError(exc.darMensaje());
 			} catch (RemoteException exc) {

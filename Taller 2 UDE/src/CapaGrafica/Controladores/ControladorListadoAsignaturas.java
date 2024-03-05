@@ -51,6 +51,7 @@ public class ControladorListadoAsignaturas {
 				numFila++;
 			}
 			ventana.setearDatos(data);
+			ventana.setVisible(true);
 		} catch (DicAsignaturasVacioException exc) {
 			ventana.mostrarMensajeError(exc.darMensaje());
 		} catch (RemoteException exc) {

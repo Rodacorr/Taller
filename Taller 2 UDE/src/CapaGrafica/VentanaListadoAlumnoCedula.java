@@ -29,6 +29,7 @@ public class VentanaListadoAlumnoCedula {
 	private VentanaPrincipal ventanaPrincipal;
 	private JTable table;
 	private JTextArea textArea;
+	private JScrollPane scrollPane;
 	/**
 	 * Launch the application.
 	 */
@@ -89,7 +90,7 @@ public class VentanaListadoAlumnoCedula {
 		btnVolver.setBounds(50, 91, 92, 30);
 		frmListarAlumnoCed.getContentPane().add(btnVolver);
 		
-		final JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setVisible(false);
 		scrollPane.setBounds(10, 142, 414, 222);
 		frmListarAlumnoCed.getContentPane().add(scrollPane);
@@ -103,9 +104,7 @@ public class VentanaListadoAlumnoCedula {
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 	            long cedula = Long.parseLong(txtCed.getText());
-	    		
 	            controlador.listarAlumnoCed(cedula);
-	            scrollPane.setVisible(true); 
 			}
 		});
 		btnListar.setForeground(Color.BLACK);
@@ -122,6 +121,7 @@ public class VentanaListadoAlumnoCedula {
 	
 	public void setearDatosEnTextArea(String mensaje) {
 		textArea.setText(mensaje);
+        scrollPane.setVisible(true); 
     }
 	
 	public void setVisible(boolean mostrar) {

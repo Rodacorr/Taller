@@ -28,6 +28,7 @@ public class VentanaListadoEgresados {
 	private VentanaPrincipal ventanaPrincipal;
 	private ControladorListadoEgresados controlador;
 	private JTable table;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -102,7 +103,7 @@ public class VentanaListadoEgresados {
 		btnVolver.setBounds(42, 81, 92, 30);
 		frmListarEgresados.getContentPane().add(btnVolver);
 		
-		final JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 143, 281, 238);
 		frmListarEgresados.getContentPane().add(scrollPane);
 		
@@ -120,12 +121,10 @@ public class VentanaListadoEgresados {
 				if(rdbtnCompleto.isSelected()) {
 					modo = true;
 					controlador.listarEgresados(modo);
-					scrollPane.setVisible(true);
 				}
 				else if(rdbtnParcial.isSelected()) {
 					modo = false;
 					controlador.listarEgresados(modo);
-					scrollPane.setVisible(true);
 				}
 				else {
 					JOptionPane.showMessageDialog(null, "Por favor, seleccione una opcion");
@@ -152,6 +151,7 @@ public class VentanaListadoEgresados {
 		
 		DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
 		table.setModel(dtm);
+		scrollPane.setVisible(true);
 	}
 	
 	public void setearDatosParcial(Object[][] data) {
@@ -163,6 +163,7 @@ public class VentanaListadoEgresados {
 		
 		DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
 		table.setModel(dtm);
+		scrollPane.setVisible(true);
 	}
 	
 	

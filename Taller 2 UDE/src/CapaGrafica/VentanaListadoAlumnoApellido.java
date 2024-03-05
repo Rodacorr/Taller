@@ -26,6 +26,7 @@ public class VentanaListadoAlumnoApellido {
 	private ControladorListadoAlumnoApellido controlador;
 	private VentanaPrincipal ventanaPrincipal;
 	private JTable table;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -87,7 +88,7 @@ public class VentanaListadoAlumnoApellido {
 		btnVolver.setBackground(new Color(0x8fe1f7));
 		frmListarAlumnosApe.getContentPane().add(btnVolver);
 
-		final JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setVisible(false);
 		scrollPane.setBounds(10, 142, 414, 222);
 		frmListarAlumnosApe.getContentPane().add(scrollPane);
@@ -107,8 +108,6 @@ public class VentanaListadoAlumnoApellido {
 			public void actionPerformed(ActionEvent e) {
 				String apellido = txtApe.getText();
 				controlador.listarAlumnoApe(apellido);
-				scrollPane.setVisible(true);
-
 			}
 		});
 		btnListar.setForeground(Color.BLACK);
@@ -130,7 +129,7 @@ public class VentanaListadoAlumnoApellido {
 
 		DefaultTableModel dtm= new DefaultTableModel(data, columnNames);
 		table.setModel(dtm);
-
+		scrollPane.setVisible(true);
 	}
 
 	public void setVisible(boolean mostrar) {

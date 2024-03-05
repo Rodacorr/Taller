@@ -24,6 +24,7 @@ public class VentanaListadoAsignaturas {
 	private ControladorListadoAsignaturas controlador;
 	private VentanaPrincipal ventanaPrincipal;
 	private JTable table;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -58,6 +59,7 @@ public class VentanaListadoAsignaturas {
 	 */
 	private void initialize() {
 		frmListarAsignaturas = new JFrame();
+		frmListarAsignaturas.setVisible(false);
 		frmListarAsignaturas.getContentPane().setBackground(new Color(255, 255, 255));
 		frmListarAsignaturas.setTitle("LISTAR ASIGNATURAS");
 		frmListarAsignaturas.setBounds(100, 100, 450, 320);
@@ -80,7 +82,7 @@ public class VentanaListadoAsignaturas {
 		btnVolver.setBounds(170, 240, 92, 30);
 		frmListarAsignaturas.getContentPane().add(btnVolver);
 		
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setEnabled(false);
 		scrollPane.setBounds(10, 14, 414, 215);
 		frmListarAsignaturas.getContentPane().add(scrollPane);
@@ -101,7 +103,7 @@ public class VentanaListadoAsignaturas {
 		
 		DefaultTableModel dtm= new DefaultTableModel(data, columnNames);
 		table.setModel(dtm);
-
+		scrollPane.setVisible(true);
 	}
 	
 	public void setVisible(boolean mostrar) {
