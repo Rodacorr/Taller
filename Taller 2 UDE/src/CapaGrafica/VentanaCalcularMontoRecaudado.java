@@ -23,6 +23,9 @@ public class VentanaCalcularMontoRecaudado {
 	private JTextField txtAnio;
 	private ControladorCalcularMontoRecaudado controlador;
 	private VentanaPrincipal ventanaPrincipal;
+	private JTextField txtMontoValor;
+	private JLabel lblMonto;
+
 
 	/**
 	 * Launch the application.
@@ -58,7 +61,7 @@ public class VentanaCalcularMontoRecaudado {
 		frmMontoRecaudado = new JFrame();
 		frmMontoRecaudado.getContentPane().setBackground(new Color(255, 255, 255));
 		frmMontoRecaudado.setTitle("MONTO RECAUDADO");
-		frmMontoRecaudado.setBounds(100, 100, 389, 236);
+		frmMontoRecaudado.setBounds(100, 100, 389, 274);
 		frmMontoRecaudado.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMontoRecaudado.getContentPane().setLayout(null);
 		
@@ -96,7 +99,7 @@ public class VentanaCalcularMontoRecaudado {
 		btnCalcular.setForeground(Color.BLACK);
 		btnCalcular.setFont(new Font("Arial", Font.BOLD, 12));
 		btnCalcular.setBackground(new Color(0x198754));
-		btnCalcular.setBounds(194, 138, 100, 30);
+		btnCalcular.setBounds(207, 179, 100, 30);
 		frmMontoRecaudado.getContentPane().add(btnCalcular);
 		
 		JButton btnVolver = new JButton("VOLVER");
@@ -109,8 +112,31 @@ public class VentanaCalcularMontoRecaudado {
 		
 		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
 		btnVolver.setBackground(new Color(0x8fe1f7));
-		btnVolver.setBounds(59, 138, 92, 30);
+		btnVolver.setBounds(48, 179, 92, 30);
 		frmMontoRecaudado.getContentPane().add(btnVolver);
+		
+		lblMonto = new JLabel("El monto recaudado es:");
+		lblMonto.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblMonto.setBounds(31, 129, 152, 13);
+		lblMonto.setVisible(false);
+		frmMontoRecaudado.getContentPane().add(lblMonto);
+		
+		txtMontoValor = new JTextField();
+		txtMontoValor.setBackground(new Color(255, 255, 255));
+		txtMontoValor.setFont(new Font("Arial", Font.BOLD, 12));
+		txtMontoValor.setEditable(false);
+		txtMontoValor.setColumns(10);
+		txtMontoValor.setBounds(220, 126, 122, 20);
+		txtMontoValor.setVisible(false);
+		frmMontoRecaudado.getContentPane().add(txtMontoValor);
+		
+	}
+	
+	public void setearMonto (String monto) {
+		lblMonto.setVisible(true);
+		
+		txtMontoValor.setVisible(true);
+		txtMontoValor.setText(monto);
 	}
 	
 	public void setVisible(boolean mostrar) {

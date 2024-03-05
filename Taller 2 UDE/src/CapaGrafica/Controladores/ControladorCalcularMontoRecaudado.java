@@ -40,7 +40,8 @@ public class ControladorCalcularMontoRecaudado {
 	public void montoRecaudado (long ced, int anio) {
 		try {
 			float monto = fachada.montoRecaudado(ced,anio);
-			ventana.mostrarMensajeExito("El monto recaudado es: " + monto);
+	        String montoString = String.valueOf(monto);
+			ventana.setearMonto(montoString);
 		} catch (AlumnoNoInscriptoException exc) {
 			ventana.mostrarMensajeError(exc.darMensaje());
 		} catch (RemoteException exc) {
