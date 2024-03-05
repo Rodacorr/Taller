@@ -48,6 +48,7 @@ public class VentanaPrincipal {
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @wbp.parser.entryPoint
 	 */
 	private void initialize() {
 		frmMenuPrincipal = new JFrame();
@@ -85,6 +86,7 @@ public class VentanaPrincipal {
 		bgp.add(rdbtnReq1);
 		
 		final JRadioButton rdbtnReq2 = new JRadioButton("Listado de Asignaturas");
+		rdbtnReq2.setToolTipText("Obtenie un listado de todas las asignaturas que integran la carrera. De cada asignatura se listarán su código, nombre y breve descripción del contenido temático.");
 		rdbtnReq2.setBackground(Color.WHITE);
 		rdbtnReq2.setBounds(263, 169, 159, 23);
 		frmMenuPrincipal.getContentPane().add(rdbtnReq2);
@@ -99,6 +101,7 @@ public class VentanaPrincipal {
 		
 
 		final JRadioButton rdbtnReq4 = new JRadioButton("Listado de Alumno por Apellido");
+		rdbtnReq4.setToolTipText("Dado un apellido, o un prefijo del mismo, lista todos los alumnos del sistema que tengan ese apellido (o bien que comience con dicho prefijo).");
 		rdbtnReq4.setBackground(Color.WHITE);
 		rdbtnReq4.setBounds(263, 69, 217, 23);
 		frmMenuPrincipal.getContentPane().add(rdbtnReq4);
@@ -106,6 +109,7 @@ public class VentanaPrincipal {
 
 		
 		final JRadioButton rdbtnReq5 = new JRadioButton("Listado de Alumno por Cedula");
+		rdbtnReq5.setToolTipText("Dada la cédula de un alumno, lista todos sus datos (cédula, nombre, apellido, domicilio, teléfono, cantidad de asignaturas aprobadas y tipo de alumno (común o becado).");
 		rdbtnReq5.setBackground(Color.WHITE);
 		rdbtnReq5.setBounds(263, 38, 217, 23);
 		frmMenuPrincipal.getContentPane().add(rdbtnReq5);
@@ -135,12 +139,14 @@ public class VentanaPrincipal {
 		bgp.add(rdbtnReq8);
 		
 		final JRadioButton rdbtnReq9 = new JRadioButton("Listar Escolaridad ");
+		rdbtnReq9.setToolTipText("Dados la cédula de un alumno y un modo de listado (parcial o completo), lista su escolaridad.");
 		rdbtnReq9.setBackground(Color.WHITE);
 		rdbtnReq9.setBounds(263, 104, 135, 23);
 		frmMenuPrincipal.getContentPane().add(rdbtnReq9);
 		bgp.add(rdbtnReq9);
 		
 		final JRadioButton rdbtnReq10 = new JRadioButton("Listar Egresados");
+		rdbtnReq10.setToolTipText("Dado un modo de listado (parcial o completo) obtiene un listado conteniendo todos los alumnos egresados.");
 		rdbtnReq10.setBackground(Color.WHITE);
 		rdbtnReq10.setBounds(263, 135, 135, 23);
 		frmMenuPrincipal.getContentPane().add(rdbtnReq10);
@@ -212,7 +218,12 @@ public class VentanaPrincipal {
 		btnRespaldar.setBounds(354, 231, 107, 31);
 		frmMenuPrincipal.getContentPane().add(btnRespaldar);
 		
-		frmMenuPrincipal.setBounds(100, 100, 498, 329);
+		JLabel lblNewLabel = new JLabel("* Para obtener más información, por favor coloque el cursor sobre la opción deseada.");
+		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 10));
+		lblNewLabel.setBounds(34, 272, 407, 13);
+		frmMenuPrincipal.getContentPane().add(lblNewLabel);
+		
+		frmMenuPrincipal.setBounds(100, 100, 498, 343);
 		frmMenuPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
