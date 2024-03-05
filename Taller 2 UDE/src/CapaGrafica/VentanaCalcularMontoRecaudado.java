@@ -91,8 +91,8 @@ public class VentanaCalcularMontoRecaudado {
 		final JButton btnCalcular = new JButton("CALCULAR");
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				long cedula = Long.parseLong(txtCed.getText());
-				int anio = Integer.parseInt(txtAnio.getText());
+				String cedula = txtCed.getText();
+				String anio = txtAnio.getText();
 				controlador.montoRecaudado(cedula, anio);
 			}
 		});

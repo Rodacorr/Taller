@@ -103,7 +103,7 @@ public class VentanaListadoAlumnoCedula {
 		JButton btnListar = new JButton("LISTAR");
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-	            long cedula = Long.parseLong(txtCed.getText());
+	            String cedula = txtCed.getText();
 	            controlador.listarAlumnoCed(cedula);
 			}
 		});

@@ -107,9 +107,9 @@ public class VentanaRegistrarResultado {
 		JButton btnRegistrar = new JButton("REGISTRAR");
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				long cedula = Long.parseLong(txtCed.getText());
-				int numero = Integer.parseInt(txtNum.getText());
-				int calificacion = Integer.parseInt(txtCal.getText());
+				String cedula = txtCed.getText();
+				String numero = txtNum.getText();
+				String calificacion = txtCal.getText();
 				controlador.registrarCalificacion(cedula, calificacion, numero);
 			}
 		});

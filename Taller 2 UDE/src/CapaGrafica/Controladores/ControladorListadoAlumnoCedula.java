@@ -41,25 +41,30 @@ public class ControladorListadoAlumnoCedula {
 		}
 	}
 
-	public void listarAlumnoCed(long ced) {
+	public void listarAlumnoCed(String ced) {
 		try {
-			voAlumnoCompleto alumno = fachada.listarAlumnoCed(ced);
-			String mensaje = ""; 
-
-			mensaje = "Cedula: " + alumno.getCedula() + "\n" +
-					"Nombre: " + alumno.getNombre() + "\n" +
-					"Apellido: " + alumno.getApellido() + "\n" +
-					"Cantidad de asignaturas aprobadas: " + alumno.getCantAsigAprob() + "\n" +
-					"Domicilio: " + alumno.getDomicilio() + "\n" +
-					"Telefono: " + alumno.getTelefono();
-			if(alumno instanceof voBecadoDatCom) {	
-			String mensaje2 = "Tipo: Becado \n" +
-							  "PorcentajeBeca: "  +((voBecadoDatCom)alumno).getPorcentajeBeca() + "\n" +
-						      "Razon: " + ((voBecadoDatCom)alumno).getRazon();
-			ventana.setearDatosEnTextArea(mensaje+ "\n" +mensaje2);
+			if (!ced.matches("\\d+")) {
+				ventana.mostrarMensajeError("La cedula no tiene formato numerico");
 			}
 			else {
-				ventana.setearDatosEnTextArea(mensaje+"\n"+"Tipo: Alumno");
+				voAlumnoCompleto alumno = fachada.listarAlumnoCed(Long.parseLong(ced));
+				String mensaje = ""; 
+
+				mensaje = "Cedula: " + alumno.getCedula() + "\n" +
+						"Nombre: " + alumno.getNombre() + "\n" +
+						"Apellido: " + alumno.getApellido() + "\n" +
+						"Cantidad de asignaturas aprobadas: " + alumno.getCantAsigAprob() + "\n" +
+						"Domicilio: " + alumno.getDomicilio() + "\n" +
+						"Telefono: " + alumno.getTelefono();
+				if(alumno instanceof voBecadoDatCom) {	
+					String mensaje2 = "Tipo: Becado \n" +
+							"PorcentajeBeca: "  +((voBecadoDatCom)alumno).getPorcentajeBeca() + "\n" +
+							"Razon: " + ((voBecadoDatCom)alumno).getRazon();
+					ventana.setearDatosEnTextArea(mensaje+ "\n" +mensaje2);
+				}
+				else {
+					ventana.setearDatosEnTextArea(mensaje+"\n"+"Tipo: Alumno");
+				}
 			}
 		} catch (AlumnoNoInscriptoException exc) {
 			ventana.mostrarMensajeError(exc.darMensaje());

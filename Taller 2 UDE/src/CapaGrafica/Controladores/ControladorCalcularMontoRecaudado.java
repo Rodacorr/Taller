@@ -37,15 +37,25 @@ public class ControladorCalcularMontoRecaudado {
 	}
 
 
-	public void montoRecaudado (long ced, int anio) {
+	public void montoRecaudado (String ced, String anio) {
 		try {
-			float monto = fachada.montoRecaudado(ced,anio);
-	        String montoString = String.valueOf(monto);
-			ventana.setearMonto(montoString);
-		} catch (AlumnoNoInscriptoException exc) {
-			ventana.mostrarMensajeError(exc.darMensaje());
-		} catch (RemoteException exc) {
-			ventana.mostrarMensajeError(exc.getMessage());
+			if (!ced.matches("\\d+")) {
+				ventana.mostrarMensajeError("La cedula no tiene formato numerico");
+			}
+			else {
+				if (!anio.matches("\\d+")) {
+					ventana.mostrarMensajeError("El año no tiene formato numerico");
+				}
+				else {
+					float monto = fachada.montoRecaudado(Long.parseLong(ced),Integer.parseInt(anio));
+					String montoString = String.valueOf(monto);
+					ventana.setearMonto(montoString);
+				}
+			}
+			} catch (AlumnoNoInscriptoException exc) {
+				ventana.mostrarMensajeError(exc.darMensaje());
+			} catch (RemoteException exc) {
+				ventana.mostrarMensajeError(exc.getMessage());
+			}
 		}
 	}
-}

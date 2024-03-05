@@ -134,12 +134,12 @@ public class VentanaListadoEscolaridad {
 				boolean modo;
 				if(rdbtnCompleto.isSelected()) {
 					modo = true;
-					long ced = Long.parseLong(txtCed.getText());
+					String ced = txtCed.getText();
 					controlador.listarEscolaridad(ced,modo);
 				}
 				else if(rdbtnParcial.isSelected()) {
 					modo = false;
-					long ced = Long.parseLong(txtCed.getText());
+					String ced = txtCed.getText();
 					controlador.listarEscolaridad(ced,modo);
 				}
 				else {

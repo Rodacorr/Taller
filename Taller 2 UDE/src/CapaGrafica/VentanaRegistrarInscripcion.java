@@ -129,10 +129,10 @@ public class VentanaRegistrarInscripcion{
 		btnRegistrar = new JButton("REGISTRAR");
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				long cedula = Long.parseLong(txtCed.getText());
+				String cedula = txtCed.getText();
 				String codigo = txtCod.getText();
-				float monto = Float.parseFloat(txtMonto.getText());
-				int anio = Integer.parseInt(txtAnio.getText());
+				String monto = txtMonto.getText();
+				String anio = txtAnio.getText();
 				controlador.registrarInscripcion(codigo, cedula, monto, anio);
 			}
 		});

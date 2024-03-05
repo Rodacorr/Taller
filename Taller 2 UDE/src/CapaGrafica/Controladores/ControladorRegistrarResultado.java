@@ -12,14 +12,14 @@ import CapaLogica.IFachada;
 import CapaLogica.Exceptions.*;
 
 public class ControladorRegistrarResultado {
-private VentanaRegistrarResultado ventana;
-private IFachada fachada;
+	private VentanaRegistrarResultado ventana;
+	private IFachada fachada;
 
 	public ControladorRegistrarResultado(VentanaRegistrarResultado ven) {
 		this.ventana = ven;
 		try {
 			fachada = (IFachada)
-			Naming.lookup("//localhost:1099/fachada");
+					Naming.lookup("//localhost:1099/fachada");
 		} catch (MalformedURLException e) {
 			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion con el servidor");
 			e.printStackTrace();
@@ -29,26 +29,41 @@ private IFachada fachada;
 		} catch (NotBoundException e) {
 			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion con el servidor");
 		}
-		
+
 	}
-	
-	public void registrarCalificacion(long ced, int cal, int num){
+
+	public void registrarCalificacion(String ced, String cal, String num){
 		try {
-				fachada.registrarCalificacion(ced, cal, num);
-		        ventana.mostrarMensajeExito("Se registro la calificacion correctamente");
+			if (!ced.matches("\\d+")) {
+				ventana.mostrarMensajeError("La cedula no tiene formato numerico");
+			}
+			else {
+				if (!cal.matches("\\d+")) {
+					ventana.mostrarMensajeError("La calificación no tiene formato numerico");
+				}
+				else {
+					if (!num.matches("\\d+")) {
+						ventana.mostrarMensajeError("El número de inscripción no tiene formato numerico");
+					}
+					else {
+						fachada.registrarCalificacion(Long.parseLong(ced),Integer.parseInt(cal), Integer.parseInt(num));
+						ventana.mostrarMensajeExito("Se registro la calificacion correctamente");
+					}
+				}
+			}
 		} catch (AlumnoNoInscriptoException exc) {
-	        ventana.mostrarMensajeError(exc.darMensaje());
+			ventana.mostrarMensajeError(exc.darMensaje());
 		} catch (NumInscripcionNoExiste exc) {
-	        ventana.mostrarMensajeError(exc.darMensaje());
+			ventana.mostrarMensajeError(exc.darMensaje());
 		} catch (YaTieneCalificacion exc) {
-	        ventana.mostrarMensajeError(exc.darMensaje());
+			ventana.mostrarMensajeError(exc.darMensaje());
 		} catch (NotaInvalida exc) {
-	        ventana.mostrarMensajeError(exc.darMensaje());
+			ventana.mostrarMensajeError(exc.darMensaje());
 		}
 		catch (RemoteException exc) {
-	        ventana.mostrarMensajeError(exc.getMessage());
+			ventana.mostrarMensajeError(exc.getMessage());
 		}
 	}
-	
-	
+
+
 }
