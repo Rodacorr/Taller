@@ -71,6 +71,9 @@ public class VentanaListadoEscolaridad {
 		frmListarEscolaridad.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmListarEscolaridad.getContentPane().setLayout(null);
 		
+		frmListarEscolaridad.setResizable(false);
+
+		
 		JLabel lblCedula = new JLabel("Indique cedula");
 		lblCedula.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblCedula.setBounds(32, 45, 101, 19);
@@ -108,8 +111,8 @@ public class VentanaListadoEscolaridad {
 			}
 		});
 		btnVolver.setForeground(Color.BLACK);
-		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
+		btnVolver.setBackground(new Color(0x8fe1f7));
 		btnVolver.setBounds(69, 159, 92, 30);
 		frmListarEscolaridad.getContentPane().add(btnVolver);
 		
@@ -119,6 +122,8 @@ public class VentanaListadoEscolaridad {
 		
 		table = new JTable();
 		table.setEnabled(false);
+        table.getTableHeader().setReorderingAllowed(false);
+
 		scrollPane.setViewportView(table);
 		scrollPane.setVisible(false);
 		
@@ -143,8 +148,8 @@ public class VentanaListadoEscolaridad {
 			}
 		});
 		btnListar.setForeground(Color.BLACK);
-		btnListar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnListar.setBackground(Color.GREEN);
+		btnListar.setFont(new Font("Arial", Font.BOLD, 12));
+		btnListar.setBackground(new Color(0x198754));
 		btnListar.setBounds(219, 159, 100, 30);
 		frmListarEscolaridad.getContentPane().add(btnListar);
 		

@@ -63,6 +63,8 @@ public class VentanaListadoAlumnoCedula {
 		frmListarAlumnoCed = new JFrame();
 	    frmListarAlumnoCed.getContentPane().setBackground(new Color(255, 255, 255));
 	    frmListarAlumnoCed.getContentPane().setLayout(null);
+	    frmListarAlumnoCed.setResizable(false);
+
 		
 		JLabel lblCedulaIngresado = new JLabel("Indique cedula");
 		lblCedulaIngresado.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -82,8 +84,8 @@ public class VentanaListadoAlumnoCedula {
 			}
 		});
 		btnVolver.setForeground(Color.BLACK);
-		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
+		btnVolver.setBackground(new Color(0x8fe1f7));
 		btnVolver.setBounds(50, 91, 92, 30);
 		frmListarAlumnoCed.getContentPane().add(btnVolver);
 		
@@ -107,8 +109,8 @@ public class VentanaListadoAlumnoCedula {
 			}
 		});
 		btnListar.setForeground(Color.BLACK);
-		btnListar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnListar.setBackground(Color.GREEN);
+		btnListar.setFont(new Font("Arial", Font.BOLD, 12));
+		btnListar.setBackground(new Color(0x198754));
 		btnListar.setBounds(192, 91, 100, 30);
 		frmListarAlumnoCed.getContentPane().add(btnListar);
 		

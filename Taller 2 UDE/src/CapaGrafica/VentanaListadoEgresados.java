@@ -67,6 +67,9 @@ public class VentanaListadoEgresados {
 		frmListarEgresados.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmListarEgresados.getContentPane().setLayout(null);
 		
+		frmListarEgresados.setResizable(false);
+
+		
 		ButtonGroup bgp = new ButtonGroup();
 		
 		JLabel lblModoListado = new JLabel("Indique modo");
@@ -94,8 +97,8 @@ public class VentanaListadoEgresados {
 			}
 		});
 		btnVolver.setForeground(Color.BLACK);
-		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
+		btnVolver.setBackground(new Color(0x8fe1f7));
 		btnVolver.setBounds(42, 81, 92, 30);
 		frmListarEgresados.getContentPane().add(btnVolver);
 		
@@ -107,6 +110,8 @@ public class VentanaListadoEgresados {
 		table.setEnabled(false);
 		scrollPane.setViewportView(table);
 		scrollPane.setVisible(false);
+        table.getTableHeader().setReorderingAllowed(false);
+
 		
 		JButton btnListar = new JButton("LISTAR");
 		btnListar.addActionListener(new ActionListener() {
@@ -128,8 +133,8 @@ public class VentanaListadoEgresados {
 			}
 		});
 		btnListar.setForeground(Color.BLACK);
-		btnListar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnListar.setBackground(Color.GREEN);
+		btnListar.setFont(new Font("Arial", Font.BOLD, 12));
+		btnListar.setBackground(new Color(0x198754));
 		btnListar.setBounds(172, 81, 100, 30);
 		frmListarEgresados.getContentPane().add(btnListar);
 		

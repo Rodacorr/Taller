@@ -58,6 +58,8 @@ public class VentanaRegistrarResultado {
 		frmRegistrarCalificacion = new JFrame();
 		frmRegistrarCalificacion.getContentPane().setBackground(new Color(255, 255, 255));
 		frmRegistrarCalificacion.getContentPane().setLayout(null);
+		frmRegistrarCalificacion.setResizable(false);
+
 		
 		JLabel lblCedAlumno = new JLabel("Ingrese cedula del alumno");
 		lblCedAlumno.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -97,8 +99,8 @@ public class VentanaRegistrarResultado {
 			}
 		});
 		btnVolver.setForeground(Color.BLACK);
-		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
+		btnVolver.setBackground(new Color(0x8fe1f7));
 		btnVolver.setBounds(77, 200, 92, 30);
 		frmRegistrarCalificacion.getContentPane().add(btnVolver);
 		
@@ -112,9 +114,10 @@ public class VentanaRegistrarResultado {
 			}
 		});
 		btnRegistrar.setForeground(Color.BLACK);
-		btnRegistrar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnRegistrar.setBackground(Color.GREEN);
+		btnRegistrar.setFont(new Font("Arial", Font.BOLD, 12));
+		btnRegistrar.setBackground(new Color(0x198754));
 		btnRegistrar.setBounds(241, 200, 114, 30);
+		
 		frmRegistrarCalificacion.getContentPane().add(btnRegistrar);
 		frmRegistrarCalificacion.setTitle("REGISTRAR CALIFICACION");
 		frmRegistrarCalificacion.setBounds(100, 100, 450, 300);

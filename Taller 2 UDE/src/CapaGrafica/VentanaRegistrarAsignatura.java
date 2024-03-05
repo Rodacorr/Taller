@@ -63,6 +63,8 @@ public class VentanaRegistrarAsignatura {
 		frmRegistrarAsignatura.setBounds(100, 100, 367, 298);
 		frmRegistrarAsignatura.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRegistrarAsignatura.getContentPane().setLayout(null);
+		frmRegistrarAsignatura.setResizable(false);
+
 
 		JLabel lblNombre = new JLabel("Ingrese nombre");
 		lblNombre.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -109,8 +111,8 @@ public class VentanaRegistrarAsignatura {
 			}
 		});
 		btnRegistrar.setForeground(Color.BLACK);
-		btnRegistrar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnRegistrar.setBackground(Color.GREEN);
+		btnRegistrar.setFont(new Font("Arial", Font.BOLD, 12));
+		btnRegistrar.setBackground(new Color(0x198754));
 		btnRegistrar.setBounds(186, 215, 114, 30);
 		frmRegistrarAsignatura.getContentPane().add(btnRegistrar);
 
@@ -122,8 +124,8 @@ public class VentanaRegistrarAsignatura {
 			}
 		});
 		btnVolver.setForeground(Color.BLACK);
-		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
+		btnVolver.setBackground(new Color(0x8fe1f7));
 		btnVolver.setBounds(57, 215, 92, 30);
 		frmRegistrarAsignatura.getContentPane().add(btnVolver);
 	}

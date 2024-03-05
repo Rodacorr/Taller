@@ -62,6 +62,8 @@ public class VentanaListadoAlumnoApellido {
 		frmListarAlumnosApe.setTitle("LISTAR ALUMNOS DADO APELLIDO");
 		frmListarAlumnosApe.getContentPane().setBackground(new Color(255, 255, 255));
 		frmListarAlumnosApe.getContentPane().setLayout(null);
+		frmListarAlumnosApe.setResizable(false);
+
 
 		JLabel lblApellidoIngresado = new JLabel("Ingrese apellido o prefijo");
 		lblApellidoIngresado.setBounds(38, 29, 141, 19);
@@ -81,9 +83,8 @@ public class VentanaListadoAlumnoApellido {
 				frmListarAlumnosApe.dispose();
 			}
 		});
-		btnVolver.setForeground(Color.BLACK);
-		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
+		btnVolver.setBackground(new Color(0x8fe1f7));
 		frmListarAlumnosApe.getContentPane().add(btnVolver);
 
 		final JScrollPane scrollPane = new JScrollPane();
@@ -97,6 +98,8 @@ public class VentanaListadoAlumnoApellido {
 		table.setRowSelectionAllowed(false);
 		scrollPane.setViewportView(table);
 		scrollPane.setVisible(false);
+        table.getTableHeader().setReorderingAllowed(false);
+
 
 		JButton btnListar = new JButton("LISTAR");
 		btnListar.setBounds(250, 85, 100, 30);
@@ -109,8 +112,9 @@ public class VentanaListadoAlumnoApellido {
 			}
 		});
 		btnListar.setForeground(Color.BLACK);
-		btnListar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnListar.setBackground(Color.GREEN);
+		btnListar.setFont(new Font("Arial", Font.BOLD, 12));
+		btnListar.setBackground(new Color(0x198754));
+		
 		frmListarAlumnosApe.getContentPane().add(btnListar);
 		frmListarAlumnosApe.setBounds(100, 100, 450, 410);
 		frmListarAlumnosApe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

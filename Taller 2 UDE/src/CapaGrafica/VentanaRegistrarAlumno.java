@@ -72,6 +72,8 @@ public class VentanaRegistrarAlumno {
 		frmRegistrarAlumno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRegistrarAlumno.getContentPane().setLayout(null);
 		
+		frmRegistrarAlumno.setResizable(false);
+
 		txtCed = new JTextField();
 		txtCed.setBounds(223, 20, 108, 20);
 		frmRegistrarAlumno.getContentPane().add(txtCed);
@@ -191,8 +193,8 @@ public class VentanaRegistrarAlumno {
 			}
 		});
 		btnRegistrar.setForeground(Color.BLACK);
-		btnRegistrar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnRegistrar.setBackground(Color.GREEN);
+		btnRegistrar.setFont(new Font("Arial", Font.BOLD, 12));
+		btnRegistrar.setBackground(new Color(0x198754));
 		btnRegistrar.setBounds(203, 322, 114, 30);
 		frmRegistrarAlumno.getContentPane().add(btnRegistrar);
 		
@@ -204,8 +206,8 @@ public class VentanaRegistrarAlumno {
 			}
 		});
 		btnVolver.setForeground(Color.BLACK);
-		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
+		btnVolver.setBackground(new Color(0x8fe1f7));
 		btnVolver.setBounds(65, 322, 92, 30);
 		frmRegistrarAlumno.getContentPane().add(btnVolver);
 	}

@@ -64,6 +64,9 @@ public class VentanaListadoAsignaturas {
 		frmListarAsignaturas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmListarAsignaturas.getContentPane().setLayout(null);
 		
+		frmListarAsignaturas.setResizable(false);
+
+		
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -72,17 +75,21 @@ public class VentanaListadoAsignaturas {
 			}
 		});
 		btnVolver.setForeground(Color.BLACK);
-		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnVolver.setBackground(Color.LIGHT_GRAY);
+		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
+		btnVolver.setBackground(new Color(0x8fe1f7));
 		btnVolver.setBounds(170, 240, 92, 30);
 		frmListarAsignaturas.getContentPane().add(btnVolver);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setEnabled(false);
 		scrollPane.setBounds(10, 14, 414, 215);
 		frmListarAsignaturas.getContentPane().add(scrollPane);
 		
 		table = new JTable();
+		table.setEnabled(false);
 		scrollPane.setViewportView(table);
+        table.getTableHeader().setReorderingAllowed(false);
+
 	}
 	
 	public void setearDatos(Object[][] data) {

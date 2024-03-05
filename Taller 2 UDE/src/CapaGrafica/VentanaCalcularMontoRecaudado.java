@@ -62,6 +62,9 @@ public class VentanaCalcularMontoRecaudado {
 		frmMontoRecaudado.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMontoRecaudado.getContentPane().setLayout(null);
 		
+		frmMontoRecaudado.setResizable(false);
+
+		
 		JLabel lblCedAlumno = new JLabel("Ingrese cedula del alumno");
 		lblCedAlumno.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblCedAlumno.setBounds(31, 33, 152, 19);
@@ -91,8 +94,8 @@ public class VentanaCalcularMontoRecaudado {
 			}
 		});
 		btnCalcular.setForeground(Color.BLACK);
-		btnCalcular.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnCalcular.setBackground(Color.GREEN);
+		btnCalcular.setFont(new Font("Arial", Font.BOLD, 12));
+		btnCalcular.setBackground(new Color(0x198754));
 		btnCalcular.setBounds(194, 138, 100, 30);
 		frmMontoRecaudado.getContentPane().add(btnCalcular);
 		
@@ -103,9 +106,9 @@ public class VentanaCalcularMontoRecaudado {
 				frmMontoRecaudado.dispose();
 			}
 		});
-		btnVolver.setForeground(Color.BLACK);
-		btnVolver.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnVolver.setBackground(Color.LIGHT_GRAY);
+		
+		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
+		btnVolver.setBackground(new Color(0x8fe1f7));
 		btnVolver.setBounds(59, 138, 92, 30);
 		frmMontoRecaudado.getContentPane().add(btnVolver);
 	}
