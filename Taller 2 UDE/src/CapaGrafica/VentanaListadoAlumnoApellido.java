@@ -117,7 +117,7 @@ public class VentanaListadoAlumnoApellido {
 		
 		frmListarAlumnosApe.getContentPane().add(btnListar);
 		frmListarAlumnosApe.setBounds(100, 100, 450, 410);
-		frmListarAlumnosApe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmListarAlumnosApe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 
 	public void setearDatos(Object[][] data) {

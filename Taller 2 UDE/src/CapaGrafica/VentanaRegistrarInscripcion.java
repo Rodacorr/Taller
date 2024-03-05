@@ -68,7 +68,7 @@ public class VentanaRegistrarInscripcion{
 		frmRegistrarInscripcion.setTitle("REGISTRAR INSCRIPCION");
 		frmRegistrarInscripcion.getContentPane().setBackground(new Color(255, 255, 255));
 		frmRegistrarInscripcion.setBounds(100, 100, 450, 300);
-		frmRegistrarInscripcion.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frmRegistrarInscripcion.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmRegistrarInscripcion.getContentPane().setLayout(null);
 		frmRegistrarInscripcion.setResizable(false);
 

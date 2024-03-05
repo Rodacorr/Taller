@@ -68,7 +68,7 @@ public class VentanaListadoEscolaridad {
 		frmListarEscolaridad.getContentPane().setBackground(new Color(255, 255, 255));
 		frmListarEscolaridad.setTitle("LISTAR ESCOLARIDAD");
 		frmListarEscolaridad.setBounds(100, 100, 395, 490);
-		frmListarEscolaridad.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frmListarEscolaridad.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmListarEscolaridad.getContentPane().setLayout(null);
 		
 		frmListarEscolaridad.setResizable(false);

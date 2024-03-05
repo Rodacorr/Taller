@@ -62,7 +62,7 @@ public class VentanaCalcularMontoRecaudado {
 		frmMontoRecaudado.getContentPane().setBackground(new Color(255, 255, 255));
 		frmMontoRecaudado.setTitle("MONTO RECAUDADO");
 		frmMontoRecaudado.setBounds(100, 100, 389, 274);
-		frmMontoRecaudado.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmMontoRecaudado.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmMontoRecaudado.getContentPane().setLayout(null);
 		
 		frmMontoRecaudado.setResizable(false);

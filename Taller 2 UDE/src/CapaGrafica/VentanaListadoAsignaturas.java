@@ -63,7 +63,7 @@ public class VentanaListadoAsignaturas {
 		frmListarAsignaturas.getContentPane().setBackground(new Color(255, 255, 255));
 		frmListarAsignaturas.setTitle("LISTAR ASIGNATURAS");
 		frmListarAsignaturas.setBounds(100, 100, 450, 320);
-		frmListarAsignaturas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmListarAsignaturas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmListarAsignaturas.getContentPane().setLayout(null);
 		
 		frmListarAsignaturas.setResizable(false);

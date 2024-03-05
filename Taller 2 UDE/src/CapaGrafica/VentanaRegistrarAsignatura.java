@@ -61,7 +61,7 @@ public class VentanaRegistrarAsignatura {
 		frmRegistrarAsignatura.getContentPane().setBackground(new Color(255, 255, 255));
 		frmRegistrarAsignatura.getContentPane().setForeground(new Color(255, 255, 255));
 		frmRegistrarAsignatura.setBounds(100, 100, 367, 298);
-		frmRegistrarAsignatura.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRegistrarAsignatura.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmRegistrarAsignatura.getContentPane().setLayout(null);
 		frmRegistrarAsignatura.setResizable(false);
 

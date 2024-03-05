@@ -121,7 +121,7 @@ public class VentanaRegistrarResultado {
 		frmRegistrarCalificacion.getContentPane().add(btnRegistrar);
 		frmRegistrarCalificacion.setTitle("REGISTRAR CALIFICACION");
 		frmRegistrarCalificacion.setBounds(100, 100, 450, 300);
-		frmRegistrarCalificacion.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRegistrarCalificacion.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 	
 	public void setVisible(boolean mostrar) {

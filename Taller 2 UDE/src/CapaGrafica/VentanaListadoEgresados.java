@@ -65,7 +65,7 @@ public class VentanaListadoEgresados {
 		frmListarEgresados.getContentPane().setBackground(new Color(255, 255, 255));
 		frmListarEgresados.setTitle("LISTAR EGRESADOS");
 		frmListarEgresados.setBounds(100, 100, 496, 443);
-		frmListarEgresados.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmListarEgresados.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmListarEgresados.getContentPane().setLayout(null);
 		
 		frmListarEgresados.setResizable(false);
