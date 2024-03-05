@@ -34,20 +34,25 @@ public class ControladorRegistrarInscripcion {
 
 	public void registrarInscripcion(String cod, String ced, String mon, String anio){
 		try {
-			if (!ced.matches("\\d+")) {
-				ventana.mostrarMensajeError("La cedula no tiene formato numerico");
+			if (cod.isEmpty()) {
+				ventana.mostrarMensajeError("El campo codigo no puede estar vacío");
 			}
 			else {
-				if (!mon.matches("\\d+")) {
-					ventana.mostrarMensajeError("El monto no tiene formato numerico");
+				if (!ced.matches("\\d+")) {
+					ventana.mostrarMensajeError("La cedula no tiene formato numerico");
 				}
 				else {
-					if (!anio.matches("\\d+")) {
-						ventana.mostrarMensajeError("El año no tiene formato numerico");
+					if (!mon.matches("\\d+")) {
+						ventana.mostrarMensajeError("El monto no tiene formato numerico");
 					}
 					else {
-						fachada.registrarInscripcion(cod,Long.parseLong(ced),Float.parseFloat(mon),Integer.parseInt(anio));
-						ventana.mostrarMensajeExito("Se realizo la inscripcion correctamente");
+						if (!anio.matches("\\d+")) {
+							ventana.mostrarMensajeError("El año no tiene formato numerico");
+						}
+						else {
+							fachada.registrarInscripcion(cod,Long.parseLong(ced),Float.parseFloat(mon),Integer.parseInt(anio));
+							ventana.mostrarMensajeExito("Se realizo la inscripcion correctamente");
+						}
 					}
 				}
 			}

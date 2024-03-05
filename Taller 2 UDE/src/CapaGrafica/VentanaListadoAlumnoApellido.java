@@ -106,6 +106,7 @@ public class VentanaListadoAlumnoApellido {
 		btnListar.setBounds(250, 85, 100, 30);
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				String apellido = txtApe.getText();
 				controlador.listarAlumnoApe(apellido);
 			}

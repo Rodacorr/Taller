@@ -37,7 +37,7 @@ public class ControladorRegistrarAlumno {
 			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion con el servidor");
 		}
 	}
-	
+
 	public void registrarAlumno(String cedula,String nombre,String apellido,String domicilio,String telefono) {
 		try {
 			if (!cedula.matches("\\d+")) {
@@ -48,20 +48,35 @@ public class ControladorRegistrarAlumno {
 					ventana.mostrarMensajeError("El telefono no tiene formato numerico");
 				}
 				else {
-					voAlumno alumno = new voAlumno(Long.parseLong(cedula),nombre,apellido,domicilio,Long.parseLong(telefono));
-					fachada.registarAlumno(alumno);
-					ventana.mostrarMensajeExito("Alumno ingresado correctamente.");
-					ventana.cerrarVentana();
+					if (nombre.isEmpty()) {
+						ventana.mostrarMensajeError("El campo nombre no puede estar vacío");
+					}
+					else {
+						if (apellido.isEmpty()) {
+							ventana.mostrarMensajeError("El campo apellido no puede estar vacío");
+						}
+						else {
+							if (domicilio.isEmpty()) {
+								ventana.mostrarMensajeError("El campo domicilio no puede estar vacío");
+							}
+							else {
+								voAlumno alumno = new voAlumno(Long.parseLong(cedula),nombre,apellido,domicilio,Long.parseLong(telefono));
+								fachada.registarAlumno(alumno);
+								ventana.mostrarMensajeExito("Alumno ingresado correctamente.");
+								ventana.cerrarVentana();
+							}
+						}	
+					}
 				}
-			}	
+			}
 		}
-		 catch (AlumnoYaExisteExceptions exc) {
-        	ventana.mostrarMensajeError(exc.darMensaje());
-        } catch (RemoteException exc) {
-        	ventana.mostrarMensajeError(exc.getMessage());
-        }
+		catch (AlumnoYaExisteExceptions exc) {
+			ventana.mostrarMensajeError(exc.darMensaje());
+		} catch (RemoteException exc) {
+			ventana.mostrarMensajeError(exc.getMessage());
+		}
 	}
-	
+
 	public void registrarAlumnoBecado(String cedula,String nombre,String apellido,String domicilio,String telefono, String porcentaje, String razon) {
 		try {
 			if (!cedula.matches("\\d+")) {
@@ -76,21 +91,41 @@ public class ControladorRegistrarAlumno {
 						ventana.mostrarMensajeError("El porcentaje no tiene formato numerico");
 					}
 					else {
-						voBecado becado = new voBecado(Long.parseLong(cedula),nombre,apellido,domicilio,Long.parseLong(telefono), Integer.parseInt(porcentaje), razon);
-						fachada.registarAlumno(becado);
-						ventana.mostrarMensajeExito("Alumno becado ingresado correctamente.");
-						ventana.cerrarVentana();
+						if (nombre.isEmpty()) {
+							ventana.mostrarMensajeError("El campo nombre no puede estar vacío");
+						}
+						else {
+							if (apellido.isEmpty()) {
+								ventana.mostrarMensajeError("El campo apellido no puede estar vacío");
+							}
+							else {
+								if (domicilio.isEmpty()) {
+									ventana.mostrarMensajeError("El campo domicilio no puede estar vacío");
+								}
+								else {
+									if (razon.isEmpty()) {
+										ventana.mostrarMensajeError("El campo razon no puede estar vacío");
+									}
+									else {
+										voBecado becado = new voBecado(Long.parseLong(cedula),nombre,apellido,domicilio,Long.parseLong(telefono), Integer.parseInt(porcentaje), razon);
+										fachada.registarAlumno(becado);
+										ventana.mostrarMensajeExito("Alumno becado ingresado correctamente.");
+										ventana.cerrarVentana();
+									}
+								}
+							}	
+						}
 					}
 				}
-			}	
+			}
 		}
-		 catch (AlumnoYaExisteExceptions exc) {
-        	ventana.mostrarMensajeError(exc.darMensaje());
-        } catch (RemoteException exc) {
-        	ventana.mostrarMensajeError(exc.getMessage());
-        }
+		catch (AlumnoYaExisteExceptions exc) {
+			ventana.mostrarMensajeError(exc.darMensaje());
+		} catch (RemoteException exc) {
+			ventana.mostrarMensajeError(exc.getMessage());
+		}
 	}
 
 }
 
-	
+

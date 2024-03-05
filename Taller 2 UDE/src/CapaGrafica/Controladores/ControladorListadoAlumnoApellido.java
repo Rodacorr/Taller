@@ -38,8 +38,12 @@ public class ControladorListadoAlumnoApellido {
 	}
 
 	public void listarAlumnoApe(String ape) {
-			ArrayList<voAlumnoDatTipo> listaAlumnoApe = null; // Inicializamos a null
-			try {
+		ArrayList<voAlumnoDatTipo> listaAlumnoApe = null; // Inicializamos a null
+		try {
+			if (ape.isEmpty()) {
+				ventana.mostrarMensajeError("El campo apellido no puede estar vacío");
+			}
+			else {
 				listaAlumnoApe = fachada.listarAlumnoApe(ape);
 				Object[][] data = new Object [listaAlumnoApe.size()][4];
 				int numFila = 0;
@@ -54,11 +58,12 @@ public class ControladorListadoAlumnoApellido {
 				else {
 					ventana.mostrarMensajeError("No hay alumnos con ese apellido/prefijo");
 				}
-			} catch (DicAlumnosVacioException exc) {
-				ventana.mostrarMensajeError(exc.darMensaje());
-			} catch (RemoteException exc) {
-				ventana.mostrarMensajeError("Error de conexión con el servidor");
-			}	  
-		}
-
+			}
+		} catch (DicAlumnosVacioException exc) {
+			ventana.mostrarMensajeError(exc.darMensaje());
+		} catch (RemoteException exc) {
+			ventana.mostrarMensajeError("Error de conexión con el servidor");
+		}	  
 	}
+
+}
