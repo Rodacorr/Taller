@@ -141,4 +141,9 @@ public class VentanaRegistrarAsignatura {
 	public void mostrarMensajeExito (String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
+	
+	public void cerrarVentana() {
+		setVisible(false);
+		frmRegistrarAsignatura.dispose();
+	}
 }

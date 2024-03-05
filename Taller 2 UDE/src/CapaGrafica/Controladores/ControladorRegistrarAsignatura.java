@@ -57,6 +57,7 @@ public class ControladorRegistrarAsignatura {
 			}
 		} catch (AsignaturasCompletaException exc) {
 			ventana.mostrarMensajeError(exc.darMensaje());
+			ventana.cerrarVentana();
 		} catch (AsignaturaYaExisteException exc) {
 			ventana.mostrarMensajeError(exc.darMensaje());
 		} catch (RemoteException exc) {

@@ -69,12 +69,12 @@ public class VentanaListadoAlumnoCedula {
 		
 		JLabel lblCedulaIngresado = new JLabel("Indique cedula");
 		lblCedulaIngresado.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblCedulaIngresado.setBounds(41, 33, 101, 19);
+		lblCedulaIngresado.setBounds(21, 33, 101, 19);
 		frmListarAlumnoCed.getContentPane().add(lblCedulaIngresado);
 		
 		txtCed = new JTextField();
 		txtCed.setColumns(10);
-		txtCed.setBounds(172, 33, 136, 20);
+		txtCed.setBounds(148, 33, 136, 20);
 		frmListarAlumnoCed.getContentPane().add(txtCed);
 		
 		JButton btnVolver = new JButton("VOLVER");
@@ -87,17 +87,17 @@ public class VentanaListadoAlumnoCedula {
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
 		btnVolver.setBackground(new Color(0x8fe1f7));
-		btnVolver.setBounds(50, 91, 92, 30);
+		btnVolver.setBounds(21, 91, 92, 30);
 		frmListarAlumnoCed.getContentPane().add(btnVolver);
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setVisible(false);
-		scrollPane.setBounds(10, 142, 414, 222);
+		scrollPane.setBounds(10, 142, 298, 174);
 		frmListarAlumnoCed.getContentPane().add(scrollPane);
 		
 		textArea = new JTextArea();
-        textArea.setEditable(false);
-        scrollPane.setViewportView(textArea);
+		scrollPane.setViewportView(textArea);
+		textArea.setEditable(false);
         
 		
 		JButton btnListar = new JButton("LISTAR");
@@ -110,12 +110,12 @@ public class VentanaListadoAlumnoCedula {
 		btnListar.setForeground(Color.BLACK);
 		btnListar.setFont(new Font("Arial", Font.BOLD, 12));
 		btnListar.setBackground(new Color(0x198754));
-		btnListar.setBounds(192, 91, 100, 30);
+		btnListar.setBounds(184, 91, 100, 30);
 		frmListarAlumnoCed.getContentPane().add(btnListar);
 		
 
 		frmListarAlumnoCed.setTitle("LISTAR ALUMNO DADO SU CEDULA");
-		frmListarAlumnoCed.setBounds(100, 100, 451, 419);
+		frmListarAlumnoCed.setBounds(100, 100, 332, 363);
 		frmListarAlumnoCed.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	

@@ -63,7 +63,6 @@ public class ControladorRegistrarAlumno {
 								voAlumno alumno = new voAlumno(Long.parseLong(cedula),nombre,apellido,domicilio,Long.parseLong(telefono));
 								fachada.registarAlumno(alumno);
 								ventana.mostrarMensajeExito("Alumno ingresado correctamente.");
-								ventana.cerrarVentana();
 							}
 						}	
 					}
@@ -110,7 +109,6 @@ public class ControladorRegistrarAlumno {
 										voBecado becado = new voBecado(Long.parseLong(cedula),nombre,apellido,domicilio,Long.parseLong(telefono), Integer.parseInt(porcentaje), razon);
 										fachada.registarAlumno(becado);
 										ventana.mostrarMensajeExito("Alumno becado ingresado correctamente.");
-										ventana.cerrarVentana();
 									}
 								}
 							}	
