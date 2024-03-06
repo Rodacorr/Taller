@@ -240,7 +240,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		else{
 			Alumno al = diccioAl.find(ced);
 			if(!al.tieneInscripciones()) {
-				String msg = "este alumno aun no a cursado materias";
+				String msg = "este alumno aun no curso materias";
 				m.terminoLectura();
 				throw new SecInscripcionesVaciaException(msg);
 			}

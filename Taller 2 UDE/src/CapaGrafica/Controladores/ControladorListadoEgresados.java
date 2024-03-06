@@ -65,7 +65,12 @@ public class ControladorListadoEgresados {
 						numFila++;
 					}
 				}
+				if(listaEgresados.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "No hay alumnos egresados para mostrar");
+				}
+				else {
 				ventana.setearDatosCompleto(data);
+				}
 			}
 			else {
 				listaEgresados = fachada.listarEgresados(modo);
@@ -76,7 +81,12 @@ public class ControladorListadoEgresados {
 					data[numFila] = fila;
 					numFila++;
 				}
-				ventana.setearDatosParcial(data);	
+				if(listaEgresados.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "No hay alumnos egresados para mostrar");
+				}
+				else {
+					ventana.setearDatosParcial(data);	
+				}
 			}  
 		} catch (RemoteException exc) {
 			ventana.mostrarMensajeError(exc.getMessage());

@@ -85,7 +85,12 @@ public class ControladorListadoEscolaridad {
 						data[numFila] = fila;
 						numFila++;
 					}
+					if(listaEscolaridad.isEmpty()) {
+						JOptionPane.showMessageDialog(null, "No hay alumnos para listar debido a que el alumno no tiene calificacion en ninguna asignatura");
+					}
+					else {	
 					ventana.setearDatosParcial(data);
+					}
 				} 
 			}
 		} catch (RemoteException exc) {
