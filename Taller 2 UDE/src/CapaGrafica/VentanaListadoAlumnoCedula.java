@@ -28,8 +28,26 @@ public class VentanaListadoAlumnoCedula {
 	private ControladorListadoAlumnoCedula controlador;
 	private VentanaPrincipal ventanaPrincipal;
 	private JTable table;
-	private JTextArea textArea;
-	private JScrollPane scrollPane;
+	private JTextField txtCed2;
+	private JTextField txtNom;
+	private JTextField txtApe;
+	private JTextField txtCantAsigAprob;
+	private JTextField txtDom;
+	private JTextField txtTel;
+	private JTextField txtTipo;
+	private JTextField txtPorceBeca;
+	private JTextField txtRaz;
+	private JLabel lblCedula;
+	private JLabel lblNombre;
+	private JLabel lblApellido;
+	private JLabel lblCantAsigAprob;
+	private JLabel lblDomicilio;
+	private JLabel lblTelefono;
+	private JLabel lblTipo;
+	private JLabel lblPorceBeca;
+	private JLabel lblRazon;
+
+	
 	/**
 	 * Launch the application.
 	 */
@@ -69,12 +87,12 @@ public class VentanaListadoAlumnoCedula {
 
 		JLabel lblCedulaIngresado = new JLabel("Indique cedula");
 		lblCedulaIngresado.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblCedulaIngresado.setBounds(21, 33, 101, 19);
+		lblCedulaIngresado.setBounds(40, 33, 101, 19);
 		frmListarAlumnoCed.getContentPane().add(lblCedulaIngresado);
 
 		txtCed = new JTextField();
 		txtCed.setColumns(10);
-		txtCed.setBounds(148, 33, 136, 20);
+		txtCed.setBounds(207, 32, 136, 20);
 		frmListarAlumnoCed.getContentPane().add(txtCed);
 
 		JButton btnVolver = new JButton("VOLVER");
@@ -87,17 +105,8 @@ public class VentanaListadoAlumnoCedula {
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
 		btnVolver.setBackground(new Color(0x8fe1f7));
-		btnVolver.setBounds(21, 91, 92, 30);
+		btnVolver.setBounds(59, 91, 92, 30);
 		frmListarAlumnoCed.getContentPane().add(btnVolver);
-
-		scrollPane = new JScrollPane();
-		scrollPane.setVisible(false);
-		scrollPane.setBounds(10, 142, 298, 174);
-		frmListarAlumnoCed.getContentPane().add(scrollPane);
-
-		textArea = new JTextArea();
-		scrollPane.setViewportView(textArea);
-		textArea.setEditable(false);
 
 
 		JButton btnListar = new JButton("LISTAR");
@@ -110,20 +119,186 @@ public class VentanaListadoAlumnoCedula {
 		btnListar.setForeground(Color.BLACK);
 		btnListar.setFont(new Font("Arial", Font.BOLD, 12));
 		btnListar.setBackground(new Color(0x198754));
-		btnListar.setBounds(184, 91, 100, 30);
+		btnListar.setBounds(224, 91, 100, 30);
 		frmListarAlumnoCed.getContentPane().add(btnListar);
+				
+				lblCedula = new JLabel("Cedula:");
+				lblCedula.setBounds(59, 147, 46, 14);
+				lblCedula.setVisible(false);
+				frmListarAlumnoCed.getContentPane().add(lblCedula);
+				
+				lblNombre = new JLabel("Nombre:");
+				lblNombre.setBounds(59, 172, 74, 14);
+				lblNombre.setVisible(false);
+				frmListarAlumnoCed.getContentPane().add(lblNombre);
+				
+				lblApellido = new JLabel("Apellido:");
+				lblApellido.setBounds(59, 197, 74, 14);
+				lblApellido.setVisible(false);
+				frmListarAlumnoCed.getContentPane().add(lblApellido);
+				
+				lblCantAsigAprob = new JLabel("Cantidad asignaturas aprobadas:");
+				lblCantAsigAprob.setBounds(10, 222, 191, 14);
+				lblCantAsigAprob.setVisible(false);
+				frmListarAlumnoCed.getContentPane().add(lblCantAsigAprob);
+				
+				lblDomicilio = new JLabel("Domicilio:");
+				lblDomicilio.setBounds(59, 247, 92, 14);
+				lblDomicilio.setVisible(false);
+				frmListarAlumnoCed.getContentPane().add(lblDomicilio);
+				
+				lblTelefono = new JLabel("Telefono:");
+				lblTelefono.setBounds(59, 272, 74, 14);
+				lblTelefono.setVisible(false);
+				frmListarAlumnoCed.getContentPane().add(lblTelefono);
+				
+				lblPorceBeca = new JLabel("Porcentaje de la beca:");
+				lblPorceBeca.setBounds(31, 322, 151, 14);
+				lblPorceBeca.setVisible(false);
+				frmListarAlumnoCed.getContentPane().add(lblPorceBeca);
+				
+				lblRazon = new JLabel("Razon de la beca:");
+				lblRazon.setBounds(40, 347, 142, 14);
+				lblRazon.setVisible(false);
+				frmListarAlumnoCed.getContentPane().add(lblRazon);
+				
+				lblTipo = new JLabel("Tipo:");
+				lblTipo.setBounds(69, 297, 46, 14);
+				lblTipo.setVisible(false);
+				frmListarAlumnoCed.getContentPane().add(lblTipo);
+				
+				txtCed2 = new JTextField();
+				txtCed2.setBackground(new Color(255, 255, 255));
+				txtCed2.setEditable(false);
+				txtCed2.setBounds(228, 147, 86, 20);
+				frmListarAlumnoCed.getContentPane().add(txtCed2);
+				txtCed2.setColumns(10);
+				txtCed2.setVisible(false);
+				
+				txtNom = new JTextField();
+				txtNom.setBackground(new Color(255, 255, 255));
+				txtNom.setEditable(false);
+				txtNom.setBounds(228, 172, 86, 20);
+				frmListarAlumnoCed.getContentPane().add(txtNom);
+				txtNom.setColumns(10);
+				txtNom.setVisible(false);
+				
+				txtApe = new JTextField();
+				txtApe.setBackground(new Color(255, 255, 255));
+				txtApe.setEditable(false);
+				txtApe.setBounds(228, 197, 86, 20);
+				frmListarAlumnoCed.getContentPane().add(txtApe);
+				txtApe.setColumns(10);
+				txtApe.setVisible(false);
+				
+				txtCantAsigAprob = new JTextField();
+				txtCantAsigAprob.setBackground(new Color(255, 255, 255));
+				txtCantAsigAprob.setEditable(false);
+				txtCantAsigAprob.setBounds(228, 222, 86, 20);
+				frmListarAlumnoCed.getContentPane().add(txtCantAsigAprob);
+				txtCantAsigAprob.setColumns(10);
+				txtCantAsigAprob.setVisible(false);
+				
+				txtDom = new JTextField();
+				txtDom.setBackground(new Color(255, 255, 255));
+				txtDom.setEditable(false);
+				txtDom.setBounds(228, 247, 86, 20);
+				frmListarAlumnoCed.getContentPane().add(txtDom);
+				txtDom.setColumns(10);
+				txtDom.setVisible(false);
+				
+				txtTel = new JTextField();
+				txtTel.setBackground(new Color(255, 255, 255));
+				txtTel.setEditable(false);
+				txtTel.setBounds(228, 272, 86, 20);
+				frmListarAlumnoCed.getContentPane().add(txtTel);
+				txtTel.setColumns(10);
+				txtTel.setVisible(false);
+				
+				txtTipo = new JTextField();
+				txtTipo.setBackground(new Color(255, 255, 255));
+				txtTipo.setEditable(false);
+				txtTipo.setBounds(228, 297, 86, 20);
+				frmListarAlumnoCed.getContentPane().add(txtTipo);
+				txtTipo.setColumns(10);
+				txtTipo.setVisible(false);
+				
+				txtPorceBeca = new JTextField();
+				txtPorceBeca.setBackground(new Color(255, 255, 255));
+				txtPorceBeca.setEditable(false);
+				txtPorceBeca.setBounds(228, 322, 86, 20);
+				frmListarAlumnoCed.getContentPane().add(txtPorceBeca);
+				txtPorceBeca.setColumns(10);
+				txtPorceBeca.setVisible(false);
+				
+				txtRaz = new JTextField();
+				txtRaz.setBackground(new Color(255, 255, 255));
+				txtRaz.setEditable(false);
+				txtRaz.setBounds(228, 347, 86, 20);
+				frmListarAlumnoCed.getContentPane().add(txtRaz);
+				txtRaz.setColumns(10);
+				txtRaz.setVisible(false);
 
 
 		frmListarAlumnoCed.setTitle("LISTAR ALUMNO DADO SU CEDULA");
-		frmListarAlumnoCed.setBounds(100, 100, 332, 363);
-		frmListarAlumnoCed.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmListarAlumnoCed.setBounds(100, 100, 391, 424);
+		frmListarAlumnoCed.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 
-	public void setearDatosEnTextArea(String mensaje) {
-		textArea.setText(mensaje);
-		scrollPane.setVisible(true); 
+	public void setearDatosAlumno(String cedula, String nombre, String apellido, String cantAsigApro, String domicilio, String telefono, String tipo) {
+		txtCed2.setText(cedula);
+		txtNom.setText(nombre);
+		txtApe.setText(apellido);
+		txtCantAsigAprob.setText(cantAsigApro);
+		txtDom.setText(domicilio);
+		txtTel.setText(telefono);
+		txtTipo.setText(tipo);
+		lblCedula.setVisible(true);
+		lblNombre.setVisible(true);
+		lblApellido.setVisible(true);
+		lblCantAsigAprob.setVisible(true);
+		lblDomicilio.setVisible(true);
+		lblTelefono.setVisible(true);
+		lblTipo.setVisible(true);
+		txtCed2.setVisible(true);
+		txtNom.setVisible(true);
+		txtApe.setVisible(true);
+		txtCantAsigAprob.setVisible(true);
+		txtDom.setVisible(true);
+		txtTel.setVisible(true);
+		txtTipo.setVisible(true);
 	}
-
+	
+	public void setearDatosBecado(String cedula, String nombre, String apellido, String cantAsigApro, String domicilio, String telefono, String tipo, String porceBeca, String raz)  {
+		txtCed2.setText(cedula);
+		txtNom.setText(nombre);
+		txtApe.setText(apellido);
+		txtCantAsigAprob.setText(cantAsigApro);
+		txtDom.setText(domicilio);
+		txtTel.setText(telefono);
+		txtTipo.setText(tipo);
+		txtPorceBeca.setText(porceBeca);
+		txtRaz.setText(raz);
+		lblCedula.setVisible(true);
+		lblNombre.setVisible(true);
+		lblApellido.setVisible(true);
+		lblCantAsigAprob.setVisible(true);
+		lblDomicilio.setVisible(true);
+		lblTelefono.setVisible(true);
+		lblTipo.setVisible(true);
+		lblPorceBeca.setVisible(true);
+		lblRazon.setVisible(true);
+		txtCed2.setVisible(true);
+		txtNom.setVisible(true);
+		txtApe.setVisible(true);
+		txtCantAsigAprob.setVisible(true);
+		txtDom.setVisible(true);
+		txtTel.setVisible(true);
+		txtTipo.setVisible(true);
+		txtPorceBeca.setVisible(true);
+		txtRaz.setVisible(true);
+	}
+	
 	public void setVisible(boolean mostrar) {
 		frmListarAlumnoCed.setVisible(mostrar);
 	}

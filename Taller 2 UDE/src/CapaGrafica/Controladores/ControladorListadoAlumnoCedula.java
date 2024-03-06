@@ -39,7 +39,7 @@ public class ControladorListadoAlumnoCedula {
 			String puerto = prop.getProperty("puerto");
 			fachada = (IFachada)
 					Naming.lookup("//"+ip+":"+puerto+"/fachada");
-			
+
 		} catch (MalformedURLException e) {
 			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion con el servidor");
 			e.printStackTrace();
@@ -64,22 +64,24 @@ public class ControladorListadoAlumnoCedula {
 			}
 			else {
 				voAlumnoCompleto alumno = fachada.listarAlumnoCed(Long.parseLong(ced));
-				String mensaje = ""; 
-
-				mensaje = "Cedula: " + alumno.getCedula() + "\n" +
-						"Nombre: " + alumno.getNombre() + "\n" +
-						"Apellido: " + alumno.getApellido() + "\n" +
-						"Cantidad de asignaturas aprobadas: " + alumno.getCantAsigAprob() + "\n" +
-						"Domicilio: " + alumno.getDomicilio() + "\n" +
-						"Telefono: " + alumno.getTelefono();
+				String cedula = String.valueOf(alumno.getCedula());
+				String nombre = alumno.getNombre();
+				String apellido = alumno.getApellido();
+				String cantAsigAprob = String.valueOf(alumno.getCantAsigAprob());
+				String domicilio = alumno.getDomicilio();
+				String Telefono = String.valueOf(alumno.getTelefono());
+				String tipoAl = "Alumno";
 				if(alumno instanceof voBecadoDatCom) {	
-					String mensaje2 = "Tipo: Becado \n" +
-							"PorcentajeBeca: "  +((voBecadoDatCom)alumno).getPorcentajeBeca() + "\n" +
-							"Razon: " + ((voBecadoDatCom)alumno).getRazon();
-					ventana.setearDatosEnTextArea(mensaje+ "\n" +mensaje2);
+					String tipoBec = "Becado";
+					String porceBeca = String.valueOf(((voBecadoDatCom)alumno).getPorcentajeBeca());
+					String razon = ((voBecadoDatCom)alumno).getRazon();
+					ventana.setearDatosBecado(cedula, nombre, apellido, cantAsigAprob, domicilio, Telefono, tipoBec, porceBeca, razon);
 				}
 				else {
-					ventana.setearDatosEnTextArea(mensaje+"\n"+"Tipo: Alumno");
+					ventana.setearDatosAlumno(cedula, nombre, apellido, cantAsigAprob, domicilio, Telefono, tipoAl);
+
+
+
 				}
 			}
 		} catch (AlumnoNoInscriptoException exc) {
