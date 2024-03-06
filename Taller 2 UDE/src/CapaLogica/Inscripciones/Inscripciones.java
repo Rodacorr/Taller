@@ -78,16 +78,12 @@ public class Inscripciones  implements Serializable{
 	public float calcularRecaudado(int x){ 
 		float sumador = 0;
 		Inscripcion insc = null;
-		boolean termine = false;
 		if(!estaVacia()) {
 			Iterator<Inscripcion> iter = lista.iterator();
-			while (iter.hasNext() && !termine){   // lo del anio lectivo es para no recorrer de mas, ya que las insc estan ordenadas, cuando x es mayor ya no hay ninguna mas para contar
-				insc = iter.next(); 
-				if(x == insc.getAnioLectivo())
-					sumador = sumador + insc.getMonto();
-				else
-					if(x > insc.getAnioLectivo())
-						termine = true;
+			while (iter.hasNext()){   // lo del anio lectivo es para no recorrer de mas, ya que las insc estan ordenadas, cuando x es mayor ya no hay ninguna mas para contar
+				insc = iter.next();
+				if(x == insc.getAnioLectivo())	{
+					sumador = sumador + insc.getMonto();}
 			}
 		}
 		return sumador;

@@ -145,8 +145,8 @@ public class VentanaListadoEgresados {
 		String[] columnNames = {"Apellido",
 				"Nombre",
 				"Cedula",
-				"PromedioTotal",
-				"PromedioAprobadas"
+				"PromedioAprobadas",
+				"PromedioTotal"
 		};
 
 		DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
