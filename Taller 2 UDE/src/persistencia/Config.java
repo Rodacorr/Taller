@@ -6,22 +6,22 @@ import java.io.Serializable;
 import java.util.Properties;
 
 public class Config implements Serializable{
-	
+
 	private String archivoConf;
 	private static Config instancia;
-	
-	
+
+
 	public static Config getInstancia(){
 		if (instancia == null)
 			instancia = new Config();
 		return instancia;
 	}
-	
+
 	public String getArchivoConf(String properties) throws IOException{
-	
+
 		try { 
 			Config conf = Config.getInstancia();
-			
+
 			Properties prop = new Properties();
 			prop.load(new FileInputStream(conf.getArchivoConf()));
 			String rutaArchivo = prop.getProperty(properties);

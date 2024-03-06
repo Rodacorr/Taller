@@ -65,10 +65,10 @@ public class VentanaListadoAsignaturas {
 		frmListarAsignaturas.setBounds(100, 100, 450, 320);
 		frmListarAsignaturas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmListarAsignaturas.getContentPane().setLayout(null);
-		
+
 		frmListarAsignaturas.setResizable(false);
 
-		
+
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -81,36 +81,36 @@ public class VentanaListadoAsignaturas {
 		btnVolver.setBackground(new Color(0x8fe1f7));
 		btnVolver.setBounds(170, 240, 92, 30);
 		frmListarAsignaturas.getContentPane().add(btnVolver);
-		
+
 		scrollPane = new JScrollPane();
 		scrollPane.setEnabled(false);
 		scrollPane.setBounds(10, 14, 414, 215);
 		frmListarAsignaturas.getContentPane().add(scrollPane);
-		
+
 		table = new JTable();
 		table.setEnabled(false);
 		scrollPane.setViewportView(table);
-        table.getTableHeader().setReorderingAllowed(false);
+		table.getTableHeader().setReorderingAllowed(false);
 
 	}
-	
+
 	public void setearDatos(Object[][] data) {
-	
+
 
 		String[] columnNames = {"Codigo",
-				 "Nombre",
-				 "Descripcion"};
-		
+				"Nombre",
+		"Descripcion"};
+
 		DefaultTableModel dtm= new DefaultTableModel(data, columnNames);
 		table.setModel(dtm);
 		scrollPane.setVisible(true);
 	}
-	
+
 	public void setVisible(boolean mostrar) {
 		frmListarAsignaturas.setVisible(mostrar);
 	}
 
-	
+
 	public void mostrarMensajeError (String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}

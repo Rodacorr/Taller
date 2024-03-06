@@ -26,7 +26,7 @@ public class ControladorCalcularMontoRecaudado {
 	public ControladorCalcularMontoRecaudado(VentanaCalcularMontoRecaudado ven) {
 		this.ventana = ven;
 		try {
-			
+
 			Properties prop = new Properties();
 			String nomArch = "config/txt.properties";
 			prop.load (new FileInputStream (nomArch));
@@ -34,7 +34,7 @@ public class ControladorCalcularMontoRecaudado {
 			String puerto = prop.getProperty("puerto");
 			fachada = (IFachada)
 					Naming.lookup("//"+ip+":"+puerto+"/fachada");
-			
+
 		} catch (MalformedURLException e) {
 			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion con el servidor");
 			e.printStackTrace();
@@ -70,10 +70,10 @@ public class ControladorCalcularMontoRecaudado {
 					ventana.setearMonto(montoString);
 				}
 			}
-			} catch (AlumnoNoInscriptoException exc) {
-				ventana.mostrarMensajeError(exc.darMensaje());
-			} catch (RemoteException exc) {
-				ventana.mostrarMensajeError(exc.getMessage());
-			}
+		} catch (AlumnoNoInscriptoException exc) {
+			ventana.mostrarMensajeError(exc.darMensaje());
+		} catch (RemoteException exc) {
+			ventana.mostrarMensajeError(exc.getMessage());
 		}
 	}
+}

@@ -29,7 +29,7 @@ public class MainServidor {
 				fachada.recuperar();
 			}
 			catch (Exception e) {
-			 e.printStackTrace();
+				e.printStackTrace();
 			}
 			Properties prop = new Properties();
 			String nomArch = "config/txt.properties";

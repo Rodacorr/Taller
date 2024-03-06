@@ -33,7 +33,7 @@ public class ControladorListadoEgresados {
 			String puerto = prop.getProperty("puerto");
 			fachada = (IFachada)
 					Naming.lookup("//"+ip+":"+puerto+"/fachada");
-			
+
 		} catch (MalformedURLException e) {
 			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion con el servidor");
 			e.printStackTrace();
@@ -50,44 +50,44 @@ public class ControladorListadoEgresados {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void listarEgresados(boolean modo) {
 		ArrayList<voAlumnoDat> listaEgresados = null;
 		try {
-				if(modo) {
+			if(modo) {
 				listaEgresados = fachada.listarEgresados(modo);
-		        Object[][] data = new Object [listaEgresados.size()][5];
-		        int numFila = 0;
-		        for(voAlumnoDat vo : listaEgresados) {
-		        	if(vo instanceof voPromedio) {
-		        	Object [] fila = {vo.getNombre(),vo.getApellido(),vo.getCedula(),String.format("%.2f",((voPromedio) vo).getPromedioAprobacion()),String.format("%.2f",((voPromedio) vo).getPromedioTotal())};
-		        	data[numFila] = fila;
-		        	numFila++;
-		        	}
-		        }
-		        ventana.setearDatosCompleto(data);
+				Object[][] data = new Object [listaEgresados.size()][5];
+				int numFila = 0;
+				for(voAlumnoDat vo : listaEgresados) {
+					if(vo instanceof voPromedio) {
+						Object [] fila = {vo.getNombre(),vo.getApellido(),vo.getCedula(),String.format("%.2f",((voPromedio) vo).getPromedioAprobacion()),String.format("%.2f",((voPromedio) vo).getPromedioTotal())};
+						data[numFila] = fila;
+						numFila++;
+					}
 				}
-				else {
-					listaEgresados = fachada.listarEgresados(modo);
-			        Object[][] data = new Object [listaEgresados.size()][3];
-			        int numFila = 0;
-			        for(voAlumnoDat vo : listaEgresados) {
-			        	Object [] fila = {vo.getNombre(),vo.getApellido(),vo.getCedula()};
-			        	data[numFila] = fila;
-			        	numFila++;
-			        	}
-			        ventana.setearDatosParcial(data);	
-			        }  
-	    } catch (RemoteException exc) {
-	        ventana.mostrarMensajeError(exc.getMessage());
-	    } catch (DicAlumnosVacioException e) {
-	    	 ventana.mostrarMensajeError(e.darMensaje());
+				ventana.setearDatosCompleto(data);
+			}
+			else {
+				listaEgresados = fachada.listarEgresados(modo);
+				Object[][] data = new Object [listaEgresados.size()][3];
+				int numFila = 0;
+				for(voAlumnoDat vo : listaEgresados) {
+					Object [] fila = {vo.getNombre(),vo.getApellido(),vo.getCedula()};
+					data[numFila] = fila;
+					numFila++;
+				}
+				ventana.setearDatosParcial(data);	
+			}  
+		} catch (RemoteException exc) {
+			ventana.mostrarMensajeError(exc.getMessage());
+		} catch (DicAlumnosVacioException e) {
+			ventana.mostrarMensajeError(e.darMensaje());
 		}
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 
 }

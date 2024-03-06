@@ -20,7 +20,7 @@ public class Persistencia {
 			// Abro el archivo 
 			FileOutputStream f = new FileOutputStream(nomArch);
 			ObjectOutputStream o = new ObjectOutputStream(f);
-					
+
 			o.writeObject (vo);
 			o.close();
 			f.close();
@@ -28,20 +28,20 @@ public class Persistencia {
 			throw new PersistenciaException("Error respaldar");
 		}
 	}
-	
+
 	public voPersistencia recuperar (String nomArch) throws PersistenciaException{
 		try {
 			//Abro el archivo 
 			FileInputStream f = new FileInputStream(nomArch);
 			ObjectInputStream o = new ObjectInputStream(f);
-	
+
 			voPersistencia voP = (voPersistencia) o.readObject();
 			o.close();
 			f.close();
 			return voP;
 		}catch (ClassNotFoundException e) {
 			throw new PersistenciaException("Error respaldar");
-			
+
 		}catch (IOException e) {
 			throw new PersistenciaException("Error respaldar");
 		}

@@ -29,7 +29,7 @@ public class ControladorRegistrarInscripcion {
 			String puerto = prop.getProperty("puerto");
 			fachada = (IFachada)
 					Naming.lookup("//"+ip+":"+puerto+"/fachada");
-			
+
 		} catch (MalformedURLException e) {
 			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion con el servidor");
 			e.printStackTrace();

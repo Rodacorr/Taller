@@ -129,7 +129,7 @@ public class VentanaRegistrarAsignatura {
 		btnVolver.setBounds(57, 215, 92, 30);
 		frmRegistrarAsignatura.getContentPane().add(btnVolver);
 	}
-	
+
 	public void setVisible(boolean mostrar) {
 		frmRegistrarAsignatura.setVisible(mostrar);
 	}
@@ -141,7 +141,7 @@ public class VentanaRegistrarAsignatura {
 	public void mostrarMensajeExito (String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
-	
+
 	public void cerrarVentana() {
 		setVisible(false);
 		frmRegistrarAsignatura.dispose();

@@ -8,33 +8,33 @@ public class Monitor {
 		cantLectores = 0;
 		escribiendo = false;
 	}
-	
+
 	public synchronized void comienzoLectura() {
 		while (escribiendo == true){
-		
+
 			try {
 				wait();
 			} catch (InterruptedException e) {
-				
+
 			}
 		}
 		cantLectores++;
 	}
-	
+
 	public synchronized void terminoLectura() {
 		cantLectores--;
 		if(cantLectores == 0) {
 			notify();
 		}
 	}
-	
+
 	public synchronized void comienzoEscritura() {
 		while (escribiendo == true || cantLectores > 0){
-			
+
 			try {
 				wait();
 			} catch (InterruptedException e) {
-				
+
 			}
 		}
 		escribiendo = true;

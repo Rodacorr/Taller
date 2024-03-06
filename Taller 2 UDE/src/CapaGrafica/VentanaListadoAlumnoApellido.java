@@ -99,14 +99,14 @@ public class VentanaListadoAlumnoApellido {
 		table.setRowSelectionAllowed(false);
 		scrollPane.setViewportView(table);
 		scrollPane.setVisible(false);
-        table.getTableHeader().setReorderingAllowed(false);
+		table.getTableHeader().setReorderingAllowed(false);
 
 
 		JButton btnListar = new JButton("LISTAR");
 		btnListar.setBounds(250, 85, 100, 30);
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				String apellido = txtApe.getText();
 				controlador.listarAlumnoApe(apellido);
 			}
@@ -114,7 +114,7 @@ public class VentanaListadoAlumnoApellido {
 		btnListar.setForeground(Color.BLACK);
 		btnListar.setFont(new Font("Arial", Font.BOLD, 12));
 		btnListar.setBackground(new Color(0x198754));
-		
+
 		frmListarAlumnosApe.getContentPane().add(btnListar);
 		frmListarAlumnosApe.setBounds(100, 100, 450, 410);
 		frmListarAlumnosApe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

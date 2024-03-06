@@ -67,29 +67,29 @@ public class VentanaListadoEgresados {
 		frmListarEgresados.setBounds(100, 100, 496, 443);
 		frmListarEgresados.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmListarEgresados.getContentPane().setLayout(null);
-		
+
 		frmListarEgresados.setResizable(false);
 
-		
+
 		ButtonGroup bgp = new ButtonGroup();
-		
+
 		JLabel lblModoListado = new JLabel("Indique modo");
 		lblModoListado.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblModoListado.setBounds(97, 41, 101, 19);
 		frmListarEgresados.getContentPane().add(lblModoListado);
-		
+
 		final JRadioButton rdbtnParcial = new JRadioButton("Parcial");
 		rdbtnParcial.setBackground(Color.WHITE);
 		rdbtnParcial.setBounds(204, 37, 71, 23);
 		frmListarEgresados.getContentPane().add(rdbtnParcial);
 		bgp.add(rdbtnParcial);
-		
+
 		final JRadioButton rdbtnCompleto = new JRadioButton("Completo");
 		rdbtnCompleto.setBackground(Color.WHITE);
 		rdbtnCompleto.setBounds(277, 37, 79, 23);
 		frmListarEgresados.getContentPane().add(rdbtnCompleto);
 		bgp.add(rdbtnCompleto);
-		
+
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -102,18 +102,18 @@ public class VentanaListadoEgresados {
 		btnVolver.setBackground(new Color(0x8fe1f7));
 		btnVolver.setBounds(91, 81, 92, 30);
 		frmListarEgresados.getContentPane().add(btnVolver);
-		
+
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 143, 462, 238);
 		frmListarEgresados.getContentPane().add(scrollPane);
-		
+
 		table = new JTable();
 		table.setEnabled(false);
 		scrollPane.setViewportView(table);
 		scrollPane.setVisible(false);
-        table.getTableHeader().setReorderingAllowed(false);
+		table.getTableHeader().setReorderingAllowed(false);
 
-		
+
 		JButton btnListar = new JButton("LISTAR");
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -136,11 +136,11 @@ public class VentanaListadoEgresados {
 		btnListar.setBackground(new Color(0x198754));
 		btnListar.setBounds(256, 81, 100, 30);
 		frmListarEgresados.getContentPane().add(btnListar);
-		
-		
-		
+
+
+
 	}
-	
+
 	public void setearDatosCompleto(Object[][] data) {
 		String[] columnNames = {"Apellido",
 				"Nombre",
@@ -148,31 +148,31 @@ public class VentanaListadoEgresados {
 				"PromedioTotal",
 				"PromedioAprobadas"
 		};
-		
+
 		DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
 		table.setModel(dtm);
 		scrollPane.setVisible(true);
 	}
-	
+
 	public void setearDatosParcial(Object[][] data) {
 		String[] columnNames = {"Apellido",
 				"Nombre",
 				"Cedula",
-				
+
 		};
-		
+
 		DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
 		table.setModel(dtm);
 		scrollPane.setVisible(true);
 	}
-	
-	
-	
+
+
+
 	public void setVisible(boolean mostrar) {
 		frmListarEgresados.setVisible(mostrar);
 	}
 
-	
+
 	public void mostrarMensajeError (String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}

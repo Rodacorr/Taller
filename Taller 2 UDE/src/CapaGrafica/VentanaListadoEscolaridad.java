@@ -70,33 +70,33 @@ public class VentanaListadoEscolaridad {
 		frmListarEscolaridad.setBounds(100, 100, 395, 490);
 		frmListarEscolaridad.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmListarEscolaridad.getContentPane().setLayout(null);
-		
+
 		frmListarEscolaridad.setResizable(false);
 
-		
+
 		JLabel lblCedula = new JLabel("Indique cedula");
 		lblCedula.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblCedula.setBounds(32, 45, 101, 19);
 		frmListarEscolaridad.getContentPane().add(lblCedula);
-		
+
 		txtCed = new JTextField();
 		txtCed.setColumns(10);
 		txtCed.setBounds(183, 45, 128, 20);
 		frmListarEscolaridad.getContentPane().add(txtCed);
-		
+
 		JLabel lblModoListado = new JLabel("Indique modo");
 		lblModoListado.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblModoListado.setBounds(32, 105, 101, 19);
 		frmListarEscolaridad.getContentPane().add(lblModoListado);
-		
+
 		ButtonGroup bgp = new ButtonGroup();
-		
+
 		final JRadioButton rdbtnParcial = new JRadioButton("Parcial");
 		rdbtnParcial.setBackground(Color.WHITE);
 		rdbtnParcial.setBounds(183, 104, 71, 23);
 		frmListarEscolaridad.getContentPane().add(rdbtnParcial);
 		bgp.add(rdbtnParcial);
-		
+
 		final JRadioButton rdbtnCompleto = new JRadioButton("Completo");
 		rdbtnCompleto.setBackground(Color.WHITE);
 		rdbtnCompleto.setBounds(279, 104, 79, 23);
@@ -115,19 +115,19 @@ public class VentanaListadoEscolaridad {
 		btnVolver.setBackground(new Color(0x8fe1f7));
 		btnVolver.setBounds(69, 159, 92, 30);
 		frmListarEscolaridad.getContentPane().add(btnVolver);
-		
+
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 199, 361, 238);
 		frmListarEscolaridad.getContentPane().add(scrollPane);
-		
+
 		table = new JTable();
 		table.setEnabled(false);
-        table.getTableHeader().setReorderingAllowed(false);
+		table.getTableHeader().setReorderingAllowed(false);
 
 		scrollPane.setViewportView(table);
 		scrollPane.setVisible(false);
-		
-		
+
+
 		JButton btnListar = new JButton("LISTAR");
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -152,10 +152,10 @@ public class VentanaListadoEscolaridad {
 		btnListar.setBackground(new Color(0x198754));
 		btnListar.setBounds(219, 159, 100, 30);
 		frmListarEscolaridad.getContentPane().add(btnListar);
-		
-	
+
+
 	}
-	
+
 	public void setearDatosCompleto(Object[][] data) {
 		String[] columnNames = {"Numero",
 				"Asignatura",
@@ -163,24 +163,24 @@ public class VentanaListadoEscolaridad {
 				"Calificacion",
 				"Monto"
 		};
-		
+
 		DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
 		table.setModel(dtm);
 		scrollPane.setVisible(true);
 	}
-	
+
 	public void setearDatosParcial(Object[][] data) {
 		String[] columnNames = {"Numero",
 				"Asignatura",
 				"Anio",
 				"Calificacion"	
 		};
-		
+
 		DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
 		table.setModel(dtm);
 		scrollPane.setVisible(true);
 	}
-	
+
 	public void setVisible(boolean mostrar) {
 		frmListarEscolaridad.setVisible(mostrar);
 	}

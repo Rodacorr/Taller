@@ -27,7 +27,7 @@ public class Inscripciones  implements Serializable{
 		return lista.contains(num);
 	}
 
-	public Inscripcion k_esimo(int x){           //este devuelve la inscripcion segun la posicion que le das NO el numero de inscripcion..
+	public Inscripcion k_esimo(int x){           
 		return lista.get(x-1);
 	}
 
