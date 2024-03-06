@@ -38,7 +38,8 @@ public class MainCliente {
 		}
 		catch (MalformedURLException e) { e.printStackTrace(); }
 		catch (RemoteException e) { e.printStackTrace(); }
-		catch (NotBoundException e) { e.printStackTrace(); } catch (FileNotFoundException e) {
+		catch (NotBoundException e) { e.printStackTrace(); } 
+		catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
