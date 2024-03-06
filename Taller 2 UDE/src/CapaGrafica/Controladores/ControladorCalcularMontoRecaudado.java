@@ -1,10 +1,14 @@
 package CapaGrafica.Controladores;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Properties;
 
 import javax.swing.JOptionPane;
 
@@ -22,8 +26,15 @@ public class ControladorCalcularMontoRecaudado {
 	public ControladorCalcularMontoRecaudado(VentanaCalcularMontoRecaudado ven) {
 		this.ventana = ven;
 		try {
+			
+			Properties prop = new Properties();
+			String nomArch = "config/txt.properties";
+			prop.load (new FileInputStream (nomArch));
+			String ip = prop.getProperty("ip");
+			String puerto = prop.getProperty("puerto");
 			fachada = (IFachada)
-					Naming.lookup("//localhost:1099/fachada");
+					Naming.lookup("//"+ip+":"+puerto+"/fachada");
+			
 		} catch (MalformedURLException e) {
 			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion con el servidor");
 			e.printStackTrace();
@@ -32,6 +43,12 @@ public class ControladorCalcularMontoRecaudado {
 			e.printStackTrace();
 		} catch (NotBoundException e) {
 			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion con el servidor");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 	}

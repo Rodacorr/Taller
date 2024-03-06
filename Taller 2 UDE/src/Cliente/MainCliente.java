@@ -1,10 +1,14 @@
 package Cliente;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Properties;
 
 import CapaLogica.IFachada;
 import CapaLogica.Exceptions.*;
@@ -20,148 +24,153 @@ public class MainCliente {
 	public static void main(String[] args) {
 		try
 		{ 
+			Properties prop = new Properties();
+			String nomArch = "config/txt.properties";
+			prop.load (new FileInputStream (nomArch));
+			String ip = prop.getProperty("ip");
+			String puerto = prop.getProperty("puerto");
 			IFachada fachada = (IFachada)
-					Naming.lookup("//localhost:1099/fachada");
-			
+					Naming.lookup("//"+ip+":"+puerto+"/fachada");
+
 			// REQUERIMIENTO 1 - FUNCIONA
-	        // SE PROBO CARGAR UNA ASIGNATURA CON EL MISMO CODIGO Y EL MENSAJE DE ERROR LO TIRA BIEN
-	        // VER COMENTARIO EN FACHADA SOBRE ESTE METODO
-	        voAsignatura asignatura1 = new voAsignatura("ABC123", "Programacion", "Codigo en C++");
-	        voAsignatura asignatura2 = new voAsignatura("DEF456", "Taller", "Codigo en JAVA");
-	        voAsignatura asignatura3 = new voAsignatura("GHI789", "Base de datos", "Codigo en SQL");
-	        voAsignatura asignatura4 = new voAsignatura("GHIe89", "Sistemas Operativos", "SSH");
-	        voAsignatura asignatura45 = new voAsignatura("GHf789", "Sistemas Operativos", "SSH");
-	        voAsignatura asignatura46 = new voAsignatura("GHg789", "Sistemas Operativos", "SSH");
-	        voAsignatura asignatura47 = new voAsignatura("GHh789", "Sistemas Operativos", "SSH");
-	        voAsignatura asignatura48 = new voAsignatura("GHj789", "Sistemas Operativos", "SSH");
-	        voAsignatura asignatura49 = new voAsignatura("GHk789", "Sistemas Operativos", "SSH");
-	        voAsignatura asignatura410 = new voAsignatura("GHk789", "Sistemas Operativos", "SSH");
-	        voAsignatura asignatura10 = new voAsignatura("GlI7549", "Sistemas Operativos", "SSH");
-	        voAsignatura asignatura11 = new voAsignatura("2lI7549", "Sistemas Operativos", "SSH");
+			// SE PROBO CARGAR UNA ASIGNATURA CON EL MISMO CODIGO Y EL MENSAJE DE ERROR LO TIRA BIEN
+			// VER COMENTARIO EN FACHADA SOBRE ESTE METODO
+			voAsignatura asignatura1 = new voAsignatura("ABC123", "Programacion", "Codigo en C++");
+			voAsignatura asignatura2 = new voAsignatura("DEF456", "Taller", "Codigo en JAVA");
+			voAsignatura asignatura3 = new voAsignatura("GHI789", "Base de datos", "Codigo en SQL");
+			voAsignatura asignatura4 = new voAsignatura("GHIe89", "Sistemas Operativos", "SSH");
+			voAsignatura asignatura45 = new voAsignatura("GHf789", "Sistemas Operativos", "SSH");
+			voAsignatura asignatura46 = new voAsignatura("GHg789", "Sistemas Operativos", "SSH");
+			voAsignatura asignatura47 = new voAsignatura("GHh789", "Sistemas Operativos", "SSH");
+			voAsignatura asignatura48 = new voAsignatura("GHj789", "Sistemas Operativos", "SSH");
+			voAsignatura asignatura49 = new voAsignatura("GHk789", "Sistemas Operativos", "SSH");
+			voAsignatura asignatura410 = new voAsignatura("GHk789", "Sistemas Operativos", "SSH");
+			voAsignatura asignatura10 = new voAsignatura("GlI7549", "Sistemas Operativos", "SSH");
+			voAsignatura asignatura11 = new voAsignatura("2lI7549", "Sistemas Operativos", "SSH");
 
 
-	        try {
-	            fachada.registrarAsignatura(asignatura1);
-	            System.out.println("Primera asignatura registrada correctamente.");
-		    } catch (AsignaturasCompletaException exc) {
-		        System.out.println("Error: " + exc.darMensaje());
-	        } catch (AsignaturaYaExisteException exc) {
-	            System.out.println("Error: " + exc.darMensaje());
-	        }
+			try {
+				fachada.registrarAsignatura(asignatura1);
+				System.out.println("Primera asignatura registrada correctamente.");
+			} catch (AsignaturasCompletaException exc) {
+				System.out.println("Error: " + exc.darMensaje());
+			} catch (AsignaturaYaExisteException exc) {
+				System.out.println("Error: " + exc.darMensaje());
+			}
 
-	        try {
-	            fachada.registrarAsignatura(asignatura2);
-	            System.out.println("Segunda asignatura registrada correctamente.");
-		    } catch (AsignaturasCompletaException exc) {
-		        System.out.println("Error: " + exc.darMensaje());
-	        } catch (AsignaturaYaExisteException exc) {
-	            System.out.println("Error: " + exc.darMensaje());
-	        }
+			try {
+				fachada.registrarAsignatura(asignatura2);
+				System.out.println("Segunda asignatura registrada correctamente.");
+			} catch (AsignaturasCompletaException exc) {
+				System.out.println("Error: " + exc.darMensaje());
+			} catch (AsignaturaYaExisteException exc) {
+				System.out.println("Error: " + exc.darMensaje());
+			}
 
-	        try {
-	            fachada.registrarAsignatura(asignatura3);
-	            System.out.println("Tercera asignatura registrada correctamente.");
-		    } catch (AsignaturasCompletaException exc) {
-		        System.out.println("Error: " + exc.darMensaje());
-	        } catch (AsignaturaYaExisteException exc) {
-	            System.out.println("Error: " + exc.darMensaje());
-	        }
+			try {
+				fachada.registrarAsignatura(asignatura3);
+				System.out.println("Tercera asignatura registrada correctamente.");
+			} catch (AsignaturasCompletaException exc) {
+				System.out.println("Error: " + exc.darMensaje());
+			} catch (AsignaturaYaExisteException exc) {
+				System.out.println("Error: " + exc.darMensaje());
+			}
 
-	        try {
-	            fachada.registrarAsignatura(asignatura4);
-	            System.out.println("Cuarta asignatura registrada correctamente.");
-		    } catch (AsignaturasCompletaException exc) {
-		        System.out.println("Error: " + exc.darMensaje());
+			try {
+				fachada.registrarAsignatura(asignatura4);
+				System.out.println("Cuarta asignatura registrada correctamente.");
+			} catch (AsignaturasCompletaException exc) {
+				System.out.println("Error: " + exc.darMensaje());
 
-	        } catch (AsignaturaYaExisteException exc) {
-	            System.out.println("Error: " + exc.darMensaje());
-	        }
+			} catch (AsignaturaYaExisteException exc) {
+				System.out.println("Error: " + exc.darMensaje());
+			}
 
-	        try {
-	            fachada.registrarAsignatura(asignatura45);
-	            System.out.println("Cuarta asignatura registrada correctamente.");
-		    } catch (AsignaturasCompletaException exc) {
-		        System.out.println("Error: " + exc.darMensaje());
+			try {
+				fachada.registrarAsignatura(asignatura45);
+				System.out.println("Cuarta asignatura registrada correctamente.");
+			} catch (AsignaturasCompletaException exc) {
+				System.out.println("Error: " + exc.darMensaje());
 
-	        } catch (AsignaturaYaExisteException exc) {
-	            System.out.println("Error: " + exc.darMensaje());
-	        }
+			} catch (AsignaturaYaExisteException exc) {
+				System.out.println("Error: " + exc.darMensaje());
+			}
 
-	        try {
-	            fachada.registrarAsignatura(asignatura46);
-	            System.out.println("Cuarta asignatura registrada correctamente.");
-		    } catch (AsignaturasCompletaException exc) {
-		        System.out.println("Error: " + exc.darMensaje());
+			try {
+				fachada.registrarAsignatura(asignatura46);
+				System.out.println("Cuarta asignatura registrada correctamente.");
+			} catch (AsignaturasCompletaException exc) {
+				System.out.println("Error: " + exc.darMensaje());
 
-	        } catch (AsignaturaYaExisteException exc) {
-	            System.out.println("Error: " + exc.darMensaje());
-	        }
+			} catch (AsignaturaYaExisteException exc) {
+				System.out.println("Error: " + exc.darMensaje());
+			}
 
-	        try {
-	            fachada.registrarAsignatura(asignatura47);
-	            System.out.println("Cuarta asignatura registrada correctamente.");
-		    } catch (AsignaturasCompletaException exc) {
-		        System.out.println("Error: " + exc.darMensaje());
+			try {
+				fachada.registrarAsignatura(asignatura47);
+				System.out.println("Cuarta asignatura registrada correctamente.");
+			} catch (AsignaturasCompletaException exc) {
+				System.out.println("Error: " + exc.darMensaje());
 
-	        } catch (AsignaturaYaExisteException exc) {
-	            System.out.println("Error: " + exc.darMensaje());
-	        }
+			} catch (AsignaturaYaExisteException exc) {
+				System.out.println("Error: " + exc.darMensaje());
+			}
 
-	        try {
-	            fachada.registrarAsignatura(asignatura48);
-	            System.out.println("Cuarta asignatura registrada correctamente.");
-		    } catch (AsignaturasCompletaException exc) {
-		        System.out.println("Error: " + exc.darMensaje());
+			try {
+				fachada.registrarAsignatura(asignatura48);
+				System.out.println("Cuarta asignatura registrada correctamente.");
+			} catch (AsignaturasCompletaException exc) {
+				System.out.println("Error: " + exc.darMensaje());
 
-	        } catch (AsignaturaYaExisteException exc) {
-	            System.out.println("Error: " + exc.darMensaje());
-	        }
+			} catch (AsignaturaYaExisteException exc) {
+				System.out.println("Error: " + exc.darMensaje());
+			}
 
-	        try {
-	            fachada.registrarAsignatura(asignatura49);
-	            System.out.println("Cuarta asignatura registrada correctamente.");
-		    } catch (AsignaturasCompletaException exc) {
-		        System.out.println("Error: " + exc.darMensaje());
+			try {
+				fachada.registrarAsignatura(asignatura49);
+				System.out.println("Cuarta asignatura registrada correctamente.");
+			} catch (AsignaturasCompletaException exc) {
+				System.out.println("Error: " + exc.darMensaje());
 
-	        } catch (AsignaturaYaExisteException exc) {
-	            System.out.println("Error: " + exc.darMensaje());
-	        }
+			} catch (AsignaturaYaExisteException exc) {
+				System.out.println("Error: " + exc.darMensaje());
+			}
 
-	        try {
-	            fachada.registrarAsignatura(asignatura410);
-	            System.out.println("Cuarta asignatura registrada correctamente.");
-		    } catch (AsignaturasCompletaException exc) {
-		        System.out.println("Error: " + exc.darMensaje());
+			try {
+				fachada.registrarAsignatura(asignatura410);
+				System.out.println("Cuarta asignatura registrada correctamente.");
+			} catch (AsignaturasCompletaException exc) {
+				System.out.println("Error: " + exc.darMensaje());
 
-	        } catch (AsignaturaYaExisteException exc) {
-	            System.out.println("Error: " + exc.darMensaje());
-	        }
+			} catch (AsignaturaYaExisteException exc) {
+				System.out.println("Error: " + exc.darMensaje());
+			}
 
-	        // Asignatura con error - Mismo codigo
+			// Asignatura con error - Mismo codigo
 
-	        try {
-	            fachada.registrarAsignatura(asignatura10);
-	            System.out.println("Cuarta asignatura registrada correctamente.");
-		    } catch (AsignaturasCompletaException exc) {
-		        System.out.println("Error: " + exc.darMensaje());
+			try {
+				fachada.registrarAsignatura(asignatura10);
+				System.out.println("Cuarta asignatura registrada correctamente.");
+			} catch (AsignaturasCompletaException exc) {
+				System.out.println("Error: " + exc.darMensaje());
 
-	        } catch (AsignaturaYaExisteException exc) {
-	            System.out.println("Error: " + exc.darMensaje());
-	        }
+			} catch (AsignaturaYaExisteException exc) {
+				System.out.println("Error: " + exc.darMensaje());
+			}
 
-	        try {
-	            fachada.registrarAsignatura(asignatura11);
-	            System.out.println("Cuarta asignatura registrada correctamente.");
-		    } catch (AsignaturasCompletaException exc) {
-		        System.out.println("Error: " + exc.darMensaje());
+			try {
+				fachada.registrarAsignatura(asignatura11);
+				System.out.println("Cuarta asignatura registrada correctamente.");
+			} catch (AsignaturasCompletaException exc) {
+				System.out.println("Error: " + exc.darMensaje());
 
-	        } catch (AsignaturaYaExisteException exc) {
-	            System.out.println("Error: " + exc.darMensaje());
-	        }
+			} catch (AsignaturaYaExisteException exc) {
+				System.out.println("Error: " + exc.darMensaje());
+			}
 
-	        System.out.println("-------------------------------------------------------------");
+			System.out.println("-------------------------------------------------------------");
 
-	        /*
+			/*
 
 	        // REQUERIMIENTO 2 - FUNCIONA BIEN
 	        // SE PROBO TIRAR ESTO SIN ASIGNATURAS Y EL MENSAJE DE ERROR LO TIRA BIEN
@@ -815,7 +824,7 @@ public class MainCliente {
 						System.out.println("Error: " + exc.darMensaje());
 					}	
 
-			 
+
 
 
 			try {
@@ -1216,7 +1225,7 @@ public class MainCliente {
 			} catch (NotaInvalida exc) {
 				System.out.println("Error: " + exc.darMensaje());
 			}
-			 
+
 
 			System.out.println("-------------------COMPLETO----------------");
 
@@ -1281,12 +1290,18 @@ public class MainCliente {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		*/
+			 */
 
 		}
 		catch (MalformedURLException e) { e.printStackTrace(); }
 		catch (RemoteException e) { e.printStackTrace(); }
-		catch (NotBoundException e) { e.printStackTrace(); }
+		catch (NotBoundException e) { e.printStackTrace(); } catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
 
