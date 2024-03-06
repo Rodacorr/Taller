@@ -33,6 +33,7 @@ public class MainCliente {
 					Naming.lookup("//"+ip+":"+puerto+"/fachada");
 
 			VentanaPrincipal ventana = new VentanaPrincipal();
+			ventana.setLocationRelativeToNull();
 			ventana.setVisible(true);
 
 		}

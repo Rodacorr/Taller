@@ -9,6 +9,8 @@ import javax.swing.JOptionPane;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -80,14 +82,15 @@ public class VentanaListadoAlumnoCedula {
 	 */
 	private void initialize() {
 		frmListarAlumnoCed = new JFrame();
+		frmListarAlumnoCed.setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaPrincipal.class.getResource("/img/Logo.png")));
 		frmListarAlumnoCed.getContentPane().setBackground(new Color(255, 255, 255));
 		frmListarAlumnoCed.getContentPane().setLayout(null);
 		frmListarAlumnoCed.setResizable(false);
 
 
-		JLabel lblCedulaIngresado = new JLabel("Indique cedula");
-		lblCedulaIngresado.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblCedulaIngresado.setBounds(40, 33, 101, 19);
+		JLabel lblCedulaIngresado = new JLabel("Indique la cédula de un alumno:");
+		lblCedulaIngresado.setFont(new Font("Arial", Font.BOLD, 12));
+		lblCedulaIngresado.setBounds(20, 32, 181, 19);
 		frmListarAlumnoCed.getContentPane().add(lblCedulaIngresado);
 
 		txtCed = new JTextField();
@@ -118,52 +121,61 @@ public class VentanaListadoAlumnoCedula {
 		});
 		btnListar.setForeground(Color.BLACK);
 		btnListar.setFont(new Font("Arial", Font.BOLD, 12));
-		btnListar.setBackground(new Color(0x198754));
+		btnListar.setBackground(new Color(0x42b881));
 		btnListar.setBounds(224, 91, 100, 30);
 		frmListarAlumnoCed.getContentPane().add(btnListar);
 
 		lblCedula = new JLabel("Cedula:");
-		lblCedula.setBounds(59, 147, 46, 14);
+		lblCedula.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblCedula.setBounds(20, 147, 46, 14);
 		lblCedula.setVisible(false);
 		frmListarAlumnoCed.getContentPane().add(lblCedula);
 
 		lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(59, 172, 74, 14);
+		lblNombre.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblNombre.setBounds(20, 172, 74, 14);
 		lblNombre.setVisible(false);
 		frmListarAlumnoCed.getContentPane().add(lblNombre);
 
 		lblApellido = new JLabel("Apellido:");
-		lblApellido.setBounds(59, 197, 74, 14);
+		lblApellido.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblApellido.setBounds(20, 197, 74, 14);
 		lblApellido.setVisible(false);
 		frmListarAlumnoCed.getContentPane().add(lblApellido);
 
 		lblCantAsigAprob = new JLabel("Cantidad asignaturas aprobadas:");
-		lblCantAsigAprob.setBounds(10, 222, 191, 14);
+		lblCantAsigAprob.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblCantAsigAprob.setBounds(20, 223, 191, 14);
 		lblCantAsigAprob.setVisible(false);
 		frmListarAlumnoCed.getContentPane().add(lblCantAsigAprob);
 
 		lblDomicilio = new JLabel("Domicilio:");
-		lblDomicilio.setBounds(59, 247, 92, 14);
+		lblDomicilio.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblDomicilio.setBounds(20, 247, 92, 14);
 		lblDomicilio.setVisible(false);
 		frmListarAlumnoCed.getContentPane().add(lblDomicilio);
 
 		lblTelefono = new JLabel("Telefono:");
-		lblTelefono.setBounds(59, 272, 74, 14);
+		lblTelefono.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblTelefono.setBounds(20, 272, 74, 14);
 		lblTelefono.setVisible(false);
 		frmListarAlumnoCed.getContentPane().add(lblTelefono);
 
 		lblPorceBeca = new JLabel("Porcentaje de la beca:");
-		lblPorceBeca.setBounds(31, 322, 151, 14);
+		lblPorceBeca.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblPorceBeca.setBounds(20, 320, 151, 14);
 		lblPorceBeca.setVisible(false);
 		frmListarAlumnoCed.getContentPane().add(lblPorceBeca);
 
 		lblRazon = new JLabel("Razon de la beca:");
-		lblRazon.setBounds(40, 347, 142, 14);
+		lblRazon.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblRazon.setBounds(20, 349, 142, 14);
 		lblRazon.setVisible(false);
 		frmListarAlumnoCed.getContentPane().add(lblRazon);
 
 		lblTipo = new JLabel("Tipo:");
-		lblTipo.setBounds(69, 297, 46, 14);
+		lblTipo.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblTipo.setBounds(20, 296, 46, 14);
 		lblTipo.setVisible(false);
 		frmListarAlumnoCed.getContentPane().add(lblTipo);
 
@@ -310,4 +322,8 @@ public class VentanaListadoAlumnoCedula {
 	public void mostrarMensajeError (String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
+	
+	public void setLocationRelativeToNull() {
+		frmListarAlumnoCed.setLocationRelativeTo(null);
+    }
 }

@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -62,6 +64,7 @@ public class VentanaListadoEgresados {
 	 */
 	private void initialize() {
 		frmListarEgresados = new JFrame();
+		frmListarEgresados.setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaPrincipal.class.getResource("/img/Logo.png")));
 		frmListarEgresados.getContentPane().setBackground(new Color(255, 255, 255));
 		frmListarEgresados.setTitle("LISTAR EGRESADOS");
 		frmListarEgresados.setBounds(100, 100, 496, 443);
@@ -73,20 +76,20 @@ public class VentanaListadoEgresados {
 
 		ButtonGroup bgp = new ButtonGroup();
 
-		JLabel lblModoListado = new JLabel("Indique modo");
-		lblModoListado.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblModoListado.setBounds(97, 41, 101, 19);
+		JLabel lblModoListado = new JLabel("Indique un modo de listado:");
+		lblModoListado.setFont(new Font("Arial", Font.BOLD, 12));
+		lblModoListado.setBounds(67, 41, 163, 19);
 		frmListarEgresados.getContentPane().add(lblModoListado);
 
 		final JRadioButton rdbtnParcial = new JRadioButton("Parcial");
 		rdbtnParcial.setBackground(Color.WHITE);
-		rdbtnParcial.setBounds(204, 37, 71, 23);
+		rdbtnParcial.setBounds(247, 39, 71, 23);
 		frmListarEgresados.getContentPane().add(rdbtnParcial);
 		bgp.add(rdbtnParcial);
 
 		final JRadioButton rdbtnCompleto = new JRadioButton("Completo");
 		rdbtnCompleto.setBackground(Color.WHITE);
-		rdbtnCompleto.setBounds(277, 37, 79, 23);
+		rdbtnCompleto.setBounds(331, 39, 79, 23);
 		frmListarEgresados.getContentPane().add(rdbtnCompleto);
 		bgp.add(rdbtnCompleto);
 
@@ -100,7 +103,7 @@ public class VentanaListadoEgresados {
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
 		btnVolver.setBackground(new Color(0x8fe1f7));
-		btnVolver.setBounds(91, 81, 92, 30);
+		btnVolver.setBounds(101, 81, 92, 30);
 		frmListarEgresados.getContentPane().add(btnVolver);
 
 		scrollPane = new JScrollPane();
@@ -133,8 +136,8 @@ public class VentanaListadoEgresados {
 		});
 		btnListar.setForeground(Color.BLACK);
 		btnListar.setFont(new Font("Arial", Font.BOLD, 12));
-		btnListar.setBackground(new Color(0x198754));
-		btnListar.setBounds(256, 81, 100, 30);
+		btnListar.setBackground(new Color(0x42b881));
+		btnListar.setBounds(266, 81, 100, 30);
 		frmListarEgresados.getContentPane().add(btnListar);
 
 
@@ -176,4 +179,8 @@ public class VentanaListadoEgresados {
 	public void mostrarMensajeError (String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
+	
+	public void setLocationRelativeToNull() {
+		frmListarEgresados.setLocationRelativeTo(null);
+    }
 }

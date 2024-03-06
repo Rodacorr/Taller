@@ -85,7 +85,7 @@ public class ControladorListadoEscolaridad {
 						data[numFila] = fila;
 						numFila++;
 					}
-					ventana.setearDatosParcial(data);	
+					ventana.setearDatosParcial(data);
 				} 
 			}
 		} catch (RemoteException exc) {

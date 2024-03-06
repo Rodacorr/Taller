@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -65,6 +67,7 @@ public class VentanaListadoEscolaridad {
 	 */
 	private void initialize() {
 		frmListarEscolaridad = new JFrame();
+		frmListarEscolaridad.setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaPrincipal.class.getResource("/img/Logo.png")));
 		frmListarEscolaridad.getContentPane().setBackground(new Color(255, 255, 255));
 		frmListarEscolaridad.setTitle("LISTAR ESCOLARIDAD");
 		frmListarEscolaridad.setBounds(100, 100, 395, 490);
@@ -74,26 +77,26 @@ public class VentanaListadoEscolaridad {
 		frmListarEscolaridad.setResizable(false);
 
 
-		JLabel lblCedula = new JLabel("Indique cedula");
-		lblCedula.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblCedula.setBounds(32, 45, 101, 19);
+		JLabel lblCedula = new JLabel("Indique una cedula:");
+		lblCedula.setFont(new Font("Arial", Font.BOLD, 12));
+		lblCedula.setBounds(21, 45, 151, 19);
 		frmListarEscolaridad.getContentPane().add(lblCedula);
 
 		txtCed = new JTextField();
 		txtCed.setColumns(10);
-		txtCed.setBounds(183, 45, 128, 20);
+		txtCed.setBounds(180, 45, 167, 20);
 		frmListarEscolaridad.getContentPane().add(txtCed);
 
-		JLabel lblModoListado = new JLabel("Indique modo");
-		lblModoListado.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblModoListado.setBounds(32, 105, 101, 19);
+		JLabel lblModoListado = new JLabel("Indique un modo de listado:");
+		lblModoListado.setFont(new Font("Arial", Font.BOLD, 12));
+		lblModoListado.setBounds(21, 106, 156, 19);
 		frmListarEscolaridad.getContentPane().add(lblModoListado);
 
 		ButtonGroup bgp = new ButtonGroup();
 
 		final JRadioButton rdbtnParcial = new JRadioButton("Parcial");
 		rdbtnParcial.setBackground(Color.WHITE);
-		rdbtnParcial.setBounds(183, 104, 71, 23);
+		rdbtnParcial.setBounds(206, 104, 71, 23);
 		frmListarEscolaridad.getContentPane().add(rdbtnParcial);
 		bgp.add(rdbtnParcial);
 
@@ -113,7 +116,7 @@ public class VentanaListadoEscolaridad {
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
 		btnVolver.setBackground(new Color(0x8fe1f7));
-		btnVolver.setBounds(69, 159, 92, 30);
+		btnVolver.setBounds(55, 159, 92, 30);
 		frmListarEscolaridad.getContentPane().add(btnVolver);
 
 		scrollPane = new JScrollPane();
@@ -149,8 +152,8 @@ public class VentanaListadoEscolaridad {
 		});
 		btnListar.setForeground(Color.BLACK);
 		btnListar.setFont(new Font("Arial", Font.BOLD, 12));
-		btnListar.setBackground(new Color(0x198754));
-		btnListar.setBounds(219, 159, 100, 30);
+		btnListar.setBackground(new Color(0x42b881));
+		btnListar.setBounds(214, 159, 100, 30);
 		frmListarEscolaridad.getContentPane().add(btnListar);
 
 
@@ -189,4 +192,7 @@ public class VentanaListadoEscolaridad {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
 
+	public void setLocationRelativeToNull() {
+		frmListarEscolaridad.setLocationRelativeTo(null);
+    }
 }

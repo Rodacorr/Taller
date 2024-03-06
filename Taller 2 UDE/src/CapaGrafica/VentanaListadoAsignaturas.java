@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -59,6 +60,7 @@ public class VentanaListadoAsignaturas {
 	 */
 	private void initialize() {
 		frmListarAsignaturas = new JFrame();
+		frmListarAsignaturas.setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaPrincipal.class.getResource("/img/Logo.png")));
 		frmListarAsignaturas.setVisible(false);
 		frmListarAsignaturas.getContentPane().setBackground(new Color(255, 255, 255));
 		frmListarAsignaturas.setTitle("LISTAR ASIGNATURAS");
@@ -114,4 +116,8 @@ public class VentanaListadoAsignaturas {
 	public void mostrarMensajeError (String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
+	
+	public void setLocationRelativeToNull() {
+		frmListarAsignaturas.setLocationRelativeTo(null);
+    }
 }

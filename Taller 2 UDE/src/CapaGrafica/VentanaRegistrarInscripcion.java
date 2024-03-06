@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JTextField;
 
@@ -65,52 +66,53 @@ public class VentanaRegistrarInscripcion{
 	 */
 	private void initialize() {
 		frmRegistrarInscripcion = new JFrame();
+		frmRegistrarInscripcion.setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaPrincipal.class.getResource("/img/Logo.png")));
 		frmRegistrarInscripcion.setTitle("REGISTRAR INSCRIPCION");
 		frmRegistrarInscripcion.getContentPane().setBackground(new Color(255, 255, 255));
-		frmRegistrarInscripcion.setBounds(100, 100, 450, 300);
+		frmRegistrarInscripcion.setBounds(100, 100, 450, 283);
 		frmRegistrarInscripcion.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmRegistrarInscripcion.getContentPane().setLayout(null);
 		frmRegistrarInscripcion.setResizable(false);
 
 
-		JLabel lblCedulaAlumno = new JLabel("Ingrese cedula del alumno");
-		lblCedulaAlumno.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblCedulaAlumno.setBounds(21, 43, 153, 19);
+		JLabel lblCedulaAlumno = new JLabel("Ingrese cédula del alumno:");
+		lblCedulaAlumno.setFont(new Font("Arial", Font.BOLD, 12));
+		lblCedulaAlumno.setBounds(35, 22, 153, 19);
 		frmRegistrarInscripcion.getContentPane().add(lblCedulaAlumno);
 
-		JLabel lblCodigoAsignatura = new JLabel("Ingrese codigo de la asignatura");
-		lblCodigoAsignatura.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblCodigoAsignatura.setBounds(21, 88, 181, 19);
+		JLabel lblCodigoAsignatura = new JLabel("Ingrese código de la asignatura:");
+		lblCodigoAsignatura.setFont(new Font("Arial", Font.BOLD, 12));
+		lblCodigoAsignatura.setBounds(35, 67, 181, 19);
 		frmRegistrarInscripcion.getContentPane().add(lblCodigoAsignatura);
 
-		JLabel lblMontoBase = new JLabel("Ingrese monto base");
-		lblMontoBase.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblMontoBase.setBounds(21, 133, 118, 19);
+		JLabel lblMontoBase = new JLabel("Ingrese monto base:");
+		lblMontoBase.setFont(new Font("Arial", Font.BOLD, 12));
+		lblMontoBase.setBounds(35, 112, 118, 19);
 		frmRegistrarInscripcion.getContentPane().add(lblMontoBase);
 
-		JLabel lblAnioLectivo = new JLabel("Ingrese año lectivo");
-		lblAnioLectivo.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblAnioLectivo.setBounds(21, 173, 118, 19);
+		JLabel lblAnioLectivo = new JLabel("Ingrese año lectivo:");
+		lblAnioLectivo.setFont(new Font("Arial", Font.BOLD, 12));
+		lblAnioLectivo.setBounds(35, 152, 118, 19);
 		frmRegistrarInscripcion.getContentPane().add(lblAnioLectivo);
 
 		txtCed = new JTextField();
 		txtCed.setColumns(10);
-		txtCed.setBounds(248, 43, 133, 20);
+		txtCed.setBounds(262, 22, 133, 20);
 		frmRegistrarInscripcion.getContentPane().add(txtCed);
 
 		txtCod = new JTextField();
 		txtCod.setColumns(10);
-		txtCod.setBounds(248, 88, 133, 20);
+		txtCod.setBounds(262, 67, 133, 20);
 		frmRegistrarInscripcion.getContentPane().add(txtCod);
 
 		txtMonto = new JTextField();
 		txtMonto.setColumns(10);
-		txtMonto.setBounds(248, 133, 133, 20);
+		txtMonto.setBounds(262, 112, 133, 20);
 		frmRegistrarInscripcion.getContentPane().add(txtMonto);
 
 		txtAnio = new JTextField();
 		txtAnio.setColumns(10);
-		txtAnio.setBounds(248, 173, 133, 20);
+		txtAnio.setBounds(262, 152, 133, 20);
 		frmRegistrarInscripcion.getContentPane().add(txtAnio);
 
 		btnVolver = new JButton("VOLVER");
@@ -123,7 +125,7 @@ public class VentanaRegistrarInscripcion{
 		btnVolver.setForeground(Color.BLACK);
 		btnVolver.setFont(new Font("Arial", Font.BOLD, 12));
 		btnVolver.setBackground(new Color(0x8fe1f7));
-		btnVolver.setBounds(71, 223, 92, 30);
+		btnVolver.setBounds(85, 202, 92, 30);
 		frmRegistrarInscripcion.getContentPane().add(btnVolver);
 
 		btnRegistrar = new JButton("REGISTRAR");
@@ -138,8 +140,8 @@ public class VentanaRegistrarInscripcion{
 		});
 		btnRegistrar.setForeground(Color.BLACK);
 		btnRegistrar.setFont(new Font("Arial", Font.BOLD, 12));
-		btnRegistrar.setBackground(new Color(0x198754));
-		btnRegistrar.setBounds(237, 223, 114, 30);
+		btnRegistrar.setBackground(new Color(0x42b881));
+		btnRegistrar.setBounds(251, 202, 114, 30);
 		frmRegistrarInscripcion.getContentPane().add(btnRegistrar);
 	}
 
@@ -154,4 +156,8 @@ public class VentanaRegistrarInscripcion{
 	public void mostrarMensajeExito (String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
+	
+	public void setLocationRelativeToNull() {
+		frmRegistrarInscripcion.setLocationRelativeTo(null);
+    }
 }

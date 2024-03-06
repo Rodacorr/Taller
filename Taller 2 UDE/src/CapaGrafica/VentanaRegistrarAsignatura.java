@@ -13,6 +13,7 @@ import javax.swing.JTextPane;
 import javax.swing.border.Border;
 import CapaGrafica.Controladores.ControladorRegistrarAsignatura;
 import java.awt.Label;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
@@ -57,6 +58,7 @@ public class VentanaRegistrarAsignatura {
 	 */
 	private void initialize() {
 		frmRegistrarAsignatura = new JFrame();
+		frmRegistrarAsignatura.setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaPrincipal.class.getResource("/img/Logo.png")));
 		frmRegistrarAsignatura.setTitle("REGISTRAR ASIGNATURA");
 		frmRegistrarAsignatura.getContentPane().setBackground(new Color(255, 255, 255));
 		frmRegistrarAsignatura.getContentPane().setForeground(new Color(255, 255, 255));
@@ -66,19 +68,19 @@ public class VentanaRegistrarAsignatura {
 		frmRegistrarAsignatura.setResizable(false);
 
 
-		JLabel lblNombre = new JLabel("Ingrese nombre");
-		lblNombre.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblNombre.setBounds(47, 59, 88, 15);
+		JLabel lblNombre = new JLabel("Ingrese nombre:");
+		lblNombre.setFont(new Font("Arial", Font.BOLD, 12));
+		lblNombre.setBounds(35, 56, 152, 15);
 		frmRegistrarAsignatura.getContentPane().add(lblNombre);
 
-		JLabel lblCodigo = new JLabel("Ingrese codigo");
-		lblCodigo.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblCodigo.setBounds(47, 23, 88, 15);
+		JLabel lblCodigo = new JLabel("Ingrese código: ");
+		lblCodigo.setFont(new Font("Arial", Font.BOLD, 12));
+		lblCodigo.setBounds(35, 20, 152, 15);
 		frmRegistrarAsignatura.getContentPane().add(lblCodigo);
 
-		JLabel lblDescripcion = new JLabel("Ingrese descripcion");
-		lblDescripcion.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblDescripcion.setBounds(47, 99, 114, 15);
+		JLabel lblDescripcion = new JLabel("Ingrese descripción: ");
+		lblDescripcion.setFont(new Font("Arial", Font.BOLD, 12));
+		lblDescripcion.setBounds(35, 96, 152, 15);
 		frmRegistrarAsignatura.getContentPane().add(lblDescripcion);
 
 		txtNom = new JTextField();
@@ -112,7 +114,7 @@ public class VentanaRegistrarAsignatura {
 		});
 		btnRegistrar.setForeground(Color.BLACK);
 		btnRegistrar.setFont(new Font("Arial", Font.BOLD, 12));
-		btnRegistrar.setBackground(new Color(0x198754));
+		btnRegistrar.setBackground(new Color(0x42b881));
 		btnRegistrar.setBounds(186, 215, 114, 30);
 		frmRegistrarAsignatura.getContentPane().add(btnRegistrar);
 
@@ -146,4 +148,8 @@ public class VentanaRegistrarAsignatura {
 		setVisible(false);
 		frmRegistrarAsignatura.dispose();
 	}
+	
+	public void setLocationRelativeToNull() {
+		frmRegistrarAsignatura.setLocationRelativeTo(null);
+    }
 }

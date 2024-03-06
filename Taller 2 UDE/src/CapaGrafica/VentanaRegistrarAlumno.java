@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 
@@ -65,6 +67,7 @@ public class VentanaRegistrarAlumno {
 	}
 	private void initialize() { 	
 		frmRegistrarAlumno = new JFrame();
+		frmRegistrarAlumno.setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaPrincipal.class.getResource("/img/Logo.png")));
 		frmRegistrarAlumno.setTitle("REGISTRAR ALUMNO");
 		frmRegistrarAlumno.getContentPane().setBackground(new Color(255, 255, 255));
 		frmRegistrarAlumno.getContentPane().setForeground(new Color(255, 255, 255));
@@ -111,45 +114,45 @@ public class VentanaRegistrarAlumno {
 		txtNom.setBounds(223, 53, 108, 20);
 		frmRegistrarAlumno.getContentPane().add(txtNom);
 
-		JLabel lblCedula = new JLabel("Ingrese Cedula");
-		lblCedula.setFont(new Font("Arial", Font.PLAIN, 12));
+		JLabel lblCedula = new JLabel("Ingrese cédula:");
+		lblCedula.setFont(new Font("Arial", Font.BOLD, 12));
 		lblCedula.setBounds(57, 23, 100, 14);
 		frmRegistrarAlumno.getContentPane().add(lblCedula);
 
-		JLabel lblNombre = new JLabel("Ingrese Nombre");
-		lblNombre.setFont(new Font("Arial", Font.PLAIN, 12));
+		JLabel lblNombre = new JLabel("Ingrese nombre:");
+		lblNombre.setFont(new Font("Arial", Font.BOLD, 12));
 		lblNombre.setBounds(57, 56, 100, 14);
 		frmRegistrarAlumno.getContentPane().add(lblNombre);
 
-		JLabel lblApellido = new JLabel("Ingrese Apellido");
-		lblApellido.setFont(new Font("Arial", Font.PLAIN, 12));
+		JLabel lblApellido = new JLabel("Ingrese apellido:");
+		lblApellido.setFont(new Font("Arial", Font.BOLD, 12));
 		lblApellido.setBounds(57, 91, 100, 14);
 		frmRegistrarAlumno.getContentPane().add(lblApellido);
 
-		JLabel lblDomicilo = new JLabel("Ingrese Domicilo");
-		lblDomicilo.setFont(new Font("Arial", Font.PLAIN, 12));
+		JLabel lblDomicilo = new JLabel("Ingrese domicilo:");
+		lblDomicilo.setFont(new Font("Arial", Font.BOLD, 12));
 		lblDomicilo.setBounds(57, 124, 100, 14);
 		frmRegistrarAlumno.getContentPane().add(lblDomicilo);
 
-		JLabel lblTelefono = new JLabel("Ingrese Telefono");
-		lblTelefono.setFont(new Font("Arial", Font.PLAIN, 12));
+		JLabel lblTelefono = new JLabel("Ingrese telefono:");
+		lblTelefono.setFont(new Font("Arial", Font.BOLD, 12));
 		lblTelefono.setBounds(57, 159, 100, 14);
 		frmRegistrarAlumno.getContentPane().add(lblTelefono);
 
 		JLabel lblBecado = new JLabel("¿El alumno es becado?");
-		lblBecado.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblBecado.setFont(new Font("Arial", Font.BOLD, 12));
 		lblBecado.setBounds(57, 199, 141, 14);
 		frmRegistrarAlumno.getContentPane().add(lblBecado);
 
-		lblPorcentaje = new JLabel("Ingrese porcentaje de beca");
+		lblPorcentaje = new JLabel("Ingrese porcentaje de beca:");
 		lblPorcentaje.setVisible(false);
-		lblPorcentaje.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblPorcentaje.setFont(new Font("Arial", Font.BOLD, 12));
 		lblPorcentaje.setBounds(39, 238, 159, 14);
 		frmRegistrarAlumno.getContentPane().add(lblPorcentaje);
 
-		lblRazon = new JLabel("Ingrese Razon de la beca");
+		lblRazon = new JLabel("Ingrese razón de la beca:");
 		lblRazon.setVisible(false);
-		lblRazon.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblRazon.setFont(new Font("Arial", Font.BOLD, 12));
 		lblRazon.setBounds(39, 277, 159, 14);
 		frmRegistrarAlumno.getContentPane().add(lblRazon);
 
@@ -194,7 +197,7 @@ public class VentanaRegistrarAlumno {
 		});
 		btnRegistrar.setForeground(Color.BLACK);
 		btnRegistrar.setFont(new Font("Arial", Font.BOLD, 12));
-		btnRegistrar.setBackground(new Color(0x198754));
+		btnRegistrar.setBackground(new Color(0x42b881));
 		btnRegistrar.setBounds(203, 322, 114, 30);
 		frmRegistrarAlumno.getContentPane().add(btnRegistrar);
 
@@ -228,5 +231,9 @@ public class VentanaRegistrarAlumno {
 		setVisible(false);
 		frmRegistrarAlumno.dispose();
 	}
+	
+	public void setLocationRelativeToNull() {
+		frmRegistrarAlumno.setLocationRelativeTo(null);
+    }
 }
 

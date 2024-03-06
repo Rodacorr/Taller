@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JTextField;
 
 import CapaGrafica.Controladores.ControladorCalcularMontoRecaudado;
@@ -59,6 +61,7 @@ public class VentanaCalcularMontoRecaudado {
 	 */
 	private void initialize() {
 		frmMontoRecaudado = new JFrame();
+		frmMontoRecaudado.setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaPrincipal.class.getResource("/img/Logo.png")));
 		frmMontoRecaudado.getContentPane().setBackground(new Color(255, 255, 255));
 		frmMontoRecaudado.setTitle("MONTO RECAUDADO");
 		frmMontoRecaudado.setBounds(100, 100, 389, 274);
@@ -68,14 +71,14 @@ public class VentanaCalcularMontoRecaudado {
 		frmMontoRecaudado.setResizable(false);
 
 
-		JLabel lblCedAlumno = new JLabel("Ingrese cedula del alumno");
-		lblCedAlumno.setFont(new Font("Arial", Font.PLAIN, 12));
+		JLabel lblCedAlumno = new JLabel("Ingrese cédula del alumno:");
+		lblCedAlumno.setFont(new Font("Arial", Font.BOLD, 12));
 		lblCedAlumno.setBounds(31, 33, 152, 19);
 		frmMontoRecaudado.getContentPane().add(lblCedAlumno);
 
-		JLabel lblAnioLectivo = new JLabel("Ingrese año lectivo");
-		lblAnioLectivo.setFont(new Font("Arial", Font.PLAIN, 12));
-		lblAnioLectivo.setBounds(31, 83, 109, 19);
+		JLabel lblAnioLectivo = new JLabel("Ingrese año lectivo:");
+		lblAnioLectivo.setFont(new Font("Arial", Font.BOLD, 12));
+		lblAnioLectivo.setBounds(31, 83, 130, 19);
 		frmMontoRecaudado.getContentPane().add(lblAnioLectivo);
 
 		txtCed = new JTextField();
@@ -116,7 +119,7 @@ public class VentanaCalcularMontoRecaudado {
 		frmMontoRecaudado.getContentPane().add(btnVolver);
 
 		lblMonto = new JLabel("El monto recaudado es:");
-		lblMonto.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblMonto.setFont(new Font("Arial", Font.BOLD, 12));
 		lblMonto.setBounds(31, 129, 152, 13);
 		lblMonto.setVisible(false);
 		frmMontoRecaudado.getContentPane().add(lblMonto);
@@ -150,4 +153,8 @@ public class VentanaCalcularMontoRecaudado {
 	public void mostrarMensajeError (String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
+	
+	public void setLocationRelativeToNull() {
+		frmMontoRecaudado.setLocationRelativeTo(null);
+    }
 }

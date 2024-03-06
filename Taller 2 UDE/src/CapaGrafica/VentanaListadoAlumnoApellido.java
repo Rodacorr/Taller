@@ -10,6 +10,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -60,24 +62,25 @@ public class VentanaListadoAlumnoApellido {
 	 */
 	private void initialize() {
 		frmListarAlumnosApe = new JFrame();
+		frmListarAlumnosApe.setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaPrincipal.class.getResource("/img/Logo.png")));
 		frmListarAlumnosApe.setTitle("LISTAR ALUMNOS DADO APELLIDO");
 		frmListarAlumnosApe.getContentPane().setBackground(new Color(255, 255, 255));
 		frmListarAlumnosApe.getContentPane().setLayout(null);
 		frmListarAlumnosApe.setResizable(false);
 
 
-		JLabel lblApellidoIngresado = new JLabel("Ingrese apellido o prefijo");
-		lblApellidoIngresado.setBounds(38, 29, 141, 19);
-		lblApellidoIngresado.setFont(new Font("Arial", Font.PLAIN, 12));
+		JLabel lblApellidoIngresado = new JLabel("Ingrese un apellido o prefijo a buscar:");
+		lblApellidoIngresado.setBounds(20, 29, 220, 19);
+		lblApellidoIngresado.setFont(new Font("Arial", Font.BOLD, 12));
 		frmListarAlumnosApe.getContentPane().add(lblApellidoIngresado);
 
 		txtApe = new JTextField();
-		txtApe.setBounds(250, 29, 122, 20);
+		txtApe.setBounds(275, 29, 122, 20);
 		txtApe.setColumns(10);
 		frmListarAlumnosApe.getContentPane().add(txtApe);
 
 		JButton btnVolver = new JButton("VOLVER");
-		btnVolver.setBounds(61, 85, 92, 30);
+		btnVolver.setBounds(80, 85, 92, 30);
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventanaPrincipal.setVisible(true);
@@ -113,7 +116,7 @@ public class VentanaListadoAlumnoApellido {
 		});
 		btnListar.setForeground(Color.BLACK);
 		btnListar.setFont(new Font("Arial", Font.BOLD, 12));
-		btnListar.setBackground(new Color(0x198754));
+		btnListar.setBackground(new Color(0x42b881));
 
 		frmListarAlumnosApe.getContentPane().add(btnListar);
 		frmListarAlumnosApe.setBounds(100, 100, 450, 410);
@@ -140,5 +143,9 @@ public class VentanaListadoAlumnoApellido {
 	public void mostrarMensajeError (String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
+	
+	public void setLocationRelativeToNull() {
+		frmListarAlumnosApe.setLocationRelativeTo(null);
+    }
 
 }
