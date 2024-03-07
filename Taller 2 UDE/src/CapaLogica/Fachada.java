@@ -150,7 +150,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			}
 			else{
 				if(al.estaInscriptoCursando(cod, anio))  {  
-					String msg = "el alumno ya esta cursando la asignatura o ya la aprobo";
+					String msg = "el alumno no se puede inscribir a esta asignatura. Revise si ya esta cursando la misma, si ya la aprobo o si el anio dado es menor al ultimo registro";
 					m.terminoEscritura();
 					throw new AlumnoYaCursaAsignatura(msg);
 				}
