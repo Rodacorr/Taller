@@ -273,7 +273,7 @@ public class VentanaPrincipal {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnNewButton.setBounds(416, 279, 45, 21);
+		btnNewButton.setBounds(424, 8, 45, 21);
 		frmMenuPrincipal.getContentPane().add(btnNewButton);
 		
 
