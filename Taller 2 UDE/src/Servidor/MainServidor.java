@@ -36,7 +36,6 @@ public class MainServidor {
 			prop.load (new FileInputStream (nomArch));
 			String ip = prop.getProperty("ip");
 			String puerto = prop.getProperty("puerto");
-			//CAMBIAR A PROPIERTIES
 			System.out.println ("Antes de publicarlo");
 			Naming.rebind("//"+ip+":"+puerto+"/fachada", fachada);
 			System.out.println ("Luego de publicarlo");
@@ -44,9 +43,10 @@ public class MainServidor {
 		catch (RemoteException e)
 		{ e.printStackTrace(); }
 		catch (MalformedURLException e)
-		{ e.printStackTrace(); } catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		{ e.printStackTrace(); 
+		} catch (FileNotFoundException e) 
+		// TODO Auto-generated catch block
+		{e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
